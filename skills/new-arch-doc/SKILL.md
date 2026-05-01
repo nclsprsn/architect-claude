@@ -34,9 +34,9 @@ Every scaffolded document must embed these four prompts so the author cannot ski
 
 ## TOGAF Detection
 
-TOGAF signals present (ADM, phases A–D, building blocks, gap analysis, architecture contracts, capability maps) → load the matching phase file from the Phase File Index and apply TOGAF-specific sections within it.
+TOGAF signals present (ADM, phases A–D, building blocks, gap analysis, architecture contracts, capability maps) → **TOGAF mode**: load the matching phase file from the Phase File Index and apply TOGAF-specific sections within it.
 
-No TOGAF signals → load `skills/new-arch-doc/framework-agnostic.md`.
+No TOGAF signals → **Framework-agnostic mode**: load `skills/new-arch-doc/framework-agnostic.md`.
 
 ## Phase Detection and Routing
 
@@ -63,7 +63,7 @@ No TOGAF signals → load `skills/new-arch-doc/framework-agnostic.md`.
 
 ## Information to Gather
 
-Ask (or infer from context) before generating. Never ask for information already provided.
+Ask only for what is not already provided in context. Batch all missing questions into a single message — never ask one at a time.
 
 | Field | Question if missing |
 |-------|---------------------|
@@ -99,7 +99,7 @@ Every section of every generated document must include:
 
 ## Standards Bar
 
-Before presenting any scaffolded document: *Does this shell, if filled in by a skilled architect, meet the bar for a client deliverable and earn stakeholder approval? If no — add the missing sections before presenting.*
+Does this meet the bar for a client deliverable? *If the shell were filled in by a skilled architect, would it earn stakeholder approval without structural rework? If no — add the missing sections before presenting.*
 
 ## Phase File Index
 

@@ -31,6 +31,18 @@ If the document or user context mentions TOGAF, ADM, phases A–D, building bloc
 Otherwise:
 → **Framework-agnostic mode**: apply the full review process without TOGAF-specific sections.
 
+## Information to Gather
+
+Ask only for what is not already provided in context. Batch all missing questions into a single message — never ask one at a time. Never ask for information already present in the document.
+
+| Field | Infer from context if possible | Question if missing |
+|-------|-------------------------------|---------------------|
+| **Review purpose** | Infer from document framing: governance gate language → approval; "early-stage" → exploratory | *"What is the purpose of this review? (A) Pre-approval governance gate (B) Pre-delivery quality check (C) Exploratory / early-stage feedback (D) Steerco or client presentation"* |
+| **Target audience** | Infer if stated in the document | *"Who will receive this review output? (A) Architecture Review Board (B) CTO / executive (C) Delivery team (D) Client"* |
+| **Business outcome** | Look for it in the document — executive summary, objectives section | *"What business outcome is this architecture designed to deliver? One sentence."* |
+| **Priority quality attributes** | Infer from domain — payment system → Security/Resilience first; analytics platform → Scalability/Observability | *"Are there specific quality attributes to prioritise? Or should I select the most relevant from the document?"* |
+| **Known constraints** | Infer regulatory scope from domain (health → HIPAA, finance → PCI-DSS) | *"Are there hard constraints (regulatory deadlines, budget, team capacity, compliance scope) I should factor into findings?"* |
+
 ## Output Discipline
 
 Every output MUST satisfy the four rules below. They operationalise the accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
@@ -42,6 +54,31 @@ Every output MUST satisfy the four rules below. They operationalise the accounta
 2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
 3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
 4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
+## Artifact Selection Guide
+
+Generate the artifacts appropriate to the findings. Diagrams illuminate — they do not decorate. The tables in the output format are always required; add diagrams only when they add analytical value that prose or tables cannot.
+
+### Diagrams (Mermaid)
+
+| Situation | Diagram | Why |
+|-----------|---------|-----|
+| Sensitivity point cascades across 3+ quality attributes | **Flowchart** — decision node → affected QA nodes | Makes the cascade visible; easier to reason about than prose |
+| Failure mode has a multi-step recovery or escalation path | **Sequence diagram** — system, fallback, operator, on-call | Shows the recovery choreography and where it breaks |
+| Review identifies a Critical system boundary gap | **C4 Context diagram** — current vs. recommended | Anchors an abstract finding in a concrete picture |
+
+**Mermaid rules:**
+- Use `<br>` for line breaks inside node labels — never `\n`
+- Keep diagrams scoped to the finding — not the full system
+
+### Callouts
+
+| Callout | When to use |
+|---------|------------|
+| `> [!warning]` | Every Critical finding — make it impossible to miss in a scan |
+| `> [!important]` | One-way door decisions identified in the review |
+| `> [!info]` | TOGAF compliance status, superseded ADR references, related decisions |
+| `> [!tip]` | Positive observation — something done notably well that others should replicate |
 
 ## Review Process
 

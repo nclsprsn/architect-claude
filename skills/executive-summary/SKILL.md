@@ -36,11 +36,11 @@ You are rewriting a technical architecture document for an audience that does no
 
 ## TOGAF Detection
 
-TOGAF signals present → note the ADM phase. Frame language accordingly:
+TOGAF signals present → **TOGAF mode**: note the ADM phase. Frame language accordingly:
 - Phase A/B (vision, strategy): bolder, more directional language; horizon framing
 - Phase C/D (design, technology): operational, milestone-focused language; cost and risk anchored
 
-No TOGAF signals → proceed with framework-agnostic rewrite.
+No TOGAF signals → **Framework-agnostic mode**: proceed with framework-agnostic rewrite.
 
 ## Information to Gather
 

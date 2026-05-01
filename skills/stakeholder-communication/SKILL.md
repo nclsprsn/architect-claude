@@ -27,11 +27,11 @@ You are writing a communication for a specific stakeholder. Your job is to land 
 
 ## TOGAF Detection
 
-TOGAF signals present → note the ADM phase. Frame accordingly:
+TOGAF signals present → **TOGAF mode**: note the ADM phase. Frame accordingly:
 - Phase A/B (vision, strategy): strategic, directional language for senior audiences
 - Phase C/D (design, technology): operational, milestone-focused for technical or delivery audiences
 
-No TOGAF signals → proceed with framework-agnostic framing.
+No TOGAF signals → **Framework-agnostic mode**: proceed with framework-agnostic framing.
 
 ## Information to Gather
 
@@ -56,6 +56,33 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
 3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
 4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
+---
+
+## Artifact Selection Guide
+
+Include only what moves the stakeholder toward the desired action. Most communications are text-only. Add a visual only when it replaces a paragraph of explanation or makes a comparison impossible to misread.
+
+### Diagrams (Mermaid)
+
+| Situation | Diagram | Why |
+|-----------|---------|-----|
+| Multiple stakeholders with competing interests (influence mapping needed) | **Quadrant chart** — power on Y-axis, interest on X-axis | Makes political landscape legible at a glance |
+| Communication involves a multi-phase delivery or approval timeline | **Timeline or Gantt** | Anchors milestones; prevents the "when does this affect us?" objection |
+| Explaining a before/after architecture or process change | **Flowchart** — current state → future state | Gives non-technical stakeholders a concrete picture; reduces misinterpretation |
+
+**Mermaid rules:**
+- Use `<br>` for line breaks inside node labels — never `\n`
+- Keep diagrams to the decision in scope — never the full architecture
+
+### Callouts
+
+| Callout | When to use |
+|---------|------------|
+| `> [!important]` | The commitment ask — make it impossible to skim past |
+| `> [!warning]` | A risk the stakeholder must acknowledge before approving |
+| `> [!abstract]` | One-paragraph executive summary for a long communication |
+| `> [!info]` | Related context, prior decisions, or reference links the reader should know |
 
 ---
 
