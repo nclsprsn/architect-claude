@@ -41,9 +41,11 @@ claude --plugin-dir ./architect-claude-plugin
 
 ## Quick Start
 
-```bash
+```
 # Don't know where to start? Let the router dispatch you
 /architect-router I'm starting a new TOGAF engagement for a data platform
+
+# --- Specify: ADM flow ---
 
 # Establish Architecture Principles and EA governance model (Preliminary Phase)
 /preliminary docs/organisation-context.md
@@ -51,8 +53,27 @@ claude --plugin-dir ./architect-claude-plugin
 # Define scope, stakeholders, and Architecture Vision (Phase A)
 /architecture-vision docs/programme-brief.md
 
-# Review an architecture document before a governance gate
+# Scaffold a TOGAF phase document (A–D) or a framework-agnostic proposal
+/new-arch-doc phase-b
+
+# Identify gaps between current and target state (Phase B–E)
+/gap-analysis docs/current-state-assessment.md
+
+# Turn a gap-analysis output into a sequenced delivery roadmap (Phase E–F)
+/migration-plan docs/gap-analysis-output.md
+
+# --- Discover & review ---
+
+# Chief architect critique of any architecture document
 /architecture-review docs/platform-design.md
+
+# Risk heat map and RAID log before a release or migration
+/risk-radar docs/platform-design.md
+
+# --- Validate & govern ---
+
+# Validate a document against Architecture Principles
+/principles-check docs/data-architecture.md
 
 # Check artifact completeness against TOGAF templates before board submission
 /artifact-completeness docs/architecture-definition-document.md
@@ -63,23 +84,21 @@ claude --plugin-dir ./architect-claude-plugin
 # Process a change request for a deployed architecture (Phase H)
 /change-management CR-007: migrate from PostgreSQL to Aurora — business driver and impact
 
-# Validate a document against Architecture Principles
-/principles-check docs/data-architecture.md
-
-# Identify gaps between current and target state
-/gap-analysis docs/current-state-assessment.md
+# --- Decide ---
 
 # Compare two options and get a recommendation
 /trade-off-analysis API gateway: Kong vs AWS API Gateway for our microservices migration
 
-# Phase a gap analysis into a sequenced delivery roadmap
-/migration-plan docs/gap-analysis-output.md
-
 # Write an ADR for a decision already made
 /adr-generator We chose Kafka over RabbitMQ for ordering guarantees and replay capability
 
+# --- Communicate ---
+
 # Rewrite a technical doc for a C-level audience
 /executive-summary docs/data-platform-proposal.md
+
+# Tailor a communication for a named stakeholder role (CTO, CFO, Board…)
+/stakeholder-communication docs/data-platform-proposal.md
 ```
 
 ---
