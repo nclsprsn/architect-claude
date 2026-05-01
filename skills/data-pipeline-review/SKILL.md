@@ -29,6 +29,18 @@ TOGAF signals present → **TOGAF mode**: align to Phase C — Information Syste
 
 No TOGAF signals → **Framework-agnostic mode**: pipeline quality assessment without phase tagging.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. For data pipelines, this typically means: AI Act traceability and audit obligations, fairness drift in downstream models, GDPR lineage requirements, cost and carbon of unnecessary recomputation. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Assessment Process
 
 1. Identify the pipeline context:
@@ -56,14 +68,14 @@ No TOGAF signals → **Framework-agnostic mode**: pipeline quality assessment wi
 ## Pipeline Architecture Verdict: Sound | Needs Work | Redesign
 
 ## Pipeline Quality Attribute Assessment
-| Attribute | Finding | Severity |
-|-----------|---------|----------|
-| Idempotency (upsert strategy / deduplication / key design) | [finding + rationale] | Critical / High / Medium / Low |
-| Fault Tolerance (error handling / retry / DLQ / recovery runbook) | [finding + rationale] | Critical / High / Medium / Low |
-| Freshness (pattern vs SLA match / measured latency / source delay handling) | [finding + rationale] | Critical / High / Medium / Low |
-| Lineage (source-to-destination traceability / automatic capture / auditability) | [finding + rationale] | Critical / High / Medium / Low |
-| Data Quality (embedded checks / schema change detection / null / referential integrity) | [finding + rationale] | Critical / High / Medium / Low |
-| Observability (run monitoring / SLA alerting / anomaly detection / incident response) | [finding + rationale] | Critical / High / Medium / Low |
+| Attribute | Finding | Confidence | Severity | Owner (role) |
+|-----------|---------|------------|----------|--------------|
+| Idempotency (upsert strategy / deduplication / key design) | [finding + rationale] | proven / informed estimate / working hypothesis | Critical / High / Medium / Low | [role] |
+| Fault Tolerance (error handling / retry / DLQ / recovery runbook) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
+| Freshness (pattern vs SLA match / measured latency / source delay handling) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
+| Lineage (source-to-destination traceability / automatic capture / auditability) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
+| Data Quality (embedded checks / schema change detection / null / referential integrity) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
+| Observability (run monitoring / SLA alerting / anomaly detection / incident response) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
 
 ## Pattern Assessment
 **Chosen pattern:** [batch ETL / ELT / streaming / lambda / kappa]
@@ -90,6 +102,9 @@ No TOGAF signals → **Framework-agnostic mode**: pipeline quality assessment wi
 ## TOGAF Context *(TOGAF mode only)*
 **ADM phase:** C — Information Systems Architecture
 **Impacted building blocks:** [list]
+
+## Broad Responsibility
+[One line covering the most material of: AI Act traceability and audit logging obligations · fairness or bias drift in downstream ML models when source quality degrades · GDPR lineage and right-to-explanation requirements · cost and carbon footprint of unnecessary recomputation or over-frequent batches · downstream client decisions that become wrong if data is late or stale. `N/A — [reason]` only if none plausibly applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

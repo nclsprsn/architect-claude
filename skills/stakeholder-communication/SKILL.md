@@ -29,6 +29,18 @@ TOGAF signals present → note the ADM phase. Vision documents (Phase A) warrant
 
 No TOGAF signals → proceed with framework-agnostic framing.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Stakeholder Profiles
 
 | Role | Primary concern | Language that resonates |
@@ -71,12 +83,21 @@ No TOGAF signals → proceed with framework-agnostic framing.
 2. **[Anticipated question]** — [Recommended answer, one sentence]
 3. **[Anticipated question]** — [Recommended answer, one sentence]
 
+## Anticipated Objection
+[The single hardest pushback this stakeholder is likely to raise — and the one-sentence answer that holds up. Earn Trust by surfacing it before the room does.]
+
+## Commitment Ask
+[The specific commitment requested from this stakeholder — decision, sign-off, sponsor air cover, escalation, named owner, named date. One line, unambiguous. The communication closes with a yes / no / by-when, not a vague "let's discuss".]
+
 ## Horizon Framing
 **Horizon of this message:** H1 / H2 / H3
 [Flag if the communication undersells an H3 threat as an H1 operational matter, or oversells an H1 change as a strategic shift]
 
 ## Second-Order Effect
 [One downstream consequence — a follow-on ask this communication will generate, a political dynamic it will surface, or a precedent it sets]
+
+## Broad Responsibility
+[One line: societal, environmental, regulatory, or customers-of-customers implication that this stakeholder must be aware of. `N/A — [reason]` if none applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

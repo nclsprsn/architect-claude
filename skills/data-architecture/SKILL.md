@@ -29,6 +29,18 @@ TOGAF signals present → **TOGAF mode**: align to Phase C — Information Syste
 
 No TOGAF signals → **Framework-agnostic mode**: data-domain quality assessment without phase tagging.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. For data architectures, this typically means: GDPR / AI Act exposure, data residency obligations, fairness and bias risk in derived models, downstream client trust. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Assessment Process
 
 1. Identify the data architecture context:
@@ -55,14 +67,14 @@ No TOGAF signals → **Framework-agnostic mode**: data-domain quality assessment
 ## Data Architecture Verdict: Sound | Needs Work | Redesign
 
 ## Data Quality Attribute Assessment
-| Attribute | Finding | Severity |
-|-----------|---------|----------|
-| Data Quality (accuracy / completeness / timeliness / consistency) | [finding + one-line rationale] | Critical / High / Medium / Low |
-| Data Governance (ownership / stewardship / classification / lineage) | [finding + one-line rationale] | Critical / High / Medium / Low |
-| Privacy by Design (GDPR / AI Act / retention / residency) | [finding + one-line rationale] | Critical / High / Medium / Low |
-| Interoperability (contracts / schema governance / versioning) | [finding + one-line rationale] | Critical / High / Medium / Low |
-| Scalability (volume / partitioning / archival) | [finding + one-line rationale] | Critical / High / Medium / Low |
-| Observability (quality monitoring / lineage / anomaly detection) | [finding + one-line rationale] | Critical / High / Medium / Low |
+| Attribute | Finding | Confidence | Severity | Owner (role) |
+|-----------|---------|------------|----------|--------------|
+| Data Quality (accuracy / completeness / timeliness / consistency) | [finding + one-line rationale] | proven / informed estimate / working hypothesis | Critical / High / Medium / Low | [role] |
+| Data Governance (ownership / stewardship / classification / lineage) | [finding + one-line rationale] | ... | Critical / High / Medium / Low | [role] |
+| Privacy by Design (GDPR / AI Act / retention / residency) | [finding + one-line rationale] | ... | Critical / High / Medium / Low | [role] |
+| Interoperability (contracts / schema governance / versioning) | [finding + one-line rationale] | ... | Critical / High / Medium / Low | [role] |
+| Scalability (volume / partitioning / archival) | [finding + one-line rationale] | ... | Critical / High / Medium / Low | [role] |
+| Observability (quality monitoring / lineage / anomaly detection) | [finding + one-line rationale] | ... | Critical / High / Medium / Low | [role] |
 
 ## Topology Assessment
 **Chosen topology:** [name]
@@ -92,6 +104,9 @@ No TOGAF signals → **Framework-agnostic mode**: data-domain quality assessment
 **ADM phase:** C — Information Systems Architecture
 **Impacted building blocks:** [list]
 **Gap analysis completeness:** [complete / missing sections — specify]
+
+## Broad Responsibility
+[One line covering the most material of: GDPR/AI Act exposure tier and notification obligations · cross-border data residency constraints · fairness and bias risk in derived analytics or models · environmental footprint of storage / compute choices · downstream client and customers-of-customers impact if this data is wrong, late, or breached. `N/A — [reason]` only if none plausibly applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

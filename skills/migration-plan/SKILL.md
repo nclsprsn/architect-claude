@@ -29,6 +29,18 @@ TOGAF signals present → **TOGAF mode**: structure the roadmap as a TOGAF Trans
 
 No TOGAF signals → **Framework-agnostic mode**: phased delivery roadmap with H1/H2/H3 wave structure, dependency sequencing, and critical path.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Planning Process
 
 1. Establish the migration context:
@@ -65,19 +77,22 @@ No TOGAF signals → **Framework-agnostic mode**: phased delivery roadmap with H
 ## Phased Delivery Roadmap
 
 ### H1 (now → 12 months) — Foundation & Quick Wins
-| Item | Effort | Business Value | Hard Dependencies | Risk |
-|------|--------|---------------|-------------------|------|
-| [item] | H/M/L | H/M/L | [none / item N] | H/M/L |
+**Sponsor (executive role):** [role committing budget and air cover for this wave]
+| Item | Effort | Business Value | Hard Dependencies | Risk | Reversibility | Owner (role) | Confidence |
+|------|--------|---------------|-------------------|------|---------------|--------------|------------|
+| [item] | H/M/L | H/M/L | [none / item N] | H/M/L | one-way / two-way | [role] | proven / informed estimate / working hypothesis |
 
 ### H2 (12–24 months) — Core Migration
-| Item | Effort | Business Value | Hard Dependencies | Risk |
-|------|--------|---------------|-------------------|------|
-| [item] | H/M/L | H/M/L | [item N] | H/M/L |
+**Sponsor (executive role):** [role]
+| Item | Effort | Business Value | Hard Dependencies | Risk | Reversibility | Owner (role) | Confidence |
+|------|--------|---------------|-------------------|------|---------------|--------------|------------|
+| [item] | H/M/L | H/M/L | [item N] | H/M/L | one-way / two-way | [role] | proven / informed estimate / working hypothesis |
 
 ### H3 (24+ months) — Strategic Capabilities
-| Item | Effort | Business Value | Hard Dependencies | Risk |
-|------|--------|---------------|-------------------|------|
-| [item] | H/M/L | H/M/L | [item N] | H/M/L |
+**Sponsor (executive role):** [role]
+| Item | Effort | Business Value | Hard Dependencies | Risk | Reversibility | Owner (role) | Confidence |
+|------|--------|---------------|-------------------|------|---------------|--------------|------------|
+| [item] | H/M/L | H/M/L | [item N] | H/M/L | one-way / two-way | [role] | proven / informed estimate / working hypothesis |
 
 ## Critical Path
 [The chain of hard dependencies that determines the minimum migration duration. Format: Item A → Item B → Item C → ... → done. Estimated duration. What must not slip.]
@@ -86,9 +101,11 @@ No TOGAF signals → **Framework-agnostic mode**: phased delivery roadmap with H
 [Top 2–3 H1 items that deliver visible business value early, have no blocking dependencies, and can start immediately. Named owner and target completion quarter if known.]
 
 ## Migration Risks
-1. **[Assumption]** — [What breaks and how badly if this assumption is wrong] — Mitigation: [one action that reduces the exposure]
-2. **[Assumption]** — [What breaks] — Mitigation: [action]
-3. **[Assumption]** — [What breaks] — Mitigation: [action]
+| # | Assumption | Failure scenario | Mitigation | Owner (role) | Review trigger |
+|---|------------|------------------|------------|--------------|----------------|
+| 1 | [assumption] | [what breaks and how badly] | [action that reduces exposure] | [role] | [evidence threshold or event] |
+| 2 | [assumption] | ... | ... | [role] | ... |
+| 3 | [assumption] | ... | ... | [role] | ... |
 
 ## Transition State Risk
 [What is the operational burden of running in a partially-migrated state during H1 and H2? Which teams carry this burden? At what point does the dual-run cost exceed the benefit of incremental migration?]
@@ -102,6 +119,9 @@ No TOGAF signals → **Framework-agnostic mode**: phased delivery roadmap with H
 
 ## Second-Order Effect
 [One non-obvious downstream consequence of this sequencing — the team blocked by a prerequisite, the performance degradation in the transition state, the technical debt introduced by the migration layer itself]
+
+## Broad Responsibility
+[One line: societal, environmental, regulatory, or customers-of-customers implication of the migration sequencing — e.g., GDPR/AI Act remediation deadline, residency obligations during dual-run, sustainability of the transition state, downstream client experience during cutover. `N/A — [reason]` if none applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

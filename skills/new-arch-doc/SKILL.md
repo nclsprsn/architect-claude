@@ -38,6 +38,20 @@ Use ADM phase structure. Ask which phase if not provided.
 **Framework-agnostic mode** (when user explicitly says "no TOGAF" or names a different framework):
 Use the generic architecture proposal template at the bottom of this skill.
 
+## Output Discipline
+
+Every scaffold produced by this skill MUST embed the four rules below into the document shell. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). The author may write `N/A — [reason]` against a rule, but the prompt must always be visible — never silent.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
+The scaffold makes these visible by including a **Decision Register**, **Risk Register**, and **Broad Responsibility** section in every phase template.
+
 ## Information to Gather
 
 Ask (or infer from context) before generating. Do not ask for anything already provided:
@@ -91,7 +105,21 @@ Generate this content for Phase A documents:
 *What assumptions underlie this vision? State the primary assumption explicitly. What breaks — and how badly — if it is wrong?*
 *Second-order effect: what downstream impact on other systems or teams is non-obvious?*
 
-## 7. Next Steps
+| Risk / Assumption | Probability | Impact | Mitigation | Owner (role) | Review trigger |
+|-------------------|-------------|--------|------------|--------------|----------------|
+| *[risk]* | H/M/L | H/M/L | *[action]* | *[role]* | *[evidence threshold or event]* |
+
+## 7. Decision Register
+*Capture every material decision made in this document. Each row is ADR-eligible. Confidence: proven / informed estimate / working hypothesis. Reversibility: one-way door (slow, deliberate) / two-way door (move fast, learn fast).*
+
+| Decision | Confidence | Reversibility | Owner (role) | Review trigger |
+|----------|------------|---------------|--------------|----------------|
+| *[decision]* | proven / informed / hypothesis | one-way / two-way | *[role]* | *[evidence threshold or event]* |
+
+## 8. Broad Responsibility
+*One line on the societal, environmental, regulatory, or customers-of-customers implication of this vision. `N/A — [reason]` only if none plausibly applies.*
+
+## 9. Next Steps
 *What decisions need to be made, by whom, and by when? What would unblock progress?*
 
 ---
@@ -120,6 +148,18 @@ Generate this content for Phase B documents:
 
 ## 5. Risks & Assumptions
 *Primary assumption + failure scenario. Second-order effect: which team or system outside this scope will be affected?*
+
+| Risk / Assumption | Probability | Impact | Mitigation | Owner (role) | Review trigger |
+|-------------------|-------------|--------|------------|--------------|----------------|
+| *[risk]* | H/M/L | H/M/L | *[action]* | *[role]* | *[evidence threshold or event]* |
+
+## 6. Decision Register
+| Decision | Confidence | Reversibility | Owner (role) | Review trigger |
+|----------|------------|---------------|--------------|----------------|
+| *[decision]* | proven / informed / hypothesis | one-way / two-way | *[role]* | *[evidence threshold or event]* |
+
+## 7. Broad Responsibility
+*One line: societal, environmental, regulatory, or customers-of-customers implication of the target business architecture. `N/A — [reason]` only if none plausibly applies.*
 
 ---
 
@@ -157,6 +197,18 @@ Generate this content for Phase C documents:
 ## 5. Risks & Assumptions
 *Primary assumption + failure scenario. Commoditisation check: is anything being custom-built that is becoming a product?*
 
+| Risk / Assumption | Probability | Impact | Mitigation | Owner (role) | Review trigger |
+|-------------------|-------------|--------|------------|--------------|----------------|
+| *[risk]* | H/M/L | H/M/L | *[action]* | *[role]* | *[evidence threshold or event]* |
+
+## 6. Decision Register
+| Decision | Confidence | Reversibility | Owner (role) | Review trigger |
+|----------|------------|---------------|--------------|----------------|
+| *[decision]* | proven / informed / hypothesis | one-way / two-way | *[role]* | *[evidence threshold or event]* |
+
+## 7. Broad Responsibility
+*One line covering the most material of: GDPR / AI Act exposure tier · cross-border data residency · fairness or bias risk in derived models · environmental footprint of storage / compute · downstream client and customers-of-customers impact. `N/A — [reason]` only if none plausibly applies.*
+
 ---
 
 ## Phase D — Technology Architecture
@@ -187,6 +239,18 @@ Generate this content for Phase D documents:
 ## 6. Risks & Assumptions
 *Primary assumption + failure scenario. Second-order effect: what downstream system or team will be impacted by technology choices made here?*
 
+| Risk / Assumption | Probability | Impact | Mitigation | Owner (role) | Review trigger |
+|-------------------|-------------|--------|------------|--------------|----------------|
+| *[risk]* | H/M/L | H/M/L | *[action]* | *[role]* | *[evidence threshold or event]* |
+
+## 7. Decision Register
+| Decision | Confidence | Reversibility | Owner (role) | Review trigger |
+|----------|------------|---------------|--------------|----------------|
+| *[decision]* | proven / informed / hypothesis | one-way / two-way | *[role]* | *[evidence threshold or event]* |
+
+## 8. Broad Responsibility
+*One line: societal, environmental (carbon footprint of compute / storage), regulatory, or customers-of-customers implication of the technology choices. `N/A — [reason]` only if none plausibly applies.*
+
 ---
 
 ## Framework-Agnostic Template
@@ -207,19 +271,30 @@ Generate this content when not using TOGAF:
 *Confidence level: proven at scale / working hypothesis — validate with a spike / emerging — monitor.*
 
 ## 4. Quality Attribute Assessment
-| Attribute | Assessment | Rationale |
-|-----------|------------|-----------|
-| Scalability | High / Med / Low | *[one-line rationale]* |
-| Resilience | High / Med / Low | *[one-line rationale]* |
-| Security | High / Med / Low | *[one-line rationale]* |
-| Evolvability | High / Med / Low | *[one-line rationale]* |
-| Cost Efficiency | High / Med / Low | *[one-line rationale]* |
+| Attribute | Assessment | Rationale | Confidence |
+|-----------|------------|-----------|------------|
+| Scalability | High / Med / Low | *[one-line rationale]* | proven / informed / hypothesis |
+| Resilience | High / Med / Low | *[one-line rationale]* | proven / informed / hypothesis |
+| Security | High / Med / Low | *[one-line rationale]* | proven / informed / hypothesis |
+| Evolvability | High / Med / Low | *[one-line rationale]* | proven / informed / hypothesis |
+| Cost Efficiency | High / Med / Low | *[one-line rationale]* | proven / informed / hypothesis |
 
 ## 5. Risks & Assumptions
 *Primary assumption stated explicitly. Failure scenario if wrong. Second-order effect: one non-obvious downstream consequence.*
 
+| Risk / Assumption | Probability | Impact | Mitigation | Owner (role) | Review trigger |
+|-------------------|-------------|--------|------------|--------------|----------------|
+| *[risk]* | H/M/L | H/M/L | *[action]* | *[role]* | *[evidence threshold or event]* |
+
 ## 6. Decision Log
 *Key decisions made during this document's creation. Why was each option rejected? ADR references if applicable.*
+
+| Decision | Confidence | Reversibility | Owner (role) | Review trigger |
+|----------|------------|---------------|--------------|----------------|
+| *[decision]* | proven / informed / hypothesis | one-way / two-way | *[role]* | *[evidence threshold or event]* |
+
+## 7. Broad Responsibility
+*One line: societal, environmental, regulatory, or customers-of-customers implication of this proposal. `N/A — [reason]` only if none plausibly applies.*
 
 ## Standards Bar
 

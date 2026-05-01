@@ -31,6 +31,18 @@ If the document or user context mentions TOGAF, ADM, phases A–D, building bloc
 Otherwise:
 → **Framework-agnostic mode**: apply generic architecture completeness heuristics.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Review Process
 
 1. Read the full document before making any judgements.
@@ -59,10 +71,10 @@ Otherwise:
 ## Verdict: Approved | Needs Work | Reject
 
 ## Quality Attribute Assessment
-| Attribute | Finding | Severity |
-|-----------|---------|----------|
-| [relevant attributes only] | ... | Critical / Important / Minor |
-| Data Protection | [GDPR/AI Act posture, classification, retention, residency] | Critical / Important / Minor |
+| Attribute | Finding | Confidence | Severity |
+|-----------|---------|------------|----------|
+| [relevant attributes only] | ... | proven / informed estimate / working hypothesis | Critical / Important / Minor |
+| Data Protection | [GDPR/AI Act posture, classification, retention, residency] | proven / informed estimate / working hypothesis | Critical / Important / Minor |
 
 ## Pyramid Principle
 [Pass — recommendation stated in paragraph 1]
@@ -91,9 +103,14 @@ Otherwise:
 **Gap analysis:** [complete / incomplete + what is missing]
 
 ## Fix List
-1. [Critical] ...
-2. [Important] ...
-3. [Minor] ...
+| # | Severity | Fix | Owner (role) | Reversibility | Review trigger |
+|---|----------|-----|--------------|---------------|----------------|
+| 1 | Critical | ... | ... | one-way / two-way | [evidence threshold or event] |
+| 2 | Important | ... | ... | one-way / two-way | ... |
+| 3 | Minor | ... | ... | one-way / two-way | ... |
+
+## Broad Responsibility
+[One line: societal, environmental, regulatory, or customers-of-customers implication of the recommendations above. `N/A — [reason]` if none applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

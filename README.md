@@ -212,6 +212,8 @@ flowchart TD
 
 ## Design Philosophy
 
+### Core Posture
+
 Every skill operates from the same architect mindset:
 
 - **Work backwards** from the business outcome — never forward from the technology
@@ -221,6 +223,17 @@ Every skill operates from the same architect mindset:
 - **Anchor every claim** with a number or first-principles reasoning
 - **Name second-order effects** — at least one non-obvious downstream consequence per output
 - **Highest Standards** — every output closes with a client-deliverable quality check
+
+### Output Discipline
+
+Posture without accountability is theatre. Every skill enforces four output rules so recommendations land as decisions, not opinions:
+
+- **Confidence marker** on every claim, score, and recommendation — `[proven]` / `[informed estimate]` / `[working hypothesis]`
+- **Reversibility tag** on every decision — **one-way door** (slow, deliberate) or **two-way door** (move fast, learn fast)
+- **Named owner + review trigger** on every recommendation, risk, gap, and decision — role + evidence threshold or event, not a calendar date
+- **Broad Responsibility line** on every output — societal, environmental, regulatory, or customers-of-customers implication; `N/A — [reason]` only when no plausible downstream impact exists
+
+### TOGAF Default
 
 TOGAF vocabulary (ADM phases, building blocks, gap analysis) is active by default. If your project does not use TOGAF, the skills degrade gracefully to framework-agnostic mode — just don't mention TOGAF in your prompts.
 

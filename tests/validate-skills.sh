@@ -53,11 +53,20 @@ for skill in "${SKILLS[@]}"; do
   fi
 
   # Required sections
-  for section in "## Core Mindset" "## TOGAF Detection" "## Standards Bar"; do
+  for section in "## Core Mindset" "## TOGAF Detection" "## Output Discipline" "## Standards Bar"; do
     if grep -q "^${section}" "$file"; then
       pass "section: $section"
     else
       fail "missing section: $section"
+    fi
+  done
+
+  # Output Discipline must mention all four rules
+  for rule in "Confidence marker" "Reversibility tag" "Named owner" "Broad Responsibility"; do
+    if grep -q "$rule" "$file"; then
+      pass "output discipline rule: $rule"
+    else
+      fail "missing output discipline rule: $rule"
     fi
   done
 

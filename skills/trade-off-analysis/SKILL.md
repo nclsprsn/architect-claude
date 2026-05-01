@@ -29,6 +29,18 @@ TOGAF signals in context → **TOGAF mode**: format output as a full ADR (Contex
 
 No TOGAF signals → **Framework-agnostic mode**: recommendation memo with comparison table.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Analysis Process
 
 1. Restate the decision context: what problem is being solved, for whom, under what constraints.
@@ -51,16 +63,18 @@ No TOGAF signals → **Framework-agnostic mode**: recommendation memo with compa
 [What customer or business result this decision serves — working backwards]
 
 ## Options Considered
-| Option | [Attr 1] | [Attr 2] | [Attr 3] | Horizon | Notes |
-|--------|----------|----------|----------|---------|-------|
-| Option A | H/M/L — rationale | ... | ... | H1/H2/H3 | ... |
-| Option B | ... | ... | ... | ... | ... |
+| Option | [Attr 1] | [Attr 2] | [Attr 3] | Horizon | Reversibility | Confidence | Notes |
+|--------|----------|----------|----------|---------|---------------|------------|-------|
+| Option A | H/M/L — rationale | ... | ... | H1/H2/H3 | one-way / two-way | proven / informed estimate / working hypothesis | ... |
+| Option B | ... | ... | ... | ... | one-way / two-way | ... | ... |
 
 ## Recommendation
 **[Option name]** — [one-sentence rationale anchored in the business outcome]
+**Decision owner (role):** [role accountable for the decision]
+**Review trigger:** [evidence threshold or event that mandates revisiting]
 
 ## Decision
-[ADR-ready statement: "We will adopt [option] because [reason]. This decision is [reversible / irreversible] under the following conditions: ...]
+[ADR-ready statement: "We will adopt [option] because [reason]. Reversibility: one-way / two-way door. Review triggered when: …"]
 
 ## Consequences
 **Positive:** ...
@@ -80,6 +94,9 @@ No TOGAF signals → **Framework-agnostic mode**: recommendation memo with compa
 
 ## Second-Order Effect
 [One non-obvious downstream consequence of the recommended decision]
+
+## Broad Responsibility
+[One line: societal, environmental, regulatory, or customers-of-customers implication of the recommended option. `N/A — [reason]` if none applies.]
 ```
 
 ## Output Format (framework-agnostic mode)
@@ -92,11 +109,13 @@ No TOGAF signals → **Framework-agnostic mode**: recommendation memo with compa
 [What this decision serves — working backwards]
 
 ## Options Compared
-| Option | [Top 3–5 quality attributes] | Horizon |
-|--------|------------------------------|---------|
+| Option | [Top 3–5 quality attributes] | Horizon | Reversibility | Confidence |
+|--------|------------------------------|---------|---------------|------------|
 
 ## Recommendation
 **[Option]** — [rationale anchored in business outcome]
+**Decision owner (role):** [role accountable for the decision]
+**Review trigger:** [evidence threshold or event that mandates revisiting]
 
 ## Disruptive Alternative
 [Outside the current solution space]
@@ -108,6 +127,9 @@ No TOGAF signals → **Framework-agnostic mode**: recommendation memo with compa
 
 ## Second-Order Effect
 [Downstream consequence of the recommendation]
+
+## Broad Responsibility
+[One line: societal, environmental, regulatory, or customers-of-customers implication of the recommended option. `N/A — [reason]` if none applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

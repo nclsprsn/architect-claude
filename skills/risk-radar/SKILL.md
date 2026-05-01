@@ -29,6 +29,18 @@ TOGAF signals present → **TOGAF mode**: tag each risk to its ADM phase and imp
 
 No TOGAF signals → **Framework-agnostic mode**: category-based heat map without phase tagging.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Analysis Process
 
 1. Identify risks across five categories:
@@ -49,9 +61,9 @@ No TOGAF signals → **Framework-agnostic mode**: category-based heat map withou
 
 ```
 ## Risk Heat Map
-| Risk | Category | Probability | Impact | Horizon | Score |
-|------|----------|-------------|--------|---------|-------|
-| [risk name] | Technical / Operational / Security / Organisational / Dependency / Data Protection | H/M/L | H/M/L | H1/H2/H3 | Critical / High / Medium / Low |
+| Risk | Category | Probability | Impact | Horizon | Score | Confidence | Owner (role) | Review trigger |
+|------|----------|-------------|--------|---------|-------|------------|--------------|----------------|
+| [risk name] | Technical / Operational / Security / Organisational / Dependency / Data Protection | H/M/L | H/M/L | H1/H2/H3 | Critical / High / Medium / Low | proven / informed estimate / working hypothesis | [role e.g. Head of Platform] | [evidence threshold or event] |
 
 ## RAID Log
 **Risks:** [top risks from heat map, one line each]
@@ -60,9 +72,11 @@ No TOGAF signals → **Framework-agnostic mode**: category-based heat map withou
 **Dependencies:** [external factors outside the team's control]
 
 ## Top Mitigations
-1. **[Risk]** → [Mitigation action] — Effort: H/M/L
-2. **[Risk]** → [Mitigation action] — Effort: H/M/L
-3. **[Risk]** → [Mitigation action] — Effort: H/M/L
+| # | Risk | Mitigation | Effort | Reversibility | Owner (role) | Review trigger |
+|---|------|------------|--------|---------------|--------------|----------------|
+| 1 | [risk] | [action] | H/M/L | one-way / two-way | [role] | [evidence threshold or event] |
+| 2 | [risk] | [action] | H/M/L | one-way / two-way | [role] | ... |
+| 3 | [risk] | [action] | H/M/L | one-way / two-way | [role] | ... |
 
 ## Risk Worth Naming
 [One systemic or second-order risk that is easy to miss — either hidden in a dependency, or created by a mitigation]
@@ -76,6 +90,9 @@ No TOGAF signals → **Framework-agnostic mode**: category-based heat map withou
 | Risk | ADM Phase | Impacted Building Block |
 |------|-----------|------------------------|
 | [risk] | A / B / C / D | [building block name] |
+
+## Broad Responsibility
+[One line: societal, environmental, regulatory, or customers-of-customers implication of the risk landscape and chosen mitigations — e.g., GDPR notification window, AI Act incident reporting, supply chain risk to client's customers. `N/A — [reason]` if none applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

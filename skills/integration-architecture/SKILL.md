@@ -29,6 +29,18 @@ TOGAF signals present → **TOGAF mode**: align to Phase C (Application Architec
 
 No TOGAF signals → **Framework-agnostic mode**: integration quality assessment without phase tagging.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. For integration architectures, this typically means: data-in-transit residency, third-party data sharing exposure, contract obligations to downstream consumers, blast radius into client systems on outage. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Assessment Process
 
 1. Identify the integration context:
@@ -55,14 +67,14 @@ No TOGAF signals → **Framework-agnostic mode**: integration quality assessment
 ## Integration Architecture Verdict: Sound | Needs Work | Redesign
 
 ## Integration Quality Attribute Assessment
-| Attribute | Finding | Severity |
-|-----------|---------|----------|
-| Contract Stability (versioning / schema governance / consumer contracts) | [finding + rationale] | Critical / High / Medium / Low |
-| Decoupling (coupling degree / choreography vs orchestration / blast radius) | [finding + rationale] | Critical / High / Medium / Low |
-| Reliability (retry / idempotency / DLQ / circuit breaker / delivery semantics) | [finding + rationale] | Critical / High / Medium / Low |
-| Security (authn / authz / input validation / rate limiting / data in transit) | [finding + rationale] | Critical / High / Medium / Low |
-| Observability (tracing / correlation IDs / latency visibility / error rates) | [finding + rationale] | Critical / High / Medium / Low |
-| Scalability (throughput headroom / backpressure / fan-out / horizontal scale) | [finding + rationale] | Critical / High / Medium / Low |
+| Attribute | Finding | Confidence | Severity | Owner (role) |
+|-----------|---------|------------|----------|--------------|
+| Contract Stability (versioning / schema governance / consumer contracts) | [finding + rationale] | proven / informed estimate / working hypothesis | Critical / High / Medium / Low | [role] |
+| Decoupling (coupling degree / choreography vs orchestration / blast radius) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
+| Reliability (retry / idempotency / DLQ / circuit breaker / delivery semantics) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
+| Security (authn / authz / input validation / rate limiting / data in transit) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
+| Observability (tracing / correlation IDs / latency visibility / error rates) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
+| Scalability (throughput headroom / backpressure / fan-out / horizontal scale) | [finding + rationale] | ... | Critical / High / Medium / Low | [role] |
 
 ## Topology Assessment
 **Chosen topology:** [name]
@@ -88,6 +100,9 @@ No TOGAF signals → **Framework-agnostic mode**: integration quality assessment
 ## TOGAF Context *(TOGAF mode only)*
 **ADM phase:** C (Application Architecture) / D (Technology Architecture)
 **Impacted building blocks:** [list]
+
+## Broad Responsibility
+[One line covering the most material of: data-in-transit residency and cross-border transfer obligations · third-party data sharing and processor responsibilities · SLA / contract exposure to downstream consumers · blast radius into client and customers-of-customers systems on outage · environmental cost of synchronous chatty patterns at scale. `N/A — [reason]` only if none plausibly applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

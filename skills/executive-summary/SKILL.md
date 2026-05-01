@@ -36,6 +36,18 @@ TOGAF signals present → note the ADM phase. Frame language accordingly: vision
 
 No TOGAF signals → proceed with framework-agnostic rewrite.
 
+## Output Discipline
+
+Every output MUST satisfy the four rules below. They operationalise the Andes accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
+
+1. **Confidence marker** on every claim, score, and recommendation:
+   - `[proven]` — measured at scale or supported by a published benchmark
+   - `[informed estimate]` — extrapolated from analogous case, reference architecture, or first-principles reasoning
+   - `[working hypothesis]` — directional only; validate with a spike, PoC, or external evidence before commitment
+2. **Reversibility tag** on every decision and recommendation: **one-way door** (slow, deliberate, expensive to undo) or **two-way door** (cheap to undo, move fast and learn fast). Defaults are not neutral — name the door.
+3. **Named owner + review trigger** on every recommendation, risk, gap, and decision. Owner is a human role (not a team). Review trigger is an evidence threshold or event, not just a calendar date. "Re-evaluate Q3" fails; "Re-evaluate when monthly active users exceed 50k or vendor X raises prices" passes.
+4. **Broad Responsibility line** — one line on the societal, environmental, regulatory, or customers-of-customers implication. Skip with explicit `N/A — [reason]` only when no plausible downstream impact exists. Never silent.
+
 ## Rewrite Process
 
 1. Read the full source document.
@@ -56,15 +68,18 @@ No TOGAF signals → proceed with framework-agnostic rewrite.
 
 ## Recommendation
 [What we are doing and why — numbers anchor every claim]
-[Confidence: proven at scale / working hypothesis — validate with a spike / emerging — monitor]
+**Confidence:** proven / informed estimate / working hypothesis
+**Reversibility:** one-way door / two-way door — [one-line rationale]
+**Decision owner (role):** [executive role accountable]
+**Review trigger:** [evidence threshold or event that mandates revisiting]
 
 ## Key Trade-offs
 [What we are NOT doing and why — one line per rejected option, business framing not technical]
 
 ## Risks
-| Risk | Probability | Impact | Mitigation |
-|------|-------------|--------|------------|
-| ... | High/Med/Low | High/Med/Low | ... |
+| Risk | Probability | Impact | Mitigation | Owner (role) | Review trigger |
+|------|-------------|--------|------------|--------------|----------------|
+| ... | High/Med/Low | High/Med/Low | ... | [role] | [evidence threshold or event] |
 
 ## Horizon
 **Recommendation horizon:** H1 / H2 / H3
@@ -81,8 +96,17 @@ No TOGAF signals → proceed with framework-agnostic rewrite.
 ## What We Need From You
 [Specific ask from the executive audience — one sentence, named owner, named deadline. No vagueness.]
 
+## Anticipated Objection
+[The single hardest pushback this exec is likely to raise — and the one-sentence answer that holds up. Earn Trust by surfacing it before the room does.]
+
+## Commitment Ask
+[The specific commitment requested in this meeting — budget figure, sign-off, escalation, sponsor air cover. One line, unambiguous, leaves the room with a yes / no / by-when.]
+
 ## Bold Provocation *(only if source document plays it safe)*
 [One sentence: the more ambitious direction the authors may have avoided, and why it is worth at least a conversation]
+
+## Broad Responsibility
+[One line: societal, environmental, regulatory, or customers-of-customers implication of the recommendation. `N/A — [reason]` if none applies.]
 
 ## Standards Bar
 Does this meet the bar for a client deliverable? [Yes / No — reason]

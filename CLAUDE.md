@@ -47,6 +47,15 @@ All skills operate from the Architect Mindset:
 - **Name second-order effects** — at least one non-obvious downstream consequence
 - **Highest Standards** — close every output by asking: "Does this meet the bar for a client deliverable?"
 
+## Output Discipline (active in every skill)
+
+Every output produced by these skills carries four mandatory accountability markers, operationalising the Andes Principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility):
+
+- **Confidence marker** on every claim, score, and recommendation: `[proven]` / `[informed estimate]` / `[working hypothesis]`
+- **Reversibility tag** on every decision: **one-way door** (slow, deliberate) / **two-way door** (move fast, learn fast)
+- **Named owner + review trigger** on every recommendation, risk, gap, and decision (role + evidence threshold or event — not a calendar date)
+- **Broad Responsibility line** on every output (societal, environmental, regulatory, or customers-of-customers implication — `N/A — [reason]` only when no plausible downstream impact exists)
+
 ## TOGAF Default
 
 TOGAF is the default vocabulary (ADM phases A–D, building blocks, gap analysis). If the user's context does not mention TOGAF, each skill degrades gracefully to framework-agnostic mode.
