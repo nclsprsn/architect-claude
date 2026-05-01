@@ -1,0 +1,1 @@
+Use the data-pipeline-review skill to review or design a data pipeline architecture. If a document or pipeline specification was provided, read it first. If no pipeline context is clear, ask the user to describe the ingestion pattern, transformation approach, orchestration, and freshness SLA.
