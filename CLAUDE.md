@@ -26,6 +26,11 @@ A Claude Code plugin for Enterprise Architects and Solution Architects.
 | `executive-summary` | `/executive-summary` | "write an exec summary", "rewrite for executives", "executive summary" |
 | `stakeholder-communication` | `/stakeholder-communication` | "write a message for", "communication for [role]", "how to present this to", "email to the CTO" |
 
+### Plan
+| Skill | Command | Trigger phrases |
+|-------|---------|----------------|
+| `migration-plan` | `/migration-plan` | "migration plan", "delivery roadmap", "phase the migration", "sequence the work", "how do we get from here to there" |
+
 ### Document
 | Skill | Command | Trigger phrases |
 |-------|---------|----------------|

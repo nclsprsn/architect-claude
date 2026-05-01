@@ -2,7 +2,7 @@
 
 A Claude Code plugin for Enterprise Architects and Solution Architects.
 
-Eleven skills and slash commands covering architecture review, data architecture assessment, gap analysis, risk assessment, decision recording, stakeholder communication, executive reporting, and document scaffolding. TOGAF-aware by default, framework-agnostic fallback.
+Twelve skills and slash commands covering architecture review, data architecture assessment, gap analysis, risk assessment, decision recording, stakeholder communication, executive reporting, and document scaffolding. TOGAF-aware by default, framework-agnostic fallback.
 
 ## Install
 
@@ -37,6 +37,12 @@ claude plugin install gh:nclsprsn/architect-claude
 | `/executive-summary [path]` | `executive-summary` | Rewrite technical doc for C-level: Pyramid Principle, business implications, numbered claims |
 | `/stakeholder-communication [path]` | `stakeholder-communication` | Tailor a communication for a named role: CTO / Head of Eng / CPO / CFO / Procurement / Board |
 
+### Plan — sequence and phase the delivery
+
+| Command | Skill | What it does |
+|---------|-------|-------------|
+| `/migration-plan [path]` | `migration-plan` | Phase gap-analysis output into a dependency-sequenced H1/H2/H3 roadmap with critical path, quick wins, and TOGAF Transition Architectures |
+
 ### Document — create architecture artifacts
 
 | Command | Skill | What it does |
@@ -59,6 +65,7 @@ Use this table to pick the right skill at each phase of an architecture engageme
 | C — Information Systems (Decisional) | `/new-arch-doc phase-c`, `/data-architecture`, `/data-pipeline-review`, `/gap-analysis`, `/risk-radar` |
 | D — Technology Architecture | `/new-arch-doc phase-d`, `/gap-analysis`, `/architecture-review` |
 | All phases — options & decisions | `/trade-off-analysis`, `/adr-generator` |
+| All phases — delivery sequencing | `/migration-plan` |
 | Governance / review gates | `/architecture-review`, `/risk-radar` |
 | Reporting / steering committees | `/executive-summary`, `/stakeholder-communication` |
 
@@ -77,6 +84,8 @@ Use this table to pick the right skill at each phase of an architecture engageme
 | Preparing a steerco or executive review deck | `/executive-summary` |
 | Writing to a specific stakeholder (CTO, CFO, Board…) | `/stakeholder-communication` |
 | Pre-launch, pre-release, or pre-migration risk check | `/risk-radar` |
+| Sequencing gap-analysis output into a delivery roadmap | `/migration-plan` |
+| Phasing a migration with TOGAF Transition Architectures | `/gap-analysis` → `/migration-plan` |
 | Architecture board submission | `/architecture-review` + `/risk-radar` |
 | Onboarding a new team to an existing architecture | `/executive-summary` + `/stakeholder-communication` |
 
@@ -111,6 +120,9 @@ TOGAF vocabulary (ADM phases, building blocks, gap analysis) is active by defaul
 /integration-architecture docs/api-integration-design.md
 /data-pipeline-review docs/etl-pipeline-spec.md
 
+# Plan
+/migration-plan docs/gap-analysis-output.md
+
 # Decide
 /trade-off-analysis API gateway selection for our microservices migration
 /adr-generator We decided to adopt Kafka for event streaming over RabbitMQ because of ordering guarantees and replay capability
@@ -133,7 +145,7 @@ Skills planned for future versions:
 |-------|----------------|
 | `capability-assessment` | Score architecture maturity across domains against a target capability level |
 | `data-mesh-designer` | Generate a data mesh topology design from domain ownership and data product definitions |
-| `migration-plan` | Generate a phased migration plan from gap-analysis output, with dependency sequencing |
+| `workshop-facilitator` | Produce a structured workshop agenda + facilitation guide for architecture sessions |
 | `migration-plan` | Generate a phased migration plan from gap-analysis output |
 | `workshop-facilitator` | Produce a structured workshop agenda + facilitation guide for architecture sessions |
 | `rfp-evaluator` | Evaluate vendor RFP responses against a set of architecture requirements |

@@ -1,6 +1,6 @@
 {
   "name": "architect-claude",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Claude Code plugin for Enterprise Architects and Solution Architects — architecture review, trade-off analysis, executive communication, and document scaffolding. TOGAF-aware.",
   "type": "module",
   "keywords": ["claude-code", "plugin", "architecture", "togaf", "enterprise-architecture", "solution-architecture", "adr"],

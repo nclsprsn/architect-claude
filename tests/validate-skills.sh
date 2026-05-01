@@ -14,6 +14,7 @@ SKILLS=(
   "data-architecture"
   "integration-architecture"
   "data-pipeline-review"
+  "migration-plan"
   "trade-off-analysis"
   "adr-generator"
   "executive-summary"

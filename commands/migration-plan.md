@@ -1,0 +1,1 @@
+Use the migration-plan skill to generate a phased migration plan. If gap-analysis output or an architecture document was provided, read it first. If no current/target state is clear from context, ask the user to describe the migration scope, hard constraints, and the business outcome the migration must deliver.
