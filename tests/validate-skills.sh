@@ -20,6 +20,7 @@ SKILLS=(
   "executive-summary"
   "stakeholder-communication"
   "new-arch-doc"
+  "capability-assessment"
 )
 
 POSTURES=(

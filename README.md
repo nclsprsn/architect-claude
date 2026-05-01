@@ -54,6 +54,7 @@ claude plugin install gh:nclsprsn/architect-claude-plugin
 | Command | What it does |
 |---------|-------------|
 | `/architecture-review [path]` | Chief architect critique: quality attributes, assumption stress-test, disruptive alternative, second-order effects |
+| `/capability-assessment [path]` | Score a capability map: completeness, maturity evidence quality, ownership model, Phase B → Phase C traceability |
 | `/gap-analysis [path]` | Baseline → target gap table, scored by domain and effort, sequenced into H1/H2/H3 roadmap |
 | `/risk-radar [path]` | Risk heat map × RAID log × top mitigations × one systemic risk worth naming |
 | `/data-architecture [path]` | Data quality attributes, topology assessment, GDPR/AI Act check, governance blind spot, second-order effects |
@@ -93,6 +94,8 @@ claude plugin install gh:nclsprsn/architect-claude-plugin
 | Situation | Use |
 |-----------|-----|
 | Starting a new engagement or TOGAF phase | `/new-arch-doc` |
+| Defining business capabilities, value streams, and org model (Phase B) | `/new-arch-doc phase-b` + `/capability-assessment` |
+| Scoring an existing capability map for completeness and maturity evidence | `/capability-assessment` |
 | Reviewing a document or proposal before a review gate | `/architecture-review` |
 | Reviewing a data platform, data model, or data governance design | `/data-architecture` |
 | Reviewing an API design, event-driven system, or integration layer | `/integration-architecture` |
@@ -132,36 +135,37 @@ Applies to systems that run business operations: CRM, ERP, order management, API
 flowchart TD
     subgraph ENVISION["🏗️ Envision"]
         direction LR
-        s1["1 · Architecture Vision<br><code>/new-arch-doc phase-a</code>"] --> s2["2 · Current State<br><code>/architecture-review</code>"] --> s3["3 · Target Architecture<br><code>/new-arch-doc phase-c</code>"]
+        s1["1 · Architecture Vision<br><code>/new-arch-doc phase-a</code>"] --> s2["2 · Business Architecture<br><code>/new-arch-doc phase-b</code><br><code>/capability-assessment</code>"] --> s3["3 · Current State<br><code>/architecture-review</code>"] --> s4["4 · Target Architecture<br><code>/new-arch-doc phase-c</code>"]
     end
     subgraph DESIGN["🔌 Design"]
         direction LR
-        s4["4 · Integration Design<br><code>/integration-architecture</code>"] --> s5["5 · Technology Selection<br><code>/trade-off-analysis</code>"]
+        s5["5 · Integration Design<br><code>/integration-architecture</code>"] --> s6["6 · Technology Selection<br><code>/trade-off-analysis</code>"]
     end
     subgraph VALIDATE["✅ Validate"]
         direction LR
-        s6["6 · Gap Analysis<br><code>/gap-analysis</code>"] --> s7["7 · Review Gate<br><code>/architecture-review</code>"] --> s8["8 · Risk Assessment<br><code>/risk-radar</code>"]
+        s7["7 · Gap Analysis<br><code>/gap-analysis</code>"] --> s8["8 · Review Gate<br><code>/architecture-review</code>"] --> s9["9 · Risk Assessment<br><code>/risk-radar</code>"]
     end
     subgraph DELIVER["🚀 Deliver"]
         direction LR
-        s9["9 · Delivery Roadmap<br><code>/migration-plan</code>"] --> s10["10 · ADR Documentation<br><code>/adr-generator</code>"] --> s11["11 · Stakeholder Comms<br><code>/executive-summary</code><br><code>/stakeholder-communication</code>"]
+        s10["10 · Delivery Roadmap<br><code>/migration-plan</code>"] --> s11["11 · ADR Documentation<br><code>/adr-generator</code>"] --> s12["12 · Stakeholder Comms<br><code>/executive-summary</code><br><code>/stakeholder-communication</code>"]
     end
     ENVISION --> DESIGN --> VALIDATE --> DELIVER
 ```
 
 | # | Activity | What you do | Command |
 |---|----------|------------|---------|
-| 1 | Architecture Vision | Frame business drivers, stakeholders, scope, and constraints | `/new-arch-doc phase-a` |
-| 2 | Current State | Critique quality attributes, risks, assumptions, and gaps of what exists today | `/architecture-review` |
-| 3 | Target Architecture | Define components, interfaces, and behaviour of the target system | `/new-arch-doc phase-c` |
-| 4 | Integration Design | Assess or design the integration layer: APIs, events, messaging, contracts | `/integration-architecture` |
-| 5 | Technology Selection | Compare platform or technology options before committing | `/trade-off-analysis` |
-| 6 | Gap Analysis | Map baseline → target, identify what must change, sequence the work | `/gap-analysis` |
-| 7 | Review Gate | Validate the design meets the bar before delivery starts | `/architecture-review` |
-| 8 | Risk Assessment | Identify what could go wrong before the build starts | `/risk-radar` |
-| 9 | Delivery Roadmap | Phase gap-analysis output into a sequenced plan with dependencies | `/migration-plan` |
-| 10 | Decision Documentation | Record every significant technical decision made during the engagement | `/adr-generator` |
-| 11 | Stakeholder Communication | Present findings and recommendations to the right audience | `/executive-summary` + `/stakeholder-communication` |
+| 1 | Architecture Vision (Phase A) | Frame business drivers, stakeholders, scope, and constraints | `/new-arch-doc phase-a` |
+| 2 | Business Architecture (Phase B) | Define capability map, value streams, maturity baseline, and org model | `/new-arch-doc phase-b` + `/capability-assessment` |
+| 3 | Current State | Critique quality attributes, risks, assumptions, and gaps of what exists today | `/architecture-review` |
+| 4 | Target Architecture (Phase C) | Define components, interfaces, and behaviour of the target system | `/new-arch-doc phase-c` |
+| 5 | Integration Design | Assess or design the integration layer: APIs, events, messaging, contracts | `/integration-architecture` |
+| 6 | Technology Selection | Compare platform or technology options before committing | `/trade-off-analysis` |
+| 7 | Gap Analysis | Map baseline → target, identify what must change, sequence the work | `/gap-analysis` |
+| 8 | Review Gate | Validate the design meets the bar before delivery starts | `/architecture-review` |
+| 9 | Risk Assessment | Identify what could go wrong before the build starts | `/risk-radar` |
+| 10 | Delivery Roadmap | Phase gap-analysis output into a sequenced plan with dependencies | `/migration-plan` |
+| 11 | Decision Documentation | Record every significant technical decision made during the engagement | `/adr-generator` |
+| 12 | Stakeholder Communication | Present findings and recommendations to the right audience | `/executive-summary` + `/stakeholder-communication` |
 
 ---
 
@@ -173,41 +177,42 @@ Applies to systems built to store, process, and expose data for analysis and AI:
 flowchart TD
     subgraph SCOPE["🔍 Scope"]
         direction LR
-        d1["1 · Data Domain Scoping<br><code>/new-arch-doc phase-c</code>"] --> d2["2 · Source Assessment<br><code>/data-architecture</code>"]
+        d1["1 · Business Architecture<br><code>/new-arch-doc phase-b</code><br><code>/capability-assessment</code>"] --> d2["2 · Data Domain Scoping<br><code>/new-arch-doc phase-c</code>"] --> d3["3 · Source Assessment<br><code>/data-architecture</code>"]
     end
     subgraph ARCHITECTURE["🗄️ Architecture"]
         direction LR
-        d3["3 · Data Architecture Design<br><code>/data-architecture + /new-arch-doc</code>"] --> d4["4 · Governance & Classification<br><code>/data-architecture</code>"] --> d5["5 · Privacy & GDPR<br><code>/data-architecture</code>"]
+        d4["4 · Data Architecture Design<br><code>/data-architecture + /new-arch-doc</code>"] --> d5["5 · Governance & Classification<br><code>/data-architecture</code>"] --> d6["6 · Privacy & GDPR<br><code>/data-architecture</code>"]
     end
     subgraph BUILD["⚙️ Build Design"]
         direction LR
-        d6["6 · Pipeline Architecture<br><code>/data-pipeline-review</code>"] --> d7["7 · Technology Selection<br><code>/trade-off-analysis</code>"]
+        d7["7 · Pipeline Architecture<br><code>/data-pipeline-review</code>"] --> d8["8 · Technology Selection<br><code>/trade-off-analysis</code>"]
     end
     subgraph VALIDATE["✅ Validate"]
         direction LR
-        d8["8 · Gap Analysis<br><code>/gap-analysis</code>"] --> d9["9 · Review Gate<br><code>/architecture-review + /data-architecture</code>"] --> d10["10 · Risk Assessment<br><code>/risk-radar</code>"]
+        d9["9 · Gap Analysis<br><code>/gap-analysis</code>"] --> d10["10 · Review Gate<br><code>/architecture-review + /data-architecture</code>"] --> d11["11 · Risk Assessment<br><code>/risk-radar</code>"]
     end
     subgraph DELIVER["🚀 Deliver"]
         direction LR
-        d11["11 · ADR Documentation<br><code>/adr-generator</code>"] --> d12["12 · Stakeholder Comms<br><code>/executive-summary</code><br><code>/stakeholder-communication</code>"]
+        d12["12 · ADR Documentation<br><code>/adr-generator</code>"] --> d13["13 · Stakeholder Comms<br><code>/executive-summary</code><br><code>/stakeholder-communication</code>"]
     end
     SCOPE --> ARCHITECTURE --> BUILD --> VALIDATE --> DELIVER
 ```
 
 | # | Activity | What you do | Command |
 |---|----------|------------|---------|
-| 1 | Data Domain Scoping | Define data domains, producers, consumers, and the platform's scope | `/new-arch-doc phase-c` |
-| 2 | Source Assessment | Assess existing sources: quality, format, ownership, classification, lineage | `/data-architecture` |
-| 3 | Data Architecture Design | Design logical and physical data architecture: storage, access, topology | `/data-architecture` + `/new-arch-doc` |
-| 4 | Governance & Classification | Define ownership, classification tiers, stewardship model, data contracts | `/data-architecture` |
-| 5 | Privacy & GDPR | Assess privacy-by-design: consent, residency, retention, AI Act obligations | `/data-architecture` |
-| 6 | Pipeline Architecture | Design or review ingestion, transformation, and serving pipelines | `/data-pipeline-review` |
-| 7 | Technology Selection | Compare storage, compute, or orchestration options | `/trade-off-analysis` |
-| 8 | Gap Analysis | Map current data capability to target, sequence the work | `/gap-analysis` |
-| 9 | Review Gate | Validate design at a governance checkpoint before build starts | `/architecture-review` + `/data-architecture` |
-| 10 | Risk Assessment | Surface data, privacy, regulatory, and delivery risks | `/risk-radar` |
-| 11 | Decision Documentation | Record technology, governance, and privacy decisions | `/adr-generator` |
-| 12 | Stakeholder Communication | Present findings to CDO, CISO, CTO, DPO, engineering teams | `/executive-summary` + `/stakeholder-communication` |
+| 1 | Business Architecture (Phase B) | Define data domain ownership model, data capability maturity, and governance roles | `/new-arch-doc phase-b` + `/capability-assessment` |
+| 2 | Data Domain Scoping (Phase C) | Define data domains, producers, consumers, and the platform's scope | `/new-arch-doc phase-c` |
+| 3 | Source Assessment | Assess existing sources: quality, format, ownership, classification, lineage | `/data-architecture` |
+| 4 | Data Architecture Design | Design logical and physical data architecture: storage, access, topology | `/data-architecture` + `/new-arch-doc` |
+| 5 | Governance & Classification | Define ownership, classification tiers, stewardship model, data contracts | `/data-architecture` |
+| 6 | Privacy & GDPR | Assess privacy-by-design: consent, residency, retention, AI Act obligations | `/data-architecture` |
+| 7 | Pipeline Architecture | Design or review ingestion, transformation, and serving pipelines | `/data-pipeline-review` |
+| 8 | Technology Selection | Compare storage, compute, or orchestration options | `/trade-off-analysis` |
+| 9 | Gap Analysis | Map current data capability to target, sequence the work | `/gap-analysis` |
+| 10 | Review Gate | Validate design at a governance checkpoint before build starts | `/architecture-review` + `/data-architecture` |
+| 11 | Risk Assessment | Surface data, privacy, regulatory, and delivery risks | `/risk-radar` |
+| 12 | Decision Documentation | Record technology, governance, and privacy decisions | `/adr-generator` |
+| 13 | Stakeholder Communication | Present findings to CDO, CISO, CTO, DPO, engineering teams | `/executive-summary` + `/stakeholder-communication` |
 
 ---
 
@@ -216,9 +221,9 @@ flowchart TD
 | Phase | Primary commands |
 |-------|-----------------|
 | A — Architecture Vision | `/new-arch-doc phase-a`, `/stakeholder-communication` |
-| B — Business Architecture | `/new-arch-doc phase-b`, `/gap-analysis` |
-| C — Information Systems (Operational) | `/new-arch-doc phase-c`, `/integration-architecture`, `/gap-analysis`, `/risk-radar` |
-| C — Information Systems (Decisional) | `/new-arch-doc phase-c`, `/data-architecture`, `/data-pipeline-review`, `/gap-analysis`, `/risk-radar` |
+| B — Business Architecture | `/new-arch-doc phase-b`, `/capability-assessment`, `/gap-analysis` |
+| C — Information Systems (Operational) | `/new-arch-doc phase-c`, `/integration-architecture`, `/architecture-review`, `/gap-analysis`, `/risk-radar` |
+| C — Information Systems (Decisional) | `/new-arch-doc phase-c`, `/data-architecture`, `/data-pipeline-review`, `/architecture-review`, `/gap-analysis`, `/risk-radar` |
 | D — Technology Architecture | `/new-arch-doc phase-d`, `/gap-analysis`, `/architecture-review` |
 | All phases — options & decisions | `/trade-off-analysis`, `/adr-generator` |
 | All phases — delivery sequencing | `/migration-plan` |
@@ -260,7 +265,6 @@ TOGAF vocabulary (ADM phases, building blocks, gap analysis) is active by defaul
 
 | Skill | What it will do |
 |-------|----------------|
-| `capability-assessment` | Score architecture maturity across domains against a target capability level |
 | `data-mesh-designer` | Generate a data mesh topology design from domain ownership and data product definitions |
 | `workshop-facilitator` | Produce a structured workshop agenda + facilitation guide for architecture sessions |
 | `rfp-evaluator` | Evaluate vendor RFP responses against a set of architecture requirements |
