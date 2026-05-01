@@ -57,31 +57,53 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 
 ## Artifact Selection Guide
 
-The capability heat map is always required. Other artifacts are conditional on scope.
+The capability heat map is always required. All other artifacts are conditional on scope.
+
+### TOGAF Phase B Catalogs
+
+TOGAF defines 9 standard catalogs for Phase B (Business Architecture). Produce those relevant to scope — do not generate all nine for every engagement.
+
+| Catalog | When to include | Purpose |
+|---------|----------------|---------|
+| **Business Capabilities Catalog** | Always | Hierarchical inventory of all capabilities with maturity, ownership, and To-Be target |
+| **Value Stream Catalog** | When value streams are defined | End-to-end value streams with stages, stakeholders, and lifecycle |
+| **Organization/Actor Catalog** | When org model is in scope | All participants (users, customers, partners, units) with roles, location, responsibilities |
+| **Driver/Goal/Objective Catalog** | When strategic alignment is in scope | Business drivers, goals, objectives, and KPIs with hierarchy and relationships |
+| **Role Catalog** | When skills/ownership gaps are in scope | Business roles, competencies, organizational units responsible, succession |
+| **Business Service/Function Catalog** | When service model is in scope | Business services (what the business delivers) and functions (logical components) |
+| **Location Catalog** | When geographic distribution is in scope | Geographic locations, facilities, business units per location, service availability |
+| **Process/Event/Control/Product Catalog** | When process model is in scope | Business processes, triggering events, controls, products/service offerings |
+| **Contract/Measure Catalog** | When SLA or KPI governance is in scope | Service contracts, performance measures, quality metrics, compliance requirements |
+
+### TOGAF Phase B Matrices
+
+TOGAF defines 5 standard matrices for Phase B. Produce those relevant to scope.
+
+| Matrix | When to include | Purpose |
+|--------|----------------|---------|
+| **Business Interaction Matrix** | When org dependencies are in scope | Dependency and communication between organizations and actors; interaction type |
+| **Actor/Role Matrix** | When ownership model is in scope | Which roles each actor/organizational unit undertakes; skill and responsibility mapping |
+| **Value Stream/Capability Matrix** | Always when value streams are defined | Which capabilities are required to support each stage of a value stream |
+| **Strategy/Capability Matrix** | When strategic alignment is in scope | Which capabilities are required to support specific strategy statements |
+| **Capability/Organization Matrix** | When ownership gaps are in scope | Which organizational elements implement each capability; reveals ownership gaps |
 
 ### Diagrams (Mermaid)
 
 | Situation | Diagram | Why |
 |-----------|---------|-----|
-| Core value stream spans ≥ 3 teams or roles | **Swimlane flowchart** — one subgraph per actor, steps as nodes | Shows handoff gaps and process waste explicitly |
-| Phase B → Phase C traceability in scope | **Flowchart** — capability nodes → application or data domain nodes | Makes the dependency between business capability and technical delivery explicit |
-| Org model change is recommended | **Block diagram** — team → capability ownership lines | Makes structural misalignment visible |
+| Always | **Capability Map** (Mermaid flowchart or markdown table — hierarchical capability decomposition with RAG maturity indicators 🔴 0–1 · 🟡 2 · 🟢 3–4) | TOGAF Phase B standard artifact — makes the full capability landscape and maturity distribution visible at a glance |
+| Value streams defined | **Value Stream Map** (Mermaid flowchart LR: stages as nodes, capabilities below each stage) | TOGAF Phase B standard artifact — end-to-end value delivery chain with capability-to-value-stream mapping |
+| Core value stream spans ≥ 3 teams or roles | **Business Footprint Diagram** (Mermaid flowchart: business functions → organizational units and locations, swimlane per actor) | TOGAF Phase B standard artifact — shows which business functions are performed where and by whom; exposes redundancy and gaps |
+| Org model change is recommended | **Organization Map** (Mermaid block diagram: org hierarchy with capability ownership lines) | TOGAF Phase B standard artifact — organizational structure, reporting lines, and capability ownership; makes structural misalignment visible |
+| Phase B → Phase C traceability in scope | **Capability → Application traceability** (Mermaid flowchart: capability nodes → application or data domain nodes) | Makes the dependency between business capability and technical delivery explicit — Phase C/D delivery gaps become visible |
+| Service model is in scope | **Service/Information Diagram** (Mermaid flowchart: org units → services with information flows) | TOGAF Phase B standard artifact — shows service dependencies, hand-offs, and information exchange |
+| Goal/strategy alignment in scope | **Goal/Objective/Service Diagram** (Mermaid flowchart: strategic goal → objectives → business services) | Links strategy statements to capabilities and services; demonstrates alignment |
 
 **Note on the capability heat map:** render as a Markdown table with RAG indicators (🔴 0–1 · 🟡 2 · 🟢 3–4) — Mermaid is not suited for matrix tables.
 
 **Mermaid rules:**
 - Use `<br>` for line breaks inside node labels — never `\n`
 - Keep diagrams scoped to the finding — not the full capability landscape
-
-### Tables
-
-| Table | When to include | Purpose |
-|-------|----------------|---------|
-| **Capability completeness audit** | Always | Checks every capability for ownership, maturity score, evidence, and To-Be target |
-| **Maturity scoring quality check** | Always | Flags asserted vs. evidence-backed scores; surfaces scoring inconsistency |
-| **Capability gaps prioritised** | Always | Ranked by delivery impact (H1/H2/H3) with owner and review trigger |
-| **Phase B → Phase C traceability** | When Phase C is in scope | Maps each capability gap to the application(s) or data domain(s) responsible |
-| **Value stream gap analysis** | When value streams are defined | Steps with waste, owner, and capability gap per step |
 
 ### Callouts
 

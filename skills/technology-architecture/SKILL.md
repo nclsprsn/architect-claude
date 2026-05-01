@@ -63,11 +63,13 @@ Generate the artifacts appropriate to the infrastructure context. Include only w
 
 | Situation | Diagram | Why |
 |-----------|---------|-----|
-| Always | **Infrastructure topology** (flowchart TD: regions, availability zones, network tiers, compute, storage, edge) | Makes the physical deployment model visible for review |
-| DR/HA in scope | **Failover topology** (flowchart: primary site → failure event → DR site, with RTO/RPO annotated) | Exposes whether failover is tested and whether RTO/RPO are achievable |
-| Phase C → Phase D traceability in scope | **Component mapping** (flowchart: application building blocks → technology building blocks) | Makes Phase C/D dependency explicit — Phase D gaps become visible |
+| Always | **Platform Decomposition Diagram** (TOGAF Phase D — flowchart TD: technology platform layers, logical and physical technology components, application component deployment) | TOGAF standard artifact — depicts the technology platform supporting the IS Architecture; shows component hierarchy and deployment |
+| Always | **Environments and Locations Diagram** (TOGAF Phase D — flowchart: geographic locations → deployed technologies and applications per location) | TOGAF standard artifact — shows which locations host which applications, supports DR, data residency, and compliance jurisdiction mapping |
+| Always | **Networked Computing / Hardware Diagram** (TOGAF Phase D — flowchart: hardware nodes, network interconnections, three-tier layers) | TOGAF standard artifact — deployed logical view of application components in the distributed computing environment; supports authorisation and security design |
+| Network communication paths in scope | **Communications Engineering Diagram** (TOGAF Phase D — flowchart: routers, switches, firewalls, network links, protocols per environment) | TOGAF standard artifact — describes the communication infrastructure and connectivity between technology components |
+| Processing and deployment units in scope | **Processing Diagram** (TOGAF Phase D — UML deployment diagram: deployable units, connectivity, protocols, load requirements) | TOGAF standard artifact — shows how application components are grouped into deployment units and hosted on the technology platform |
+| DR/HA in scope | **Failover topology** (flowchart: primary site → failure event → DR site, with RTO/RPO annotated) | Extends Environments and Locations Diagram — makes failover sequence and recovery time explicit |
 | CI/CD pipeline in scope | **Delivery pipeline** (flowchart LR: commit → build → test → stage → prod, with gate labels) | Reveals bottlenecks, missing gates, and manual handoffs |
-| Network security zones complex | **Network segmentation** (flowchart: zones → traffic flows, with firewall/WAF/mTLS labels) | Shows attack surface and lateral movement risk |
 
 **Mermaid rules:**
 - Use `<br>` for line breaks inside node labels — never `\n`
@@ -78,7 +80,9 @@ Generate the artifacts appropriate to the infrastructure context. Include only w
 
 | Table | Always / Conditional | Purpose |
 |-------|---------------------|---------|
-| **Technology component inventory** | Always | Every infrastructure component: name, type, managed/self-managed, provider, lifecycle status, owner |
+| **Technology Portfolio Catalog** (TOGAF Phase D) | Always | TOGAF standard catalog — every technology component: name, type, managed/self-managed, provider, version, lifecycle status, owner. Classified against TOGAF Technical Reference Model (TRM). Foundation for the Application/Technology Matrix |
+| **Technology Standards Catalog** (TOGAF Phase D) | TOGAF mode | TOGAF standard catalog — agreed standards for technology deployment: approved products, versions, refresh cycles, location-specific standards, compliance requirements. Used to drive procurement decisions and identify non-conformance |
+| **Application/Technology Matrix** (TOGAF Phase D) | TOGAF mode | TOGAF standard matrix — maps application components (from Phase C) to supporting technology components. CRUD-style mapping showing which technology each application depends on. Foundation for Phase C → Phase D traceability |
 | **Lock-in surface assessment** | Always | Per component: lock-in depth (shallow/deep), portability path, exit cost estimate |
 | **Availability and recovery assessment** | Always | Per tier: SLA %, RTO, RPO, HA pattern, last DR test date |
 | **Technology anti-pattern inventory** | Always | Explicit list of anti-patterns found, with severity and remediation |

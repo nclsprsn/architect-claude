@@ -324,6 +324,25 @@ flowchart TD
 
 ---
 
+## TOGAF Gap Analysis Matrix *(TOGAF mode only)*
+
+Standard TOGAF format: Baseline Architecture Building Blocks (ABBs) on the vertical axis, Target ABBs on the horizontal axis. Intersections classified as **Included** (in both), **Eliminated** (in baseline, not in target — last column), or **New** (in target, not in baseline — last row).
+
+| Baseline ABB ↓ / Target ABB → | [Target ABB 1] | [Target ABB 2] | [Target ABB n] | **Eliminated** |
+|-------------------------------|---------------|---------------|---------------|----------------|
+| [Baseline ABB 1] | Included | — | — | |
+| [Baseline ABB 2] | — | Included | — | Eliminated |
+| [Baseline ABB n] | — | — | Included | |
+| **New** | New | | New | |
+
+- **Included** — building block exists in both baseline and target; may require enhancement
+- **New** — capability required in target not present in baseline; must be built or procured
+- **Eliminated** — capability present in baseline not required in target; either correctly removed (state reason) or accidentally omitted (flag for reinstatement)
+
+Any item under "Eliminated" or "New" is a gap requiring a resolution decision.
+
+---
+
 ## TOGAF Building Block Mapping *(TOGAF mode only)*
 
 | Gap | ADM Phase | Building block type | Architecture contract status |

@@ -57,6 +57,32 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 
 ## Artifact Selection Guide
 
+### TOGAF Phase C — Data Architecture Artifacts
+
+TOGAF defines 1 catalog, 3 matrices, and 6 diagrams for Phase C Data Architecture. Generate those relevant to scope — do not generate all for every engagement.
+
+**Catalogs:**
+| Catalog | When to include | Purpose |
+|---------|----------------|---------|
+| **Data Entity/Data Component Catalog** | Always | TOGAF standard catalog — hierarchical decomposition of data entities to physical data components; includes entity definitions, attributes, relationships, ownership, lineage |
+
+**Matrices:**
+| Matrix | When to include | Purpose |
+|--------|----------------|---------|
+| **Data Entity/Business Function Matrix** | When ownership assignment is in scope | Maps data entities to business functions; assigns data ownership; identifies missing data entities |
+| **Application/Data Matrix** | When application-data relationships are in scope | CRUD mapping (Create/Read/Update/Delete) — which applications access which data; identifies data master system and duplication |
+| **Business Service/Information Matrix** | When service model is in scope | Maps business services to the data they consume and produce |
+
+**Diagrams (TOGAF official names — use these in TOGAF mode):**
+| Diagram | When to include | Purpose |
+|---------|----------------|---------|
+| **Conceptual Data Diagram** | Always | TOGAF standard — high-level data relationships and critical entities; business-focused, not technical |
+| **Logical Data Diagram** | When detailed data model is in scope | TOGAF standard — data entities, attributes, and relationships; platform-independent |
+| **Data Dissemination Diagram** | When data distribution or master ownership is in scope | TOGAF standard — how logical data entities are physically realized; shows replication, master reference, and distribution patterns |
+| **Data Security Diagram** | When access control or compliance is in scope | TOGAF standard — which actors (person, org, system) can access which enterprise data; demonstrates GDPR/regulatory compliance |
+| **Data Migration Diagram** | When data migration or legacy replacement is in scope | TOGAF standard — flow of data from source to target applications; tool for data auditing and traceability |
+| **Data Lifecycle Diagram** | When retention, archival, or data governance is in scope | TOGAF standard — data state changes from creation to disposal; triggers, retention policies, data value changes over time |
+
 ### Diagrams
 
 | Situation | Diagram | Why |

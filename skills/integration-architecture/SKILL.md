@@ -57,6 +57,34 @@ Every output MUST satisfy the four rules below. They operationalise the accounta
 
 Generate the artifacts appropriate to the integration context. Include only what adds analytical value.
 
+### TOGAF Phase C — Application Architecture Artifacts
+
+TOGAF defines 2 catalogs, 5 matrices, and 7 diagrams for Phase C Application Architecture. Generate those relevant to scope — do not generate all for every engagement.
+
+**Catalogs:**
+| Catalog | When to include | Purpose |
+|---------|----------------|---------|
+| **Application Portfolio Catalog** | Always | TOGAF standard catalog — hierarchical inventory of all applications: name, description, business purpose, decomposition. Foundation for all matrices and diagrams |
+| **Interface Catalog** | Always | TOGAF standard catalog — all interfaces between applications: integration mechanism (batch, API, direct DB, web service), dependency scope, migration cost estimate |
+
+**Matrices:**
+| Matrix | When to include | Purpose |
+|--------|----------------|---------|
+| **Application/Organization Matrix** | When application ownership is in scope | Maps applications to organizational units; identifies support requirements and gaps per unit |
+| **Role/Application Matrix** | When access control or security requirements are in scope | Maps applications to business roles; identifies security requirements and access rights |
+| **Application/Function Matrix** | When business function coverage is in scope | Maps applications to business functions; supports capability-driven portfolio analysis and gap analysis |
+| **Application Interaction Matrix** | Always | TOGAF standard — core application-to-application dependencies; identifies central applications by dependency degree; enables integration complexity estimation |
+| **Application/Data Matrix** | When data ownership is in scope | CRUD mapping (Create/Read/Update/Delete) — which applications own which data; master data identification; duplication analysis |
+
+**Diagrams (TOGAF official names — in addition to the integration-focused diagrams below):**
+| Diagram | TOGAF name | When to include |
+|---------|-----------|----------------|
+| **Application Communication Diagram** | TOGAF Phase C | Always — shows application-to-application interactions and information exchange |
+| **Application/User Location Diagram** | TOGAF Phase C | When geographic distribution is in scope — maps applications to deployment locations and user geographies |
+| **Enterprise Manageability Diagram** | TOGAF Phase C | When operational management tooling is in scope — shows management-class software interactions |
+| **Process/Application Realization Diagram** | TOGAF Phase C | When process orchestration is in scope — sequence of events when multiple applications execute a business process |
+| **Application Migration Diagram** | TOGAF Phase C | When migration is in scope — flow of application transition from current to target state with dependencies |
+
 ### Diagrams (Mermaid)
 
 | Situation | Diagram | Why |

@@ -25,7 +25,7 @@ You are writing an Architectural Decision Record for a decision that has been ma
 
 ## TOGAF Detection
 
-TOGAF signals present → **TOGAF mode**: add ADM phase tag, impacted building blocks, gap analysis pointer, and architecture contract status.
+TOGAF signals present → **TOGAF mode**: add ADM phase tag, impacted building blocks, gap analysis pointer, and architecture contract status. Note: ADRs are NOT a native TOGAF artifact — TOGAF captures architectural decisions through Architecture Principles, Architecture Contracts, and Governance Logs. This skill produces an ADR (MADR format) as a complement to TOGAF governance, not a replacement for it. In TOGAF mode, the ADR should reference the relevant Architecture Principle it enacts or overrides, and flag whether an Architecture Contract update is required.
 
 No TOGAF signals → **Framework-agnostic mode**: clean enhanced MADR without TOGAF enrichment.
 
@@ -300,6 +300,9 @@ sequenceDiagram
 **Impacted building blocks:** [list]
 **Architecture contract:** present / absent — [status]
 **Related gap analysis:** [pointer if applicable]
+**Architecture Principle:** [Name the Architecture Principle this decision enacts, refines, or overrides — if none, state "No principle directly applicable"]
+**Architecture Contract impact:** [Does this decision require an Architecture Contract update? Yes / No — reason]
+**Governance Log:** [Should this decision be logged in the Architecture Governance Log? Yes / No]
 
 ---
 
