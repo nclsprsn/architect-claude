@@ -29,6 +29,18 @@ TOGAF signals present → **TOGAF mode**: add ADM phase tag, impacted building b
 
 No TOGAF signals → **Framework-agnostic mode**: clean enhanced MADR without TOGAF enrichment.
 
+## Information to Gather
+
+Ask only for what is not already provided in context. Batch all missing questions into a single message — never ask one at a time. The anti-pattern guards below may trigger additional questions after this initial check.
+
+| Field | Infer from context if possible | Question if missing |
+|-------|-------------------------------|---------------------|
+| **Decision statement** | Look for an active sentence describing the choice made | *"Can you state the decision in one active sentence: 'We will [verb] [what] because [reason]'?"* |
+| **Decision status** | Infer: if phrased as past tense → Accepted; future tense → Proposed | *"What is the status of this decision? (A) Proposed — not yet approved (B) Accepted — already made, needs documentation (C) Being made now with this ADR"* |
+| **ADR numbering** | Look for an existing ADR series in context | *"Is there an existing ADR numbering scheme? If yes, what is the next number? If no, I will use 'ADR-TBD'."* |
+| **Options considered** | Required — cannot proceed without at least two | *(Triggered by anti-pattern guard if only one option is provided)* |
+| **Stakeholders (DACI)** | Infer Driver from who raised the decision; Approver from seniority signals | *"Who drove this decision, who approved it, and who needs to be informed? (Driver / Approver / Contributors / Informed)"* |
+
 ## Output Discipline
 
 Every output MUST satisfy the four rules below. They operationalise the accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.

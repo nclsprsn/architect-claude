@@ -29,6 +29,17 @@ TOGAF signals present → **TOGAF mode**: align gaps to ADM phase B/C/D structur
 
 No TOGAF signals → **Framework-agnostic mode**: domain-neutral gap table with roadmap sequencing.
 
+## Information to Gather
+
+Ask only for what is not already provided in context. Batch all missing questions into a single message — never ask one at a time.
+
+| Field | Infer from context if possible | Question if missing |
+|-------|-------------------------------|---------------------|
+| **Domains in scope** | Infer from the document structure — if a current-state description names systems, infer domains from them | *"Which domains are in scope? Common choices: Application / Data / Integration / Platform / Security / Governance / Organisation. Or should I infer from the document?"* |
+| **Target state** | Look for a target architecture or vision document; infer ambition level from strategy language | *"Is the target state defined? If yes, where? If not, should I help define it — or should you describe it in a sentence?"* |
+| **Planning horizon** | Infer from project scope signals — "migration" → H1/H2; "transformation" → H1–H3 | *"What planning horizon should this roadmap cover? (A) H1 only — now to 12 months (B) H1 + H2 — up to 24 months (C) Full H1–H3 — strategic roadmap"* |
+| **Hard deadlines** | Look for regulatory, contractual, or go-live dates in context | *"Are there hard deadlines (regulatory compliance, contract, go-live, audit) the sequencing must respect?"* |
+
 ## Output Discipline
 
 Every output MUST satisfy the four rules below. They operationalise the accountability principles (Bias for Action, Earn Trust, Have Backbone, Deliver Results, Broad Responsibility). Skip a rule only by writing `N/A — [reason]` so the omission is visible.
