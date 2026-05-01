@@ -23,6 +23,11 @@ SKILLS=(
   "capability-assessment"
   "technology-architecture"
   "architect-router"
+  "preliminary"
+  "architecture-vision"
+  "requirements-management"
+  "implementation-governance"
+  "change-management"
 )
 
 POSTURES=(
