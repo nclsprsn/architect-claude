@@ -210,17 +210,17 @@ claude --plugin-dir ./architect-claude-plugin
 
 ## Architect Workflow
 
-The plugin covers two distinct moments in an architecture engagement: **specifying** (creating architecture artifacts) and **validating** (reviewing, governing, and managing change). A third diagram shows how the router dispatches between them.
+The plugin covers three tracks across an architecture engagement: **specifying** (creating architecture artifacts through the ADM), **validating** (reviewing and governing against standards and governance gates), and **deciding & communicating** (options analysis, ADRs, and stakeholder outputs). The router dispatches between all tracks — see Diagram C.
 
 ---
 
 ### Diagram A — Specification Track (Full ADM)
 
-From Preliminary through Phase F, with Requirements Management running continuously across all phases.
+From Preliminary through Phase F, with Requirements Management running continuously across all phases. Use `/new-arch-doc` to scaffold a blank phase document before populating it with the phase skills below.
 
 ```mermaid
 flowchart TD
-    subgraph RM["📋 Requirements Management — continuous"]
+    subgraph RM["Requirements Management — continuous"]
         rm["/requirements-management"]
     end
     pre["Preliminary<br>/preliminary<br>Principles · Framework · Org Model"] --> va
@@ -234,6 +234,8 @@ flowchart TD
     vf["Phase F — Migration Planning<br>/migration-plan"]
     rm -.->|"new or changed requirements"| va
     rm -.->|"new or changed requirements"| vb
+    rm -.->|"new or changed requirements"| vc_d
+    rm -.->|"new or changed requirements"| vc_a
     rm -.->|"new or changed requirements"| vd
     rm -.->|"new or changed requirements"| vf
 ```
@@ -247,7 +249,8 @@ From artifact submission through Architecture Board decision, Phase G governance
 ```mermaid
 flowchart TD
     artifact["Architecture artifact<br>submitted for review"] --> pc
-    pc["/principles-check<br>Validate against<br>Architecture Principles"] --> ac
+    pc["/principles-check<br>Validate against<br>Architecture Principles"] --> ar
+    ar["/architecture-review<br>Chief architect critique<br>quality · assumptions · risks"] --> ac
     ac["/artifact-completeness<br>Check TOGAF template<br>Catalogs · Matrices · Diagrams"] --> cr
     cr["/compliance-review<br>8-category Compliance Assessment"] --> board{Architecture Board<br>decision}
     board -->|Approve| contract["Architecture Contract signed<br>/implementation-governance"]
@@ -273,6 +276,8 @@ flowchart TD
     router["/architect-router<br>Detect phase + intent"]
     router --> spec{Specifying?}
     router --> val{Validating?}
+    router --> dec{Deciding?}
+    router --> com{Communicating?}
     spec -->|Preliminary| pre["/preliminary"]
     spec -->|Phase A| va["/architecture-vision"]
     spec -->|Phase B| vb["/capability-assessment<br>/gap-analysis"]
@@ -287,7 +292,11 @@ flowchart TD
     val -->|Completeness| ac["/artifact-completeness"]
     val -->|Compliance| cr["/compliance-review"]
     val -->|Deep review| ar["/architecture-review"]
-    val -->|Decision| dt["/trade-off-analysis<br>/adr-generator"]
+    val -->|Risk| rr["/risk-radar"]
+    dec -->|Compare options| toa["/trade-off-analysis"]
+    dec -->|Record decision| adrg["/adr-generator"]
+    com -->|C-level audience| es["/executive-summary"]
+    com -->|Named stakeholder| sc["/stakeholder-communication"]
 ```
 
 ---
