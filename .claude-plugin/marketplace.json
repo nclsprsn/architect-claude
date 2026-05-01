@@ -1,0 +1,21 @@
+{
+  "name": "architect-claude",
+  "owner": {
+    "name": "nclsprsn"
+  },
+  "description": "Claude Code plugin for Enterprise Architects and Solution Architects. TOGAF-aware.",
+  "plugins": [
+    {
+      "name": "architect-claude-plugin",
+      "source": ".",
+      "description": "Architecture review, trade-off analysis, gap analysis, risk radar, ADR generation, executive communication, and TOGAF Phase A–D document scaffolding.",
+      "author": {
+        "name": "nclsprsn"
+      },
+      "homepage": "https://github.com/nclsprsn/architect-claude-plugin",
+      "repository": "https://github.com/nclsprsn/architect-claude-plugin",
+      "license": "MIT",
+      "keywords": ["architecture", "togaf", "enterprise-architecture", "solution-architecture", "adr"]
+    }
+  ]
+}

@@ -25,8 +25,16 @@ Claude Code commands for Enterprise Architects and Solution Architects. Run a co
 
 ## Install
 
+```
+/plugin marketplace add nclsprsn/architect-claude-plugin
+/plugin install architect-claude-plugin@architect-claude
+```
+
+Or for local development / testing:
+
 ```bash
-claude plugin install gh:nclsprsn/architect-claude-plugin
+git clone https://github.com/nclsprsn/architect-claude-plugin
+claude --plugin-dir ./architect-claude-plugin
 ```
 
 ## Quick Start
