@@ -28,6 +28,9 @@ SKILLS=(
   "requirements-management"
   "implementation-governance"
   "change-management"
+  "compliance-review"
+  "principles-check"
+  "artifact-completeness"
 )
 
 POSTURES=(
