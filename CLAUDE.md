@@ -4,11 +4,28 @@ A Claude Code plugin for Enterprise Architects and Solution Architects.
 
 ## Skills
 
+### Discover
 | Skill | Command | Trigger phrases |
 |-------|---------|----------------|
 | `architecture-review` | `/architecture-review` | "review this architecture", "critique this doc", "architecture review" |
+| `gap-analysis` | `/gap-analysis` | "gap analysis", "baseline vs target", "what needs to change", "what's the gap" |
+| `risk-radar` | `/risk-radar` | "what are the risks", "risk assessment", "risk register", "RAID log", "what could go wrong" |
+
+### Decide
+| Skill | Command | Trigger phrases |
+|-------|---------|----------------|
 | `trade-off-analysis` | `/trade-off-analysis` | "compare these options", "trade-off analysis", "which option should we pick" |
+| `adr-generator` | `/adr-generator` | "write an ADR", "document this decision", "create an ADR", "capture this decision" |
+
+### Communicate
+| Skill | Command | Trigger phrases |
+|-------|---------|----------------|
 | `executive-summary` | `/executive-summary` | "write an exec summary", "rewrite for executives", "executive summary" |
+| `stakeholder-communication` | `/stakeholder-communication` | "write a message for", "communication for [role]", "how to present this to", "email to the CTO" |
+
+### Document
+| Skill | Command | Trigger phrases |
+|-------|---------|----------------|
 | `new-arch-doc` | `/new-arch-doc` | "scaffold an architecture document", "new arch doc", "create architecture document" |
 
 ## Core Posture (active in every skill)
