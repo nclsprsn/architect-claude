@@ -38,6 +38,35 @@ A Claude Code plugin for Enterprise Architects and Solution Architects.
 |-------|---------|----------------|
 | `new-arch-doc` | `/new-arch-doc` | "scaffold an architecture document", "new arch doc", "create architecture document" |
 
+## Commit Format
+
+Every commit in this repository uses a **gitmoji prefix** followed by a short imperative subject line. No `Co-Authored-By` trailers.
+
+```
+<gitmoji> <imperative subject, ≤ 72 chars>
+
+[optional body — wrap at 72 chars, explain why not what]
+```
+
+| Gitmoji | When |
+|---------|------|
+| ✨ | New skill, new command, new feature |
+| 🐛 | Bug fix |
+| 📝 | Documentation (README, CHANGELOG, comments) |
+| ✅ | CI, tests, validation |
+| ♻️ | Refactor — behaviour unchanged |
+| 🔧 | Tooling, config (package.json, plugin.json, workflow files) |
+| 🔥 | Remove code or files |
+| ⬆️ | Dependency upgrade |
+| 🏷️ | Rename or restructure without feature change |
+
+**Rules:**
+- Subject line is imperative mood: "Add …", "Fix …", "Remove …" — not "Added" or "Adding"
+- No period at the end of the subject line
+- No `Co-Authored-By` trailers — ever
+
+---
+
 ## Core Posture (active in every skill)
 
 All skills operate from the Architect Mindset:

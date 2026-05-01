@@ -209,6 +209,15 @@ Add a line under the `[Unreleased]` section (create the section if absent):
 - Add `<skill-name>` skill: <one-sentence summary of what it adds>
 ```
 
-## Step 5 — Validate
+## Step 5 — Validate and commit
 
-Run `bash tests/validate-skills.sh` and fix any failures before reporting done. The goal is zero failures.
+Run `bash tests/validate-skills.sh` and fix any failures before committing. The goal is zero failures.
+
+Once clean, commit with:
+
+```bash
+git add skills/<name>/SKILL.md commands/<name>.md tests/validate-skills.sh CLAUDE.md README.md CHANGELOG.md
+git commit -m "✨ Add <skill-name> skill: <one-sentence summary>"
+```
+
+Follow the commit format in `CLAUDE.md`: gitmoji prefix · imperative subject · no `Co-Authored-By` trailer.
