@@ -78,6 +78,9 @@ claude --plugin-dir ./architect-claude-plugin
 # Check artifact completeness against TOGAF templates before board submission
 /artifact-completeness docs/architecture-definition-document.md
 
+# Run a formal Architecture Compliance Assessment before Architecture Board submission
+/compliance-review docs/architecture-definition-document.md
+
 # Run an Architecture Compliance Assessment for a live implementation (Phase G)
 /implementation-governance docs/delivery-status-report.md
 
@@ -162,9 +165,9 @@ The four Validate skills form a **staged pipeline**: `principles-check` → `arc
 
 | Skill | Gate | What it does |
 |-------|------|-------------|
-| `/architecture-review [path]` | Gate 1 | Chief architect critique: quality attributes, assumption stress-test, disruptive alternative, second-order effects |
-| `/risk-radar [path]` | Gate 1 (parallel) | Risk heat map × RAID log × top mitigations × one systemic risk worth naming |
-| `/principles-check [path]` | Gate 2 | Validate a document against Architecture Principles (Mode 1), or audit the principles themselves against TOGAF Architecture Principle quality criteria (Mode 2) |
+| `/principles-check [path]` | Gate 1 | Validate a document against Architecture Principles (Mode 1), or audit the principles themselves against TOGAF Architecture Principle quality criteria (Mode 2) |
+| `/architecture-review [path]` | Gate 2 | Chief architect critique: quality attributes, assumption stress-test, disruptive alternative, second-order effects |
+| `/risk-radar [path]` | Gate 2 (parallel) | Risk heat map × RAID log × top mitigations × one systemic risk worth naming |
 | `/artifact-completeness [path]` | Gate 3 | Score an artifact against its canonical TOGAF template — required Catalogs, Matrices, and Diagrams per the Architecture Content Framework |
 | `/compliance-review [path]` | Gate 4 | 8-category TOGAF Compliance Assessment with Architecture Board verdict: Approve / Approve with Conditions / Reject |
 
@@ -323,10 +326,8 @@ flowchart LR
         ar["/architect-router"]
     end
     subgraph DISCOVER["Discover"]
-        rev["/architecture-review"]
         ca["/capability-assessment"]
         ga["/gap-analysis"]
-        rr["/risk-radar"]
         da["/data-architecture"]
         ia["/integration-architecture"]
         dpr["/data-pipeline-review"]
@@ -346,21 +347,29 @@ flowchart LR
         es["/executive-summary"]
         sc["/stakeholder-communication"]
     end
-    subgraph GOVERN["Govern"]
+    subgraph FRAME["Frame"]
         pre["/preliminary"]
         av["/architecture-vision"]
         rm["/requirements-management"]
+    end
+    subgraph VALIDATE["Validate"]
         pc["/principles-check"]
+        ar2["/architecture-review"]
+        rr2["/risk-radar"]
         ac["/artifact-completeness"]
         cr["/compliance-review"]
+    end
+    subgraph GOVERN["Govern"]
         ig["/implementation-governance"]
         cm["/change-management"]
     end
+    ar --> FRAME
     ar --> DISCOVER
     ar --> PLAN
     ar --> DOCUMENT
     ar --> DECIDE
     ar --> COMMUNICATE
+    ar --> VALIDATE
     ar --> GOVERN
 ```
 
@@ -384,6 +393,25 @@ flowchart LR
 | All phases — options & decisions | `/trade-off-analysis`, `/adr-generator` |
 | All phases — validation gates | `/artifact-completeness`, `/principles-check`, `/compliance-review` |
 | Governance / steering committees | `/executive-summary`, `/stakeholder-communication` |
+
+---
+
+## Worked Examples
+
+The `references/examples/` directory contains eight fully instantiated TOGAF artefacts — all anchored to a single coherent engagement (ACME Corp Customer Onboarding modernisation) so you can see how artefacts accumulate across phases rather than reading eight disconnected templates.
+
+| File | Artefact | Phase |
+|------|----------|-------|
+| `references/examples/example-architecture-principles.md` | 6 Architecture Principles — 4-field template | Preliminary |
+| `references/examples/example-request-for-architecture-work.md` | Request for Architecture Work | Preliminary |
+| `references/examples/example-statement-of-architecture-work.md` | Statement of Architecture Work (§7.6, 9 clauses) | A |
+| `references/examples/example-business-capabilities-catalog.md` | Business Capabilities Catalog — 20 capabilities with maturity 0–4 | B |
+| `references/examples/example-architecture-requirements-specification.md` | Architecture Requirements Specification (§7.11, 9 sections) | B |
+| `references/examples/example-architecture-contract.md` | Architecture Contract — Design & Development (§7.18) | G |
+| `references/examples/example-compliance-assessment.md` | Compliance Assessment — all 8 TOGAF categories | G |
+| `references/examples/example-adr.md` | Architecture Decision Record — MADR with weighted decision matrix | E |
+
+Each skill that produces one of these artefacts links to its example via a `[!tip]` callout in the Artifact Selection Guide.
 
 ---
 
