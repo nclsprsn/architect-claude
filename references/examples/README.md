@@ -1,6 +1,6 @@
 # Worked TOGAF Artefact Examples
 
-Concrete, populated TOGAF artefacts you can adapt for your own engagement. Every file is anchored to the same fictional **ACME Corp Customer Onboarding modernisation** engagement so the dependencies between artefacts are visible — the same capability names, metric values, and role names appear consistently across all eight files.
+Concrete, populated TOGAF artefacts you can adapt for your own engagement. Every file is anchored to the same fictional **ACME Corp Customer Onboarding modernisation** engagement so the dependencies between artefacts are visible — the same capability names, metric values, and role names appear consistently across all twenty-two files.
 
 ---
 
