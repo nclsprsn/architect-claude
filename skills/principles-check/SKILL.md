@@ -117,6 +117,6 @@ After completing a principles check:
 
 - **If the document is compliant**: confirm the result in the Architecture Repository and proceed to the next phase skill or to `compliance-review` for a broader governance assessment.
 - **If there are Significant or Critical violations**: the document must be revised before proceeding. Identify the specific sections requiring change, then re-run `principles-check` after revision.
-- **If the principles themselves are failing quality criteria**: invoke `preliminary` to revise the Architecture Principles before they are used as a compliance baseline.
+- **If the principles themselves are failing quality criteria**: if a single principle is structurally salvageable, revise it inline and re-score. Invoke `preliminary` only when multiple principles fail Completeness or Stability — that signals the principles foundation needs a full rebuild, not a patch.
 - **If principles are in conflict with each other**: invoke `trade-off-analysis` to produce a structured resolution recommendation.
 - **Document the resolution**: invoke `adr-generator` to capture any principle revision or conflict resolution as an ADR.

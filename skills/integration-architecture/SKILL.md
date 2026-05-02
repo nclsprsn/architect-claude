@@ -427,7 +427,10 @@ After completing a Phase C Application Architecture:
 
 - **Forward — Phase D**: invoke `technology-architecture` to develop the Technology Architecture that hosts the integration layer.
 - **Forward — Gap Analysis**: invoke `gap-analysis` to produce the Application Architecture gap map for the Architecture Roadmap.
+- **Back — shared contracts**: if data contracts between the integration layer and consumers need alignment, return to `data-architecture` to resolve schema ownership and master data topology first.
+- **Validate — Chief architect review**: invoke `architecture-review` before Architecture Board submission for an opinionated critique of the integration design.
+- **Validate — Risk assessment**: invoke `risk-radar` to surface reliability, security, and integration coupling risks before the design is locked.
 - **Validate — Principles alignment**: invoke `principles-check` to verify the integration design respects Application Architecture Principles (API-first, event-driven, consumer-driven contract).
-- **Validate — Artifact completeness**: invoke `artifact-completeness` to check the Phase C Application ADD section — Application Portfolio Catalog, Interface Catalog, Application Interaction Diagram all required.
+- **Validate — Artifact completeness**: invoke `artifact-completeness` to check the Phase C Application ADD section — Application Portfolio Catalog, Interface Catalog, Application Interaction Diagram all required. See `references/togaf-content-framework.md` for the full Phase C Application artefact inventory.
 - **Document integration decisions**: invoke `adr-generator` for decisions on integration pattern (sync REST vs async event vs ESB), API gateway selection, or consumer-driven contract testing approach.
 - **Validate compliance**: invoke `compliance-review` if the integration layer handles regulated data flows or crosses security trust boundaries requiring Architecture Board sign-off.

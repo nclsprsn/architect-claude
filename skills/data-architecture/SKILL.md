@@ -59,7 +59,7 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 
 ### TOGAF Phase C — Data Architecture Artifacts
 
-TOGAF Phase C Data Architecture canonical artefacts include the following (selection from the TOGAF Architecture Content reference). Generate those relevant to scope — do not generate all for every engagement.
+TOGAF Phase C Data Architecture canonical artefacts include the following (selection from the TOGAF Architecture Content reference — see `references/togaf-content-framework.md` for the authoritative per-phase inventory). Generate those relevant to scope — do not generate all for every engagement.
 
 **Catalogs:**
 | Catalog | When to include | Purpose |

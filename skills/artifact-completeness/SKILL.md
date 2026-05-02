@@ -102,7 +102,9 @@ Diagrams render views for specific stakeholder concerns.
 
 ### Reference: Required Components by Artifact Type and Phase
 
-**Architecture Definition Document (ADD):**
+See `references/togaf-content-framework.md` for the canonical artefact inventory per phase (Catalogs, Matrices, Diagrams). Use that file as the authoritative source — do not assert hard counts inline.
+
+**Architecture Definition Document (ADD) — minimum required components per phase:**
 - Phase B (Business): Organization/Actor Catalog, Driver/Goal/Objective Catalog, Role Catalog, Business Service/Function Catalog, Business Footprint Diagram, Functional Decomposition Diagram, Business Interaction Matrix, Business Use-Case Diagram
 - Phase C (Data): Data Entity/Data Component Catalog, Data Entity/Business Function Matrix, System/Data Matrix, Conceptual Data Diagram, Logical Data Diagram, Data Dissemination Diagram, Data Security Diagram, Data Migration Diagram, Data Lifecycle Diagram
 - Phase C (Application): Application Portfolio Catalog, Interface Catalog, Application/Organization Matrix, Application/Function Matrix, Application Interaction Diagram, Application Communication Diagram

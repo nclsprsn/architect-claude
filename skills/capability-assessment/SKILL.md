@@ -128,7 +128,7 @@ Read the full capability map or Phase B document before judging. Identify:
 ### Step 2 — Capability Completeness Audit
 
 > [!info] Practitioner overlay — not TOGAF-native (maturity scoring)
-> The 0–4 maturity scale used in this skill is a CMMI-derived practitioner convention (CMMI Institute). TOGAF does not prescribe a capability maturity scoring model — use this scale as an overlay to TOGAF Phase B; cite CMMI if the output is used in a formal assessment.
+> The 0–4 maturity scale used in this skill is a CMMI-derived practitioner convention (CMMI Institute). TOGAF does not prescribe a capability maturity scoring model — use this scale as an overlay to TOGAF Phase B; cite CMMI if the output is used in a formal assessment. See `references/scoring-conventions.md` for the canonical scale definition and RAG thresholds (🔴 0–1 · 🟡 2 · 🟢 3–4).
 
 > [!info] Practitioner overlay — not TOGAF-native (ownership model)
 > The PROVIDED / INTEGRATED / GOVERNED ownership model is a practitioner shorthand used to classify how capabilities are delivered. It is not defined by the TOGAF standard — TOGAF addresses ownership through the Organization/Actor Catalog and Actor/Role Matrix.

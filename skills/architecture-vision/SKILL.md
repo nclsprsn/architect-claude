@@ -95,7 +95,7 @@ A single consolidated document describing the Target Architecture at a strategic
 
 ### 5. Initial Capability Assessment (if baseline exists)
 
-A high-level maturity score per capability domain (Business, Data, Application, Technology) on the 0–4 scale (0 = Not Defined → 4 = Optimised — consistent with `capability-assessment` and `gap-analysis`), with one-line rationale per score. This is input to Phase B — it does not need to be exhaustive at this stage.
+A high-level maturity score per capability domain (Business, Data, Application, Technology) on the 0–4 scale defined in `references/scoring-conventions.md` (0 = Not Defined → 4 = Optimised — consistent with `capability-assessment` and `gap-analysis`), with one-line rationale per score. This is input to Phase B — it does not need to be exhaustive at this stage.
 
 ### Diagrams (Mermaid)
 
