@@ -59,45 +59,98 @@ Every output MUST satisfy the four rules below. Skip with explicit `N/A — [rea
 
 The Preliminary Phase produces four canonical deliverables. Generate all four unless the engagement context makes one clearly out of scope.
 
-### 1. Architecture Principles
+### 1. Architecture Principles (TOGAF Table 55)
 
-One table per principle, following the TOGAF template:
+One principle block per principle, following the TOGAF 4-field template verbatim:
 
-| Field | Content |
-|-------|---------|
-| **Name** | Short, imperative label (e.g., "Maximise Reuse Before Build") |
-| **Statement** | One sentence defining the principle |
-| **Rationale** | Why this principle exists — business or regulatory driver |
-| **Implications** | What this principle requires or prohibits in downstream decisions |
+| Field | Content | Weak example (avoid) | Strong example |
+|-------|---------|----------------------|---------------|
+| **Name** | Short, imperative label — verb + noun (e.g., "Maximise Reuse Before Build") | "Technology Standards" | "Adopt Commodity Before Building Custom" |
+| **Statement** | One sentence defining the principle — testable and unambiguous | "We use standard technology where possible." | "All capabilities available as a managed cloud service must be adopted rather than built, unless a documented compliance or security constraint prohibits it." |
+| **Rationale** | Why this principle exists — cite the business driver, regulatory requirement, or lessons-learned case that mandates it | "Custom builds are expensive." | "Custom-built commodity capabilities have historically cost 4–6× the cost of equivalent managed services over a 3-year horizon (reference: vendor TCO analysis, 2024). Regulatory mandates do not require on-premises hosting for this regulatory regime." |
+| **Implications** | What this principle *requires* and what it *prohibits* in downstream decisions — both positive and negative implications | "Teams must use approved tools." | "**Requires:** Phase D must evaluate managed cloud services before custom build options. ADRs must document the evaluation. **Prohibits:** Custom infrastructure builds for capabilities with ≥ 2 mature cloud equivalents. **Affects:** Phase D tool selection, Phase E opportunity identification, Phase G compliance assessment of build decisions." |
 
-Minimum: one principle per domain — Business, Data, Application, Technology. Typically 4–8 principles total; more than 12 is a smell (scope creep or lack of prioritisation).
+Minimum: one principle per domain — Business, Data, Application, Technology. Typically 4–8 principles total; more than 12 is a smell (scope creep or unprioritised wish list).
 
-Quality check (TOGAF Architecture Principle criteria): each principle must be **Complete** (no gaps), **Robust** (handles edge cases), **Understandable** (no jargon), **Consistent** (no contradiction with other principles), **Stable** (resistant to trivial change).
+**Quality check against TOGAF 5 criteria (Table 56):**
+
+| Criterion | Failing signal | Passing signal |
+|-----------|---------------|---------------|
+| **Completeness** | The principle has carve-outs that aren't stated; architects will face situations it doesn't address | Addresses all foreseeable situations; exceptions are explicitly documented |
+| **Robustness** | The principle collapses under an M&A scenario, a cloud-first mandate, or a security incident | Holds under stress; the Rationale and Implications cover edge cases |
+| **Understandability** | A delivery team lead who is not an architect would apply it differently than the Lead Architect intends | A business stakeholder can read it and understand what it allows and prohibits |
+| **Consistency** | The principle contradicts another principle when applied to the same design decision | Zero conflicts across all four domains under any foreseeable design scenario |
+| **Stability** | The principle will require revision as soon as the technology landscape shifts | The principle is framed in terms of intent (what and why), not mechanism (how) — durable across technology generations |
+
+Use `principles-check` Mode 2 for a full 1–5 quality score per criterion before principles are adopted as the governance baseline.
 
 ### 2. Tailored Architecture Framework
 
-A short (half-page) statement covering:
-- Which ADM phases are in scope for this engagement
-- Any phase tailoring (e.g., "Phase C will be split: Data first, then Application")
-- Deliverable adaptations (e.g., "Architecture Definition Document will be simplified to a two-page decision brief for this programme")
-- Tools and notations to be used (ArchiMate, UML, PlantUML, Mermaid)
+A structured table of tailoring decisions per ADM phase. Each decision must be explicit — "no tailoring" is a valid and deliberate answer.
 
-### 3. Organizational Model for EA
+| ADM phase | In scope? | Tailoring decision | Rationale | Owner | Confidence |
+|-----------|-----------|-------------------|-----------|-------|------------|
+| Preliminary | Yes | Full delivery — all four artefacts (Principles, TAF, Org Model, RfAW) | Mandatory for all new engagements | EA Practice Lead | `[proven]` |
+| A — Architecture Vision | Yes | Simplified SoAW (one-page brief) for sub-6-month engagements | Right-size to programme scope | Lead Architect | `[informed estimate]` |
+| B — Business Architecture | Yes / Partial / No | [tailoring decision or "Standard delivery"] | [rationale] | [role] | `[proven]` / `[informed estimate]` |
+| C — Information Systems | Yes / Partial / No | [e.g., "Data only — no Application Architecture for this cycle"] | [rationale] | [role] | `[proven]` / `[informed estimate]` |
+| D — Technology Architecture | Yes / Partial / No | [tailoring decision] | [rationale] | [role] | `[proven]` / `[informed estimate]` |
+| E — Opportunities & Solutions | Yes / Partial / No | [tailoring decision] | [rationale] | [role] | `[proven]` / `[informed estimate]` |
+| F — Migration Planning | Yes / Partial / No | [tailoring decision] | [rationale] | [role] | `[proven]` / `[informed estimate]` |
+| G — Implementation Governance | Yes / Partial / No | [e.g., "Monthly Architecture Contract review cadence"] | [rationale] | [role] | `[proven]` / `[informed estimate]` |
+| H — Change Management | Yes / Partial / No | [tailoring decision] | [rationale] | [role] | `[proven]` / `[informed estimate]` |
+| Requirements Management | Continuous | [tailoring decision] | [rationale] | [role] | `[proven]` / `[informed estimate]` |
+| **Notations and tools** | | [ArchiMate / UML / Mermaid / PlantUML — which tools are approved] | [rationale for tool selection] | [role] | |
+| **Deliverable adaptations** | | [e.g., "ADD simplified to two-page decision brief"] | [rationale] | [role] | |
 
-A brief description of:
-- The Architecture Governance structure (Architecture Board, review forum, dispensation process)
-- Roles and responsibilities (Architecture Sponsor, Lead Architect, Domain Architects, Solution Architects)
-- How architecture decisions are made, escalated, and enforced
-- Integration with existing governance bodies (IT Governance, Programme Board, Risk Committee)
+### 3. Organisational Model for EA
+
+#### RACI Matrix
+
+| Activity | Architecture Sponsor | EA Practice Lead / Lead Architect | Domain Architect | Programme Manager | Architecture Board |
+|----------|---------------------|----------------------------------|-----------------|-------------------|-------------------|
+| Architecture Principles approval | **A** | **R** | C | I | **A** |
+| Architecture Vision sign-off | **A** | **R** | C | I | C |
+| Phase-gate architecture review | I | **R** | C | C | **A** |
+| Dispensation approval (Minor) | I | **A/R** | C | I | I |
+| Dispensation approval (Significant) | C | R | C | C | **A** |
+| Dispensation approval (Critical) | **A** | R | C | C | C |
+| Architecture Contract sign-off | **A** | R | C | **A** | I |
+| Architecture Board agenda | I | R | C | I | **A** |
+
+R = Responsible · A = Accountable · C = Consulted · I = Informed
+
+#### Dispensation Workflow
+
+```
+Deviation identified (delivery team or Phase G review)
+    ↓
+Lead Architect self-assessment → Minor and reversible?
+    YES → Lead Architect approves; logs in Dispensation Register; notifies Architecture Board
+    NO ↓
+Architecture Board review → Significant or one-way door?
+    YES → Architecture Board votes; Architecture Sponsor notified; logged with expiry trigger
+    NO (Critical or regulatory scope) ↓
+Executive Sponsor decision → Architecture Board recommendation presented; formal decision recorded
+```
+
+Integration with existing governance: the Architecture Board reports to [Programme Board / IT Governance / Risk Committee — specify]; architecture dispensations with regulatory implications are automatically routed to the Risk Committee within [N] business days.
 
 ### 4. Request for Architecture Work
 
-A structured mandate document:
-- Organisation sponsoring the work and its business motivation
-- Business and technical scope
-- Constraints (budget, timeline, regulatory)
-- Acceptance criteria for the architecture deliverables
-- Named Architecture Sponsor
+The formal mandate document that authorises the architecture engagement. Without a signed RfAW, the architecture team has no governance standing.
+
+| Clause | Content |
+|--------|---------|
+| **Title and reference** | RfAW identifier; date; version |
+| **Requesting organisation** | Name of the business unit or programme requesting architecture work; sponsoring executive |
+| **Business motivation** | Why this architecture work is needed — business driver, regulatory mandate, or strategic initiative; link to corporate strategy or OKR |
+| **Business and technical scope** | Systems, domains, and capabilities in scope; explicit out-of-scope statement; geographic and organisational boundaries |
+| **Constraints** | Hard budget ceiling; regulatory mandates; approved technology platform; timeline constraints; existing contractual commitments that limit options |
+| **Deliverables required** | Which Phase A–H artefacts are mandated; any deliverable simplifications agreed at Preliminary |
+| **Acceptance criteria** | Measurable, testable conditions for architecture work acceptance — e.g., "Architecture Vision signed by Architecture Sponsor", "Architecture Board review completed for Phases B and D", "All Critical compliance findings resolved before go-live" |
+| **Risks and assumptions** | Key risks to delivery of the architecture work; assumptions that, if wrong, invalidate the scope |
+| **Approvals** | Architecture Sponsor — signature and date; EA Practice Lead — signature and date; note: unsigned RfAW has no governance standing |
 
 ### Diagrams (Mermaid)
 
