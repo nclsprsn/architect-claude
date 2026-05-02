@@ -60,17 +60,21 @@ Every output MUST satisfy the four rules below. Skip with explicit `N/A — [rea
 
 Phase A produces four canonical deliverables plus an optional capability assessment. Generate each unless context makes it clearly out of scope.
 
-### 1. Statement of Architecture Work
+### 1. Statement of Architecture Work (TOGAF §7.6)
 
-The formal contract between the architecture team and the Architecture Sponsor. Must include:
-- Programme/project name and sponsoring organisation
-- Business context and motivation
-- Scope of the architecture work (in scope and explicitly out of scope)
-- Target architecture objectives (3–5, measurable)
-- Constraints (budget, timeline, technology, regulatory)
-- Architecture team roles and responsibilities
-- Acceptance criteria for Phase A completion
-- Sign-off fields: Architecture Sponsor + Lead Architect
+The formal mandate between the architecture team and the Architecture Sponsor. Without a signed SoAW, the architecture work has no agreed scope and no mechanism to resist scope change. Produce as a structured document — not a bulleted list.
+
+| Clause | Content |
+|--------|---------|
+| **Title** | Project or programme name; architecture cycle identifier; version; date |
+| **Project request / terms of reference** | Business context and motivation — *why* this architecture work is needed; link to business strategy, regulatory driver, or incident that triggered the request; reference to the originating Request for Architecture Work if one exists |
+| **Scope** | Explicitly what is in scope (systems, domains, geographies, organisational units); explicitly what is out of scope — name at least one item that stakeholders may assume is included but is not; constraints (budget ceiling, technology platform, approved vendor list, regulatory boundary); horizon targeted (H1 / H2 / H3) |
+| **Overview of the Architecture Vision** | One-paragraph summary of the target state — the outcome the architecture will deliver for the business; measurable success criteria (3–5 indicators) |
+| **Change-of-scope procedures** | Named trigger events that mandate a formal SoAW revision (scope expansion > [threshold], regulatory change, key stakeholder change, budget revision > [%]); who initiates the revision (Lead Architect); who approves it (Architecture Sponsor); process for communicating scope changes to affected stakeholders |
+| **Roles, responsibilities, and deliverables** | Architecture team composition: Lead Architect, Domain Architects, supporting roles; deliverables per ADM phase with owner assignment; estimated effort per deliverable |
+| **Acceptance criteria** | Measurable, testable conditions that define Phase A completion: "Architecture Vision document signed by Architecture Sponsor", "Stakeholder Map reviewed by all named stakeholders", "Initial Capability Assessment completed for all four domains"; these conditions gate Phase B, not a calendar date |
+| **Plan and schedule** | Key milestones aligned to ADM phases; review gates; Architecture Board submission dates — all expressed as delivery events, not calendar dates where possible |
+| **Approvals** | Architecture Sponsor — signature and date; Lead Architect — signature and date; note: unsigned SoAW has no governance standing |
 
 ### 2. Architecture Vision
 
@@ -83,19 +87,36 @@ A single consolidated document describing the Target Architecture at a strategic
 
 ### 3. Stakeholder Map (Power/Interest matrix)
 
-| Stakeholder | Role | Interest | Power/Influence | Engagement strategy |
-|-------------|------|----------|-----------------|---------------------|
-| [name/role] | [description] | High/Medium/Low | High/Medium/Low | Manage closely / Keep informed / Keep satisfied / Monitor |
+| Stakeholder | Role | Interest | Power/Influence | Engagement strategy | Confidence | Reversibility |
+|-------------|------|----------|-----------------|---------------------|------------|---------------|
+| [name/role] | [description] | High/Medium/Low | High/Medium/Low | Manage closely / Keep informed / Keep satisfied / Monitor | `[proven]` / `[informed estimate]` / `[working hypothesis]` | one-way / two-way |
+
+> [!tip]
+> **Business Scenarios technique** — for stakeholders whose needs are unclear or contested, use the TOGAF Business Scenarios technique: identify the business problem, the business and technology environment, the actors and roles involved, and the desired outcome. Business Scenarios convert vague stakeholder sentiment into specific, testable requirements that can anchor the Architecture Vision. Document the scenario, the relevant actors, and the desired outcome — these become the inputs to Phase B.
 
 ### 4. Communications Plan
 
-| Audience group | Key messages | Communication mechanism | Frequency | Owner |
-|---------------|-------------|------------------------|-----------|-------|
-| [group] | [what they need to know] | [meeting, email, portal, review] | [weekly/monthly/milestone] | [role] |
+| Audience group | Key messages | Communication mechanism | Frequency | Owner | Confidence |
+|---------------|-------------|------------------------|-----------|-------|------------|
+| [group] | [what they need to know] | [meeting, email, portal, review] | [milestone-triggered or event-based] | [role] | `[proven]` / `[informed estimate]` / `[working hypothesis]` |
 
 ### 5. Initial Capability Assessment (if baseline exists)
 
 A high-level maturity score per capability domain (Business, Data, Application, Technology) on the 0–4 scale defined in `references/scoring-conventions.md` (0 = Not Defined → 4 = Optimised — consistent with `capability-assessment` and `gap-analysis`), with one-line rationale per score. This is input to Phase B — it does not need to be exhaustive at this stage.
+
+### 6. MVA Tailoring (digital-native or small-team engagements)
+
+For digital-native organisations or teams where a full ADM cycle would be disproportionate to the engagement size, apply the **Minimum Viable Architecture (MVA)** approach:
+
+| MVA decision | Tailoring |
+|-------------|-----------|
+| **Statement of Architecture Work** | Produce as a one-page brief rather than a full document; retain Scope, Acceptance Criteria, and Approvals clauses — these are non-negotiable even in a lightweight engagement |
+| **Architecture Vision** | Produce the Vision Overview and success metrics only; defer Stakeholder Map to a lightweight Power/Interest list; defer Communications Plan to a single recurring review cadence |
+| **ADM phases** | Phase A only produces the SoAW and Vision; Phases B–D may run concurrently rather than sequentially for small-scope initiatives; Phase E/F may be replaced by a single Roadmap artefact |
+| **Architecture Board** | For small-team or startup contexts, the Architecture Board role may be fulfilled by a single senior stakeholder (Architecture Sponsor) with documented review decisions |
+
+> [!info]
+> MVA is appropriate when: the team is fewer than 10 people, the scope is a single bounded domain, or the delivery horizon is less than 6 months. For enduring enterprise architectures spanning multiple domains and organisational units, the full SoAW template is mandatory — lightweight governance applied to large-scope programmes produces drift, not speed.
 
 ### Diagrams (Mermaid)
 
