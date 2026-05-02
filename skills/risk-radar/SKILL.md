@@ -89,7 +89,7 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 | `> [!info]` | Reference to ISO 31000 category, FAIR quantification result, or external benchmark |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-risk-radar.md` for a fully instantiated programme RAID log — risk heat map, 8+ risks, assumptions, issues, dependencies, top mitigations, and one systemic risk named, anchored to the ACME Corp onboarding engagement at Phase E/F.
+> **Worked example:** see `references/examples/61.03-risk-radar.md` for a fully instantiated programme RAID log — risk heat map, 8+ risks, assumptions, issues, dependencies, top mitigations, and one systemic risk named, anchored to the ACME Corp onboarding engagement at Phase E/F.
 
 ---
 

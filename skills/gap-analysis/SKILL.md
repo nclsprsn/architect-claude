@@ -131,7 +131,7 @@ Generate the artifacts appropriate to the scope and decision type. Include only 
 | `> [!abstract]` | Executive summary of the gap landscape for non-technical readers |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-gap-analysis.md` for a fully instantiated Phase E gap analysis — 7 domains, 15 gaps with maturity scoring, dependency DAG, TOGAF Gap Analysis Matrix, swimlane convergence diagram, and critical path, anchored to the ACME Corp onboarding engagement.
+> **Worked example:** see `references/examples/51.01-gap-analysis.md` for a fully instantiated Phase E gap analysis — 7 domains, 15 gaps with maturity scoring, dependency DAG, TOGAF Gap Analysis Matrix, swimlane convergence diagram, and critical path, anchored to the ACME Corp onboarding engagement.
 
 ## Analysis Process
 

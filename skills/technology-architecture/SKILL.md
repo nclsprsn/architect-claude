@@ -103,7 +103,7 @@ Generate the artifacts appropriate to the infrastructure context. Include only w
 | `> [!abstract]` | Executive summary — infrastructure health verdict for non-technical stakeholders |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-technology-architecture.md` for a fully instantiated Phase D Technology Architecture — 12 components, Platform Decomposition Diagram, 6 anti-patterns, cost model, and Phase C→D traceability, anchored to the ACME Corp onboarding engagement.
+> **Worked example:** see `references/examples/24.01-technology-architecture.md` for a fully instantiated Phase D Technology Architecture — 12 components, Platform Decomposition Diagram, 6 anti-patterns, cost model, and Phase C→D traceability, anchored to the ACME Corp onboarding engagement.
 
 ---
 

@@ -148,7 +148,7 @@ Generate the artifacts appropriate to the decision type. This is the primary mec
 10. **Write the ADR.**
 
 > [!tip]
-> **Worked example:** see `references/examples/example-adr.md` for a fully instantiated MADR ADR — "Adopt Managed Identity Verification SaaS Over Self-Built KYC Service" — including DACI stakeholders, weighted decision matrix (4 options × 7 criteria), force field analysis, QA scenarios, commoditisation check, and second-order effect, anchored to the ACME Corp Customer Onboarding engagement.
+> **Worked example:** see `references/examples/31.02-architecture-decision-record.md` for a fully instantiated MADR ADR — "Adopt Managed Identity Verification SaaS Over Self-Built KYC Service" — including DACI stakeholders, weighted decision matrix (4 options × 7 criteria), force field analysis, QA scenarios, commoditisation check, and second-order effect, anchored to the ACME Corp Customer Onboarding engagement.
 
 ## Output Format
 

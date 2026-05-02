@@ -112,6 +112,9 @@ Does this meet the bar for a client deliverable? *If the shell were filled in by
 | Technology Architecture | `skills/new-arch-doc/phase-d.md` | Infrastructure topology, environments, lock-in register, DR/HA |
 | Framework-agnostic | `skills/new-arch-doc/framework-agnostic.md` | Non-TOGAF architecture proposal |
 
+> [!tip]
+> **Worked example:** see `references/examples/82.01-new-architecture-document.md` for a fully instantiated Phase D Technology Architecture scaffold — all required sections with guiding questions, discipline marker reminders, and skill pointers, anchored to the ACME Corp onboarding engagement.
+
 ## Next Step
 
 After scaffolding a new architecture document:

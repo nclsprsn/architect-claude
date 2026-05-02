@@ -1,6 +1,6 @@
 # Worked TOGAF Artefact Examples
 
-Concrete, populated TOGAF artefacts you can adapt for your own engagement. Every file is anchored to the same fictional **ACME Corp Customer Onboarding modernisation** engagement so the dependencies between artefacts are visible — the same capability names, metric values, and role names appear consistently across all twenty-two files.
+Concrete, populated TOGAF artefacts you can adapt for your own engagement. Every file is anchored to the same fictional **ACME Corp Customer Onboarding modernisation** engagement so the dependencies between artefacts are visible — the same capability names, metric values, and role names appear consistently across all twenty-four files.
 
 ---
 
@@ -33,28 +33,30 @@ This chain is intentional — follow it across files to see how TOGAF artefacts 
 
 | # | File | TOGAF artefact | Template source | Producing skill |
 |---|------|----------------|-----------------|----------------|
-| 1 | [example-architecture-principles.md](example-architecture-principles.md) | Architecture Principles (6 principles) | Pocket Guide Table 55 — 4-field template | `preliminary` |
-| 2 | [example-request-for-architecture-work.md](example-request-for-architecture-work.md) | Request for Architecture Work | Pocket Guide §7.20 | `preliminary` |
-| 3 | [example-statement-of-architecture-work.md](example-statement-of-architecture-work.md) | Statement of Architecture Work | Pocket Guide §7.6 | `architecture-vision` |
-| 4 | [example-business-capabilities-catalog.md](example-business-capabilities-catalog.md) | Business Capabilities Catalog | Phase B canonical catalogue | `capability-assessment` |
-| 5 | [example-architecture-requirements-specification.md](example-architecture-requirements-specification.md) | Architecture Requirements Specification | Pocket Guide §7.11 | `requirements-management` |
-| 6 | [example-architecture-contract.md](example-architecture-contract.md) | Architecture Contract (Design & Development) | Pocket Guide §7.18 | `implementation-governance` |
-| 7 | [example-compliance-assessment.md](example-compliance-assessment.md) | Compliance Assessment — 8-category scorecard | TOGAF 10 eight categories | `compliance-review` |
-| 8 | [example-adr.md](example-adr.md) | Architecture Decision Record (MADR) | MADR template | `adr-generator` |
-| 9 | [example-trade-off-analysis.md](example-trade-off-analysis.md) | Trade-off Analysis — orchestration pattern, weighted matrix, TCO | Trade-off Analysis TOGAF mode | `trade-off-analysis` |
-| 10 | [example-data-architecture.md](example-data-architecture.md) | Phase C Data Architecture — 5 domains, DAMA-DMBOK, GDPR, data contracts | Phase C — Data | `data-architecture` |
-| 11 | [example-integration-architecture.md](example-integration-architecture.md) | Phase C Application Architecture — 7 integration points, 5 EIP anti-patterns, SLO table | Phase C — Application | `integration-architecture` |
-| 12 | [example-technology-architecture.md](example-technology-architecture.md) | Phase D Technology Architecture — 12 components, Platform Decomposition Diagram, 6 anti-patterns, cost model, Phase C→D traceability | Phase D — Technology | `technology-architecture` |
-| 13 | [example-change-management.md](example-change-management.md) | Phase H Change Management — CR-2025-008 (Partner API Platform), Major classification, Requirements Impact Assessment, Architecture Repository Update Log | Phase H — Change Management | `change-management` |
-| 14 | [example-gap-analysis.md](example-gap-analysis.md) | Phase E Gap Analysis — 7 domains, 15 gaps, dependency DAG, TOGAF Gap Analysis Matrix, swimlane convergence diagram, critical path | Phase E — Opportunities | `gap-analysis` |
-| 15 | [example-migration-plan.md](example-migration-plan.md) | Phase F Migration Plan — strangler-fig pattern, 6Rs (7 workloads), 3 Transition Architectures, per-wave go/no-go gates, rollback playbooks | Phase F — Migration Planning | `migration-plan` |
-| 16 | [example-architecture-review.md](example-architecture-review.md) | Chief Architect Critique — Phase D Technology Architecture, unstated assumptions surfaced, disruptive alternative, 12-item fix list | Validate gate 2 | `architecture-review` |
-| 17 | [example-risk-radar.md](example-risk-radar.md) | Programme RAID Log — 10 risks with heat map, bow-tie analysis, risk interconnection map, top mitigations, systemic risk named | Validate gate 2 (parallel) | `risk-radar` |
-| 18 | [example-principles-check.md](example-principles-check.md) | Architecture Principles Check — 6 principles validated against Phase D Technology Architecture, per-principle conformance verdicts | Validate gate 1 | `principles-check` |
-| 19 | [example-artifact-completeness.md](example-artifact-completeness.md) | Artifact Completeness Check — Phase C Application Architecture scored against all required Catalogs, Matrices, and Diagrams | Validate gate 3 | `artifact-completeness` |
-| 20 | [example-data-pipeline-review.md](example-data-pipeline-review.md) | Data Pipeline Review — document processing pipeline (S3→SQS→Lambda→Document AI→KYC), idempotency defects, lineage gaps, GDPR finding | Phase C — Data | `data-pipeline-review` |
-| 21 | [example-executive-summary.md](example-executive-summary.md) | Executive Summary — 15-gap technical analysis rewritten for CCO using Pyramid Principle, Before/After pair, numbered anchored claims | Communicate | `executive-summary` |
-| 22 | [example-stakeholder-communication.md](example-stakeholder-communication.md) | CISO Briefing — security findings tailored for CISO role, owner split, Before/After transformation pair | Communicate | `stakeholder-communication` |
+| 1 | [11.01-architecture-principles.md](11.01-architecture-principles.md) | Architecture Principles (6 principles) | Pocket Guide Table 55 — 4-field template | `preliminary` |
+| 2 | [11.02-request-for-architecture-work.md](11.02-request-for-architecture-work.md) | Request for Architecture Work | Pocket Guide §7.20 | `preliminary` |
+| 3 | [12.01-statement-of-architecture-work.md](12.01-statement-of-architecture-work.md) | Statement of Architecture Work | Pocket Guide §7.6 | `architecture-vision` |
+| 4 | [21.01-business-capabilities-catalog.md](21.01-business-capabilities-catalog.md) | Business Capabilities Catalog | Phase B canonical catalogue | `capability-assessment` |
+| 5 | [13.01-architecture-requirements-specification.md](13.01-architecture-requirements-specification.md) | Architecture Requirements Specification | Pocket Guide §7.11 | `requirements-management` |
+| 6 | [71.01-architecture-contract.md](71.01-architecture-contract.md) | Architecture Contract (Design & Development) | Pocket Guide §7.18 | `implementation-governance` |
+| 7 | [71.02-compliance-assessment.md](71.02-compliance-assessment.md) | Compliance Assessment — 8-category scorecard | TOGAF 10 eight categories | `compliance-review` |
+| 8 | [31.02-architecture-decision-record.md](31.02-architecture-decision-record.md) | Architecture Decision Record (MADR) | MADR template | `adr-generator` |
+| 9 | [31.01-trade-off-analysis.md](31.01-trade-off-analysis.md) | Trade-off Analysis — orchestration pattern, weighted matrix, TCO | Trade-off Analysis TOGAF mode | `trade-off-analysis` |
+| 10 | [22.01-data-architecture.md](22.01-data-architecture.md) | Phase C Data Architecture — 5 domains, DAMA-DMBOK, GDPR, data contracts | Phase C — Data | `data-architecture` |
+| 11 | [23.01-integration-architecture.md](23.01-integration-architecture.md) | Phase C Application Architecture — 7 integration points, 5 EIP anti-patterns, SLO table | Phase C — Application | `integration-architecture` |
+| 12 | [24.01-technology-architecture.md](24.01-technology-architecture.md) | Phase D Technology Architecture — 12 components, Platform Decomposition Diagram, 6 anti-patterns, cost model, Phase C→D traceability | Phase D — Technology | `technology-architecture` |
+| 13 | [71.03-change-management.md](71.03-change-management.md) | Phase H Change Management — CR-2025-008 (Partner API Platform), Major classification, Requirements Impact Assessment, Architecture Repository Update Log | Phase H — Change Management | `change-management` |
+| 14 | [51.01-gap-analysis.md](51.01-gap-analysis.md) | Phase E Gap Analysis — 7 domains, 15 gaps, dependency DAG, TOGAF Gap Analysis Matrix, swimlane convergence diagram, critical path | Phase E — Opportunities | `gap-analysis` |
+| 15 | [52.01-migration-plan.md](52.01-migration-plan.md) | Phase F Migration Plan — strangler-fig pattern, 6Rs (7 workloads), 3 Transition Architectures, per-wave go/no-go gates, rollback playbooks | Phase F — Migration Planning | `migration-plan` |
+| 16 | [61.02-architecture-review.md](61.02-architecture-review.md) | Chief Architect Critique — Phase D Technology Architecture, unstated assumptions surfaced, disruptive alternative, 12-item fix list | Validate gate 2 | `architecture-review` |
+| 17 | [61.03-risk-radar.md](61.03-risk-radar.md) | Programme RAID Log — 10 risks with heat map, bow-tie analysis, risk interconnection map, top mitigations, systemic risk named | Validate gate 2 (parallel) | `risk-radar` |
+| 18 | [61.01-principles-check.md](61.01-principles-check.md) | Architecture Principles Check — 6 principles validated against Phase D Technology Architecture, per-principle conformance verdicts | Validate gate 1 | `principles-check` |
+| 19 | [61.04-artifact-completeness.md](61.04-artifact-completeness.md) | Artifact Completeness Check — Phase C Application Architecture scored against all required Catalogs, Matrices, and Diagrams | Validate gate 3 | `artifact-completeness` |
+| 20 | [22.02-data-pipeline-review.md](22.02-data-pipeline-review.md) | Data Pipeline Review — document processing pipeline (S3→SQS→Lambda→Document AI→KYC), idempotency defects, lineage gaps, GDPR finding | Phase C — Data | `data-pipeline-review` |
+| 21 | [41.01-executive-summary.md](41.01-executive-summary.md) | Executive Summary — 15-gap technical analysis rewritten for CCO using Pyramid Principle, Before/After pair, numbered anchored claims | Communicate | `executive-summary` |
+| 22 | [41.02-stakeholder-communication.md](41.02-stakeholder-communication.md) | CISO Briefing — security findings tailored for CISO role, owner split, Before/After transformation pair | Communicate | `stakeholder-communication` |
+| 23 | [81.01-architect-router.md](81.01-architect-router.md) | Architect Router — two routing interactions (engagement start → Preliminary/Phase A; pre-board validation → 4-gate pipeline) | Route | `architect-router` |
+| 24 | [82.01-new-architecture-document.md](82.01-new-architecture-document.md) | Phase D Technology Architecture scaffold — blank skeleton with all required sections and guiding questions for ACME Corp | Scaffold | `new-arch-doc` |
 
 ---
 

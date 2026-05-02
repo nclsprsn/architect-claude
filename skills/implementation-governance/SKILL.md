@@ -77,7 +77,7 @@ The legally-enforceable governance agreement between the Architecture Team and t
 | **Sign-off** | Architecture Sponsor + Programme Manager + Lead Architect — with date |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-architecture-contract.md` for a fully instantiated Design & Development Architecture Contract with all 10 clauses (Parties, Scope, Architecture Reference, Conformance Requirements, Acceptance Criteria, Reporting Obligations, Dispensation Process, Change Management, Exit Clause, Sign-off), an active Dispensation Log entry, and explicit SLA-to-requirement traceability.
+> **Worked example:** see `references/examples/71.01-architecture-contract.md` for a fully instantiated Design & Development Architecture Contract with all 10 clauses (Parties, Scope, Architecture Reference, Conformance Requirements, Acceptance Criteria, Reporting Obligations, Dispensation Process, Change Management, Exit Clause, Sign-off), an active Dispensation Log entry, and explicit SLA-to-requirement traceability.
 
 ### 2. Project Impact Assessment
 

@@ -84,7 +84,7 @@ Each requirement in the ARS must include:
 - **Review trigger** — the event (not date) that mandates re-assessment
 
 > [!tip]
-> **Worked example:** see `references/examples/example-architecture-requirements-specification.md` for a fully instantiated ARS with all 9 §7.11 sections (Success measures, Architecture requirements, Service contracts, Implementation guidelines, Requirements for development & management, Interoperability, IT-SM, Constraints, Assumptions) anchored to the ACME Corp Customer Onboarding engagement, including 13 testable requirements with Confidence, Reversibility, and review trigger markers.
+> **Worked example:** see `references/examples/13.01-architecture-requirements-specification.md` for a fully instantiated ARS with all 9 §7.11 sections (Success measures, Architecture requirements, Service contracts, Implementation guidelines, Requirements for development & management, Interoperability, IT-SM, Constraints, Assumptions) anchored to the ACME Corp Customer Onboarding engagement, including 13 testable requirements with Confidence, Reversibility, and review trigger markers.
 
 ### 2. Requirements Impact Assessment (TOGAF §7.21)
 

@@ -133,7 +133,7 @@ Assess each readiness factor on a 1–5 scale (1 = critical blocker · 3 = manag
 > Any single readiness factor scoring **1** (critical blocker) is a programme-stopping risk regardless of the overall average. Do not proceed to Phase B without a named mitigation plan and Architecture Sponsor acknowledgement.
 
 > [!tip]
-> **Worked example:** see `references/examples/example-business-capabilities-catalog.md` for a fully instantiated Business Capabilities Catalog with 20 capabilities (maturity 0–4, owner, To-Be target, priority) anchored to the ACME Corp Customer Onboarding engagement, including a Capability Priority Matrix and Capability-to-Principle traceability table. Maturity scores use the scale defined in `references/scoring-conventions.md`.
+> **Worked example:** see `references/examples/21.01-business-capabilities-catalog.md` for a fully instantiated Business Capabilities Catalog with 20 capabilities (maturity 0–4, owner, To-Be target, priority) anchored to the ACME Corp Customer Onboarding engagement, including a Capability Priority Matrix and Capability-to-Principle traceability table. Maturity scores use the scale defined in `references/scoring-conventions.md`.
 
 ---
 

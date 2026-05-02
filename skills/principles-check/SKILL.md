@@ -168,7 +168,7 @@ Run this before using any existing principles set as a compliance baseline. A pr
 | `> [!tip]` | Design exceeds principle requirements — positive evidence for the Architecture Repository |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-principles-check.md` for a fully instantiated principles validation — 6 Architecture Principles assessed against the Phase D Technology Architecture, with per-principle conformance verdicts, specific evidence, and remediation actions, anchored to the ACME Corp onboarding engagement.
+> **Worked example:** see `references/examples/61.01-principles-check.md` for a fully instantiated principles validation — 6 Architecture Principles assessed against the Phase D Technology Architecture, with per-principle conformance verdicts, specific evidence, and remediation actions, anchored to the ACME Corp onboarding engagement.
 
 ## Boundary
 

@@ -147,7 +147,7 @@ See `references/togaf-content-framework.md` for the canonical artefact inventory
 | `> [!tip]` | Section that exceeds the minimum template requirement — good practice to replicate |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-artifact-completeness.md` for a fully instantiated TOGAF artifact completeness check — Phase C Application Architecture scored against all required Catalogs, Matrices, and Diagrams, with a per-artefact Present/Partial/Missing assessment and Architecture Board submission verdict, anchored to the ACME Corp onboarding engagement.
+> **Worked example:** see `references/examples/61.04-artifact-completeness.md` for a fully instantiated TOGAF artifact completeness check — Phase C Application Architecture scored against all required Catalogs, Matrices, and Diagrams, with a per-artefact Present/Partial/Missing assessment and Architecture Board submission verdict, anchored to the ACME Corp onboarding engagement.
 
 ## Boundary
 

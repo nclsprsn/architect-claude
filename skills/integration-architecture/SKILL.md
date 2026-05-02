@@ -127,7 +127,7 @@ TOGAF Phase C Application Architecture canonical artefacts include the following
 | `> [!abstract]` | Executive summary — integration health verdict for non-technical stakeholders |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-integration-architecture.md` for a fully instantiated Phase C Application Architecture review — seven integration points catalogued, all 14 EIP anti-patterns checked (5 found), API maturity scored per Richardson, SLO table with gaps, a sequence diagram showing the KYC timeout mismatch failure scenario, and a prioritised fix list, anchored to the ACME Corp Customer Onboarding engagement.
+> **Worked example:** see `references/examples/23.01-integration-architecture.md` for a fully instantiated Phase C Application Architecture review — seven integration points catalogued, all 14 EIP anti-patterns checked (5 found), API maturity scored per Richardson, SLO table with gaps, a sequence diagram showing the KYC timeout mismatch failure scenario, and a prioritised fix list, anchored to the ACME Corp Customer Onboarding engagement.
 
 ## EIP Anti-Pattern Checklist
 

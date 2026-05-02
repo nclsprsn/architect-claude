@@ -141,7 +141,7 @@ Produce either variant depending on the engagement stage:
 One line on the societal, environmental, regulatory, or customers-of-customers implication of the compliance posture.
 
 > [!tip]
-> **Worked example:** see `references/examples/example-compliance-assessment.md` for a fully instantiated Compliance Assessment across all 8 TOGAF categories, using the 6-level conformance scale, with 2 Significant findings, 2 dispensation requests, and an Architecture Board recommendation (Approve with Conditions) — all anchored to the ACME Corp Identity Verification workstream.
+> **Worked example:** see `references/examples/71.02-compliance-assessment.md` for a fully instantiated Compliance Assessment across all 8 TOGAF categories, using the 6-level conformance scale, with 2 Significant findings, 2 dispensation requests, and an Architecture Board recommendation (Approve with Conditions) — all anchored to the ACME Corp Identity Verification workstream.
 
 ### Diagrams (Mermaid)
 

@@ -205,32 +205,34 @@ flowchart TD
 
 ## Worked Examples
 
-The `references/examples/` directory contains twenty-two fully instantiated TOGAF artefacts anchored to a single coherent engagement — ACME Corp Customer Onboarding modernisation — so you can see how artefacts accumulate across phases rather than reading disconnected templates. Each example is produced by a specific skill and follows its template exactly.
+The `references/examples/` directory contains twenty-four fully instantiated TOGAF artefacts anchored to a single coherent engagement — ACME Corp Customer Onboarding modernisation — so you can see how artefacts accumulate across phases rather than reading disconnected templates. Each example is produced by a specific skill and follows its template exactly.
 
 | File | Artefact | Phase | Skill |
 |------|----------|-------|-------|
-| `references/examples/example-architecture-principles.md` | 6 Architecture Principles — 4-field template | Preliminary | `/preliminary` |
-| `references/examples/example-request-for-architecture-work.md` | Request for Architecture Work | Preliminary | `/preliminary` |
-| `references/examples/example-statement-of-architecture-work.md` | Statement of Architecture Work (§7.6, 9 clauses) | A | `/architecture-vision` |
-| `references/examples/example-business-capabilities-catalog.md` | Business Capabilities Catalog — 20 capabilities, maturity 0–4 | B | `/capability-assessment` |
-| `references/examples/example-architecture-requirements-specification.md` | Architecture Requirements Specification (§7.11, 9 sections) | B | `/requirements-management` |
-| `references/examples/example-architecture-contract.md` | Architecture Contract — Design & Development (§7.18) | G | `/implementation-governance` |
-| `references/examples/example-compliance-assessment.md` | Compliance Assessment — all 8 TOGAF categories | G | `/compliance-review` |
-| `references/examples/example-adr.md` | Architecture Decision Record — MADR with weighted decision matrix | E | `/adr-generator` |
-| `references/examples/example-trade-off-analysis.md` | Trade-off Analysis — orchestration pattern, 3 options, TCO comparison | B→C | `/trade-off-analysis` |
-| `references/examples/example-data-architecture.md` | Phase C Data Architecture — 5 domains, DAMA-DMBOK, GDPR, data contracts | C | `/data-architecture` |
-| `references/examples/example-integration-architecture.md` | Phase C Application Architecture — 7 integration points, 5 EIP anti-patterns, SLO table | C | `/integration-architecture` |
-| `references/examples/example-technology-architecture.md` | Phase D Technology Architecture — 12 components, 6 anti-patterns, cost model, Phase C→D traceability | D | `/technology-architecture` |
-| `references/examples/example-change-management.md` | Phase H Change Management — Partner API Platform CR, Major classification, RIA, Repo Update Log | H | `/change-management` |
-| `references/examples/example-gap-analysis.md` | Phase E Gap Analysis — 7 domains, 15 gaps, dependency DAG, TOGAF Gap Analysis Matrix, critical path | E | `/gap-analysis` |
-| `references/examples/example-migration-plan.md` | Phase F Migration Plan — strangler-fig, 6Rs (7 workloads), 3 Transition Architectures, rollback playbooks | F | `/migration-plan` |
-| `references/examples/example-architecture-review.md` | Chief Architect Critique — Phase D Technology Architecture, unstated assumptions, disruptive alternative, 12-item fix list | Validate | `/architecture-review` |
-| `references/examples/example-risk-radar.md` | Programme RAID Log — 10 risks, heat map, bow-tie analysis, risk interconnection map, systemic risk named | Validate | `/risk-radar` |
-| `references/examples/example-principles-check.md` | Principles Check — 6 principles validated against Phase D Technology Architecture, per-principle conformance verdicts | Validate | `/principles-check` |
-| `references/examples/example-artifact-completeness.md` | Artifact Completeness — Phase C Application Architecture scored against all TOGAF Catalogs, Matrices, Diagrams | Validate | `/artifact-completeness` |
-| `references/examples/example-data-pipeline-review.md` | Data Pipeline Review — document processing pipeline, idempotency, lineage, GDPR data residency finding | C | `/data-pipeline-review` |
-| `references/examples/example-executive-summary.md` | Executive Summary — 15-gap analysis rewritten for CCO, Pyramid Principle, Before/After pair | Communicate | `/executive-summary` |
-| `references/examples/example-stakeholder-communication.md` | CISO Briefing — security findings tailored for CISO, owner split, Before/After transformation | Communicate | `/stakeholder-communication` |
+| `references/examples/11.01-architecture-principles.md` | 6 Architecture Principles — 4-field template | Preliminary | `/preliminary` |
+| `references/examples/11.02-request-for-architecture-work.md` | Request for Architecture Work | Preliminary | `/preliminary` |
+| `references/examples/12.01-statement-of-architecture-work.md` | Statement of Architecture Work (§7.6, 9 clauses) | A | `/architecture-vision` |
+| `references/examples/21.01-business-capabilities-catalog.md` | Business Capabilities Catalog — 20 capabilities, maturity 0–4 | B | `/capability-assessment` |
+| `references/examples/13.01-architecture-requirements-specification.md` | Architecture Requirements Specification (§7.11, 9 sections) | B | `/requirements-management` |
+| `references/examples/71.01-architecture-contract.md` | Architecture Contract — Design & Development (§7.18) | G | `/implementation-governance` |
+| `references/examples/71.02-compliance-assessment.md` | Compliance Assessment — all 8 TOGAF categories | G | `/compliance-review` |
+| `references/examples/31.02-architecture-decision-record.md` | Architecture Decision Record — MADR with weighted decision matrix | E | `/adr-generator` |
+| `references/examples/31.01-trade-off-analysis.md` | Trade-off Analysis — orchestration pattern, 3 options, TCO comparison | B→C | `/trade-off-analysis` |
+| `references/examples/22.01-data-architecture.md` | Phase C Data Architecture — 5 domains, DAMA-DMBOK, GDPR, data contracts | C | `/data-architecture` |
+| `references/examples/23.01-integration-architecture.md` | Phase C Application Architecture — 7 integration points, 5 EIP anti-patterns, SLO table | C | `/integration-architecture` |
+| `references/examples/24.01-technology-architecture.md` | Phase D Technology Architecture — 12 components, 6 anti-patterns, cost model, Phase C→D traceability | D | `/technology-architecture` |
+| `references/examples/71.03-change-management.md` | Phase H Change Management — Partner API Platform CR, Major classification, RIA, Repo Update Log | H | `/change-management` |
+| `references/examples/51.01-gap-analysis.md` | Phase E Gap Analysis — 7 domains, 15 gaps, dependency DAG, TOGAF Gap Analysis Matrix, critical path | E | `/gap-analysis` |
+| `references/examples/52.01-migration-plan.md` | Phase F Migration Plan — strangler-fig, 6Rs (7 workloads), 3 Transition Architectures, rollback playbooks | F | `/migration-plan` |
+| `references/examples/61.02-architecture-review.md` | Chief Architect Critique — Phase D Technology Architecture, unstated assumptions, disruptive alternative, 12-item fix list | Validate | `/architecture-review` |
+| `references/examples/61.03-risk-radar.md` | Programme RAID Log — 10 risks, heat map, bow-tie analysis, risk interconnection map, systemic risk named | Validate | `/risk-radar` |
+| `references/examples/61.01-principles-check.md` | Principles Check — 6 principles validated against Phase D Technology Architecture, per-principle conformance verdicts | Validate | `/principles-check` |
+| `references/examples/61.04-artifact-completeness.md` | Artifact Completeness — Phase C Application Architecture scored against all TOGAF Catalogs, Matrices, Diagrams | Validate | `/artifact-completeness` |
+| `references/examples/22.02-data-pipeline-review.md` | Data Pipeline Review — document processing pipeline, idempotency, lineage, GDPR data residency finding | C | `/data-pipeline-review` |
+| `references/examples/41.01-executive-summary.md` | Executive Summary — 15-gap analysis rewritten for CCO, Pyramid Principle, Before/After pair | Communicate | `/executive-summary` |
+| `references/examples/41.02-stakeholder-communication.md` | CISO Briefing — security findings tailored for CISO, owner split, Before/After transformation | Communicate | `/stakeholder-communication` |
+| `references/examples/81.01-architect-router.md` | Architect Router — two routing interactions (engagement start → Preliminary/Phase A; pre-board validation → 4-gate pipeline) | Route | `/architect-router` |
+| `references/examples/82.01-new-architecture-document.md` | Phase D Technology Architecture scaffold — blank skeleton with all required sections and guiding questions | Scaffold | `/new-arch-doc` |
 
 ---
 

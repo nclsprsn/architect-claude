@@ -85,7 +85,7 @@ Minimum: one principle per domain — Business, Data, Application, Technology. T
 Use `principles-check` Mode 2 for a full 1–5 quality score per criterion before principles are adopted as the governance baseline.
 
 > [!tip]
-> **Worked example:** see `references/examples/example-architecture-principles.md` for a fully instantiated set of 6 Architecture Principles (1 Business, 2 Data, 1 Application, 2 Technology) anchored to the ACME Corp Customer Onboarding engagement, including a Quality Scorecard and Capability-to-Principle traceability table.
+> **Worked example:** see `references/examples/11.01-architecture-principles.md` for a fully instantiated set of 6 Architecture Principles (1 Business, 2 Data, 1 Application, 2 Technology) anchored to the ACME Corp Customer Onboarding engagement, including a Quality Scorecard and Capability-to-Principle traceability table.
 
 ### 2. Tailored Architecture Framework
 
@@ -156,7 +156,7 @@ The formal mandate document that authorises the architecture engagement. Without
 | **Approvals** | Architecture Sponsor — signature and date; EA Practice Lead — signature and date; note: unsigned RfAW has no governance standing |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-request-for-architecture-work.md` for a fully instantiated RfAW covering the ACME Corp Customer Onboarding programme, including scope, constraints, deliverables, acceptance criteria, and signature block.
+> **Worked example:** see `references/examples/11.02-request-for-architecture-work.md` for a fully instantiated RfAW covering the ACME Corp Customer Onboarding programme, including scope, constraints, deliverables, acceptance criteria, and signature block.
 
 ### Diagrams (Mermaid)
 

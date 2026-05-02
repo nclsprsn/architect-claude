@@ -100,7 +100,7 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 | `> [!info]` | Reference to the source architecture document for technical lead follow-up |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-executive-summary.md` for a fully instantiated executive summary — the 15-gap technical gap analysis rewritten for the Chief Customer Officer using the Pyramid Principle, with numbered anchored claims, a Before/After transformation pair, and a clear sponsor ask, anchored to the ACME Corp onboarding engagement.
+> **Worked example:** see `references/examples/41.01-executive-summary.md` for a fully instantiated executive summary — the 15-gap technical gap analysis rewritten for the Chief Customer Officer using the Pyramid Principle, with numbered anchored claims, a Before/After transformation pair, and a clear sponsor ask, anchored to the ACME Corp onboarding engagement.
 
 ---
 

@@ -81,7 +81,7 @@ Generate the artifacts appropriate to the findings. Diagrams illuminate — they
 | `> [!tip]` | Positive observation — something done notably well that others should replicate |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-architecture-review.md` for a fully instantiated chief architect critique of the ACME Corp Phase D Technology Architecture — quality attribute assessment, unstated assumptions surfaced, disruptive alternative, and second-order effects, anchored to the ACME Corp onboarding engagement.
+> **Worked example:** see `references/examples/61.02-architecture-review.md` for a fully instantiated chief architect critique of the ACME Corp Phase D Technology Architecture — quality attribute assessment, unstated assumptions surfaced, disruptive alternative, and second-order effects, anchored to the ACME Corp onboarding engagement.
 
 ## Review Process
 

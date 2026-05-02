@@ -151,7 +151,7 @@ A log of all Architecture Repository artefacts that must be updated as a result 
 | `> [!tip]` | Change request rejected — simpler or more reversible alternative exists |
 
 > [!tip]
-> **Worked example:** see `references/examples/example-change-management.md` for a fully instantiated Phase H change assessment — CR-2025-008 (Partner API Platform), Major classification with four evidence points, Requirements Impact Assessment (6 requirements), Architecture Repository Update Log, and new ADM cycle entry flowchart, anchored to the ACME Corp onboarding engagement.
+> **Worked example:** see `references/examples/71.03-change-management.md` for a fully instantiated Phase H change assessment — CR-2025-008 (Partner API Platform), Major classification with four evidence points, Requirements Impact Assessment (6 requirements), Architecture Repository Update Log, and new ADM cycle entry flowchart, anchored to the ACME Corp onboarding engagement.
 
 ## Boundary
 

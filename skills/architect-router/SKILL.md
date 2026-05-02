@@ -104,6 +104,9 @@ The router's output is a **routing recommendation**, not an architecture artifac
 
 No Mermaid diagrams. No tables unless the architect has asked for a full phase-by-phase plan. The router is a pointer, not a document.
 
+> [!tip]
+> **Worked example:** see `references/examples/81.01-architect-router.md` for two instantiated routing interactions — new engagement start (Preliminary → Phase A) and pre-board validation pipeline (4-gate sequence) — anchored to the ACME Corp onboarding engagement.
+
 ## Standards Bar
 
 Does this meet the bar for a client deliverable? The routing recommendation should be specific enough that the architect can act immediately: they know which skill to run, what input to bring, and what output to expect. A vague "it depends" is a failure. `[proven]` routing requires the phase context to be unambiguous; `[informed estimate]` is acceptable; `[working hypothesis]` requires an explicit caveat.
