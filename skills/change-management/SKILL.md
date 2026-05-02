@@ -1,6 +1,6 @@
 ---
 name: change-management
-description: Manage changes to a deployed architecture through TOGAF Phase H. Classifies change requests (simplification, incremental enhancement, or re-architecting), assesses impact, produces a Requirements Impact Assessment, and determines whether to trigger a new ADM cycle. Use when a change request arrives for a live system, when a deployed architecture needs to evolve, or when a Phase G compliance deviation is systemic enough to require an architectural response.
+description: Manage changes to a deployed architecture through TOGAF Phase H. Classifies change requests using the TOGAF 10 three-class taxonomy (Maintenance / Incremental / Major), assesses impact, produces a Requirements Impact Assessment and Change Request, and determines whether to trigger a new ADM cycle. Use when a change request arrives for a live system, when a deployed architecture needs to evolve, or when a Phase G compliance deviation is systemic enough to require an architectural response.
 ---
 
 # Architecture Change Management (Phase H)
@@ -58,37 +58,71 @@ Every output MUST satisfy the four rules below. Skip with explicit `N/A — [rea
 
 Phase H produces three canonical outputs. Generate each appropriate to the change request.
 
-### 1. Change Request Assessment
+### 1. Change Request (TOGAF §7.19)
 
 | Field | Content |
 |-------|---------|
 | **Change Request ID** | Unique identifier (e.g., CR-007) |
-| **Description** | What is changing and why |
-| **Driver** | Business / Technology / Regulatory / Performance / Cost |
-| **Classification** | See taxonomy below |
-| **Impact scope** | Which ADM phases, architecture domains, and Architecture Repository artefacts are affected |
-| **Risk** | High / Medium / Low — with one-line rationale |
-| **Reversibility** | one-way door / two-way door |
-| **Confidence** | `[proven]` / `[informed estimate]` / `[working hypothesis]` |
-| **ADM cycle trigger** | Yes / No — with justification |
+| **Description** | What is changing — what architectural element, why it must change |
+| **Driver** | Business / Technology / Regulatory / Performance / Cost — with trigger category (see taxonomy) |
+| **Classification** | Maintenance / Incremental / Major — with decision-tree rationale |
+| **Impact scope** | ADM phases affected · architecture domains affected · Architecture Repository artefacts requiring update |
+| **Stakeholder priority** | High / Medium / Low — as assessed by Architecture Sponsor |
+| **Impact assessment** | Summary of architectural consequences — what is gained, what is lost, what second-order effects arise |
+| **Phases to revisit** | Which ADM phases must be re-entered (e.g., Phase C Data + Phase D Technology) |
+| **Lead phase** | The single ADM phase that owns the change classification decision |
+| **Investigation results** | Findings from spike, PoC, or vendor engagement (if applicable) |
+| **Risk** | High / Medium / Low — `[proven]` / `[informed estimate]` / `[working hypothesis]` |
+| **Reversibility** | one-way door / two-way door — with rationale |
 | **Recommendation** | Accept / Accept-with-conditions / Reject |
-| **Owner** | Role responsible for driving the change through |
-| **Review trigger** | Event that would cause this recommendation to be revisited |
+| **Owner** | Role responsible for driving the change through to completion |
+| **Review trigger** | Event that would cause this recommendation to be revisited (not a date) |
+| **Architecture Repository reference** | Link or citation to the affected artefact version |
 
-### TOGAF Change Classification Taxonomy
+### TOGAF 10 Change Classification (§6.2.9)
 
-| Type | Definition | ADM trigger |
-|------|-----------|-------------|
-| **Simplification** | Reducing complexity without changing capability — tech refresh, vendor swap, optimisation | Usually no new ADM cycle — assess Phases C/D only |
-| **Incremental enhancement** | Adding capability within the current architectural direction | Usually no new ADM cycle — assess impact on affected phases, update ADD |
-| **Re-architecting** | Fundamental change to the architectural direction — new platform, new integration model, new operating model | Triggers new ADM cycle — produce new Statement of Architecture Work |
+Apply this decision tree. Work top-down — stop at the first match.
 
-### 2. Requirements Impact Assessment (for changes requiring a new ADM cycle)
+```
+Does the change alter the fundamental architectural direction,
+platform, integration model, or operating model?
+    YES → **Major** (re-architecting) → New RfAW + restart ADM at Preliminary or Phase A
+    NO ↓
+Does the change add capability within the current architectural direction,
+or affect one or more architecture domains (Business / Data / App / Tech)?
+    YES → **Incremental** → Update SoAW + Architecture Contract + Compliance Assessment
+    NO ↓
+Does the change reduce complexity, refresh technology, or swap a vendor
+without altering business outcomes?
+    → **Maintenance** → Update Architecture Repository and principles; no new ADM cycle
+```
 
-A structured impact assessment aligned to the Architecture Requirements Repository. For each affected requirement:
+| Class | TOGAF 10 definition | ADM action | Architecture Contract |
+|-------|--------------------|-----------|-----------------------|
+| **Maintenance** | Simplification — reduces complexity or refreshes technology without changing business outcomes or architectural direction | Update Architecture Repository artefacts (ADD, principles, Standards Information Base) | Minor update to existing contract |
+| **Incremental** | Incremental enhancement — adds or modifies capability within the current architectural direction; affects one or more domains | Update Statement of Architecture Work + Architecture Contract; run Compliance Assessment for affected phases | Revise contract scope and acceptance criteria |
+| **Major** | Re-architecting — fundamental change to architectural direction, platform, integration model, or operating model | Issue new Request for Architecture Work; restart ADM cycle (route to `preliminary` if principles must change, otherwise to `architecture-vision`) | New Architecture Contract required |
 
-| Requirement ID | Current state | Impact of change | Updated state | Phase(s) affected | Owner | Review trigger |
-|---------------|--------------|-----------------|---------------|------------------|-------|----------------|
+### Architecture Refresh Trigger Taxonomy
+
+Use this to distinguish reactive change requests from proactive re-architecting triggers.
+
+| Trigger category | Examples | Typical classification |
+|-----------------|---------|----------------------|
+| **Regulatory shift** | New data protection regulation (GDPR successor, AI Act enforcement), sector-specific security mandate, environmental reporting obligation | Incremental (adapt) or Major (if operating model must change) |
+| **Technology commoditisation** | Cloud provider introduces a managed service that makes a self-built component obsolete; open-source project reaches enterprise maturity | Maintenance (swap component) or Incremental (change integration model) |
+| **M&A / organisational restructure** | Merger requires integration of a second architecture landscape; acquisition introduces incompatible technology stack | Major (typically) — triggers new RfAW and ADM restart |
+| **Security incident or compliance breach** | Vulnerability in a core component; audit finding that mandates architectural remediation | Incremental (patch) or Major (if trust boundary must be redesigned) |
+| **Performance degradation** | SLA breach driven by architectural constraint rather than operational misconfiguration | Incremental (targeted) or Major (if the constraint is structural) |
+| **Business model change** | Move from on-premises delivery to SaaS; expansion into a new geographic market requiring data residency changes | Major — architectural direction is changing |
+
+### 2. Requirements Impact Assessment (TOGAF §7.21 — for Incremental or Major changes)
+
+A structured assessment of how the change affects architecture requirements. One row per affected requirement.
+
+| Req. ID | Requirement statement | Stakeholder priority | Phases to revisit | Lead phase | Investigation results | Recommendation | Repository ref |
+|---------|----------------------|---------------------|------------------|-----------|----------------------|---------------|----------------|
+| REQ-nnn | [what must be true] | High / Med / Low | [A, C, D, G] | [phase] | [spike/PoC findings] | Accept / Revise / Reject | [ADD section or ADR] |
 
 ### 3. Architecture Repository Update Log
 
