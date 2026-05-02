@@ -163,3 +163,5 @@ See `references/examples/` for instantiated versions of the artefacts catalogued
 | `examples/example-integration-architecture.md` | Phase C Application Architecture — EIP anti-patterns, SLO table, API maturity (Phase C) |
 | `examples/example-technology-architecture.md` | Phase D Technology Architecture — 12 components, Platform Decomposition Diagram, 6 anti-patterns, cost model (Phase D) |
 | `examples/example-change-management.md` | Phase H Change Management — CR-2025-008, Major classification, Requirements Impact Assessment, Repository Update Log (Phase H) |
+| `examples/example-gap-analysis.md` | Phase E Gap Analysis — 7 domains, 15 gaps, dependency DAG, TOGAF Gap Analysis Matrix, swimlane convergence diagram (Phase E) |
+| `examples/example-migration-plan.md` | Phase F Migration Plan — strangler-fig, 6Rs, 3 Transition Architectures, go/no-go gates, rollback playbooks (Phase F) |

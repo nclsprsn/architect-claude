@@ -205,7 +205,7 @@ flowchart TD
 
 ## Worked Examples
 
-The `references/examples/` directory contains thirteen fully instantiated TOGAF artefacts anchored to a single coherent engagement — ACME Corp Customer Onboarding modernisation — so you can see how artefacts accumulate across phases rather than reading disconnected templates. Each example is produced by a specific skill and follows its template exactly.
+The `references/examples/` directory contains fifteen fully instantiated TOGAF artefacts anchored to a single coherent engagement — ACME Corp Customer Onboarding modernisation — so you can see how artefacts accumulate across phases rather than reading disconnected templates. Each example is produced by a specific skill and follows its template exactly.
 
 | File | Artefact | Phase | Skill |
 |------|----------|-------|-------|
@@ -222,6 +222,8 @@ The `references/examples/` directory contains thirteen fully instantiated TOGAF 
 | `references/examples/example-integration-architecture.md` | Phase C Application Architecture — 7 integration points, 5 EIP anti-patterns, SLO table | C | `/integration-architecture` |
 | `references/examples/example-technology-architecture.md` | Phase D Technology Architecture — 12 components, 6 anti-patterns, cost model, Phase C→D traceability | D | `/technology-architecture` |
 | `references/examples/example-change-management.md` | Phase H Change Management — Partner API Platform CR, Major classification, RIA, Repo Update Log | H | `/change-management` |
+| `references/examples/example-gap-analysis.md` | Phase E Gap Analysis — 7 domains, 15 gaps, dependency DAG, TOGAF Gap Analysis Matrix, critical path | E | `/gap-analysis` |
+| `references/examples/example-migration-plan.md` | Phase F Migration Plan — strangler-fig, 6Rs (7 workloads), 3 Transition Architectures, rollback playbooks | F | `/migration-plan` |
 
 ---
 

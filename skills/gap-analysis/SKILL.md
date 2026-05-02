@@ -130,6 +130,9 @@ Generate the artifacts appropriate to the scope and decision type. Include only 
 | `> [!info]` | Dependency chain note or cross-reference to related ADR |
 | `> [!abstract]` | Executive summary of the gap landscape for non-technical readers |
 
+> [!tip]
+> **Worked example:** see `references/examples/example-gap-analysis.md` for a fully instantiated Phase E gap analysis — 7 domains, 15 gaps with maturity scoring, dependency DAG, TOGAF Gap Analysis Matrix, swimlane convergence diagram, and critical path, anchored to the ACME Corp onboarding engagement.
+
 ## Analysis Process
 
 1. **Identify domains** — infer from context or ask. Common domains: Application, Data, Integration, Platform/Infrastructure, Security, Governance, Organisation/People, Process.

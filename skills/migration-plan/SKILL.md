@@ -93,6 +93,9 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 | `> [!tip]` | Feature flag, strangler-fig, or dark launch pattern that reduces migration risk with low effort |
 | `> [!info]` | Reference to TOGAF Phase E/F artifact; 6Rs classification rationale; prior ADR |
 
+> [!tip]
+> **Worked example:** see `references/examples/example-migration-plan.md` for a fully instantiated Phase F migration plan — strangler-fig CRM pattern, 6Rs for 7 workloads, 3 Transition Architectures, per-wave go/no-go gates, and rollback playbooks, anchored to the ACME Corp onboarding engagement.
+
 ---
 
 ## Phase E vs Phase F Outputs

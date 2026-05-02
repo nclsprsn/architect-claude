@@ -46,6 +46,8 @@ This chain is intentional — follow it across files to see how TOGAF artefacts 
 | 11 | [example-integration-architecture.md](example-integration-architecture.md) | Phase C Application Architecture — 7 integration points, 5 EIP anti-patterns, SLO table | Phase C — Application | `integration-architecture` |
 | 12 | [example-technology-architecture.md](example-technology-architecture.md) | Phase D Technology Architecture — 12 components, Platform Decomposition Diagram, 6 anti-patterns, cost model, Phase C→D traceability | Phase D — Technology | `technology-architecture` |
 | 13 | [example-change-management.md](example-change-management.md) | Phase H Change Management — CR-2025-008 (Partner API Platform), Major classification, Requirements Impact Assessment, Architecture Repository Update Log | Phase H — Change Management | `change-management` |
+| 14 | [example-gap-analysis.md](example-gap-analysis.md) | Phase E Gap Analysis — 7 domains, 15 gaps, dependency DAG, TOGAF Gap Analysis Matrix, swimlane convergence diagram, critical path | Phase E — Opportunities | `gap-analysis` |
+| 15 | [example-migration-plan.md](example-migration-plan.md) | Phase F Migration Plan — strangler-fig pattern, 6Rs (7 workloads), 3 Transition Architectures, per-wave go/no-go gates, rollback playbooks | Phase F — Migration Planning | `migration-plan` |
 
 ---
 
