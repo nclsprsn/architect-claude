@@ -7,15 +7,20 @@ A Claude Code plugin for Enterprise Architects and Solution Architects.
 ### Route
 | Skill | Command | Trigger phrases |
 |-------|---------|----------------|
-| `architect-router` | `/architect-router` | "where should I begin", "which skill should I use", "help me with this engagement", "what should I do next", "route my request" |
+| `architect-router` | `/architect-router` | "where should I begin", "which skill should I use", "help me with this engagement", "what should I do next", "route my request", "starting a new TOGAF engagement", "new architecture engagement" |
+
+### Frame
+| Skill | Command | Trigger phrases |
+|-------|---------|----------------|
+| `preliminary` | `/preliminary` | "preliminary phase", "architecture principles", "tailored architecture framework", "organizational model for EA", "request for architecture work" |
+| `architecture-vision` | `/architecture-vision` | "architecture vision", "statement of architecture work", "phase A", "define scope and vision", "communications plan for architects" |
+| `requirements-management` | `/requirements-management` | "requirements management", "requirements impact assessment", "architecture requirements repository", "traceability matrix", "manage architecture requirements" |
 
 ### Discover
 | Skill | Command | Trigger phrases |
 |-------|---------|----------------|
-| `architecture-review` | `/architecture-review` | "review this architecture", "critique this doc", "architecture review" |
 | `capability-assessment` | `/capability-assessment` | "capability assessment", "review this capability map", "score our capabilities", "capability maturity", "phase b review", "is our capability map complete" |
 | `gap-analysis` | `/gap-analysis` | "gap analysis", "baseline vs target", "what needs to change", "what's the gap" |
-| `risk-radar` | `/risk-radar` | "what are the risks", "risk assessment", "risk register", "RAID log", "what could go wrong" |
 | `data-architecture` | `/data-architecture` | "data architecture review", "review this data model", "data governance check", "is this data design sound", "data platform assessment" |
 | `integration-architecture` | `/integration-architecture` | "integration architecture review", "review this API design", "event-driven architecture", "assess our integration layer", "integration design" |
 | `data-pipeline-review` | `/data-pipeline-review` | "review this pipeline", "ETL review", "data pipeline assessment", "assess our data ingestion", "batch vs streaming", "pipeline design review" |
@@ -43,17 +48,20 @@ A Claude Code plugin for Enterprise Architects and Solution Architects.
 |-------|---------|----------------|
 | `new-arch-doc` | `/new-arch-doc` | "scaffold an architecture document", "new arch doc", "create architecture document" |
 
+### Validate
+| Skill | Command | Trigger phrases |
+|-------|---------|----------------|
+| `architecture-review` | `/architecture-review` | "review this architecture", "critique this doc", "architecture review" |
+| `risk-radar` | `/risk-radar` | "what are the risks", "risk assessment", "risk register", "RAID log", "what could go wrong" |
+| `principles-check` | `/principles-check` | "check against principles", "validate principles", "architecture principles review", "does this meet our principles" |
+| `artifact-completeness` | `/artifact-completeness` | "is this artifact complete", "check artifact against TOGAF template", "ADD completeness", "architecture document completeness check" |
+
 ### Govern
 | Skill | Command | Trigger phrases |
 |-------|---------|----------------|
-| `preliminary` | `/preliminary` | "preliminary phase", "architecture principles", "tailored architecture framework", "organizational model for EA", "request for architecture work" |
-| `architecture-vision` | `/architecture-vision` | "architecture vision", "statement of architecture work", "phase A", "define scope and vision", "communications plan for architects" |
-| `requirements-management` | `/requirements-management` | "requirements management", "requirements impact assessment", "architecture requirements repository", "traceability matrix", "manage architecture requirements" |
 | `implementation-governance` | `/implementation-governance` | "implementation governance", "architecture contract", "compliance assessment", "phase G", "governance review", "architecture board submission" |
 | `change-management` | `/change-management` | "architecture change management", "change request", "phase H", "manage change to architecture", "re-architecture trigger" |
 | `compliance-review` | `/compliance-review` | "compliance review", "validate this architecture", "conformance check", "architecture board review", "is this architecture compliant" |
-| `principles-check` | `/principles-check` | "check against principles", "validate principles", "architecture principles review", "does this meet our principles" |
-| `artifact-completeness` | `/artifact-completeness` | "is this artifact complete", "check artifact against TOGAF template", "ADD completeness", "architecture document completeness check" |
 
 ## Commit Format
 
