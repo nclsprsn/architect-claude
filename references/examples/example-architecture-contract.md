@@ -1,0 +1,167 @@
+# Example — Architecture Contract (Design & Development)
+
+**Engagement:** ACME Corp Customer Onboarding Modernisation
+**Reference:** ACME-ARCH-CON-2025-001
+**Version:** 1.0 — For signature before Identity Verification rebuild begins
+**Template:** TOGAF 10 Pocket Guide §7.18 — Design & Development Architecture Contract
+**Produced by skill:** `implementation-governance`
+
+> [!info]
+> This is a Design & Development Architecture Contract — the governance agreement between the architecture team and the delivery programme, issued at the start of Phase G. It governs the Identity Verification and Customer Master Data rebuild workstream. The Business-Users variant (issued when the solution is operationalised) is out of scope for this example. Template clauses follow `skills/implementation-governance/SKILL.md`.
+
+---
+
+## Contract Reference: ACME-ARCH-CON-2025-001
+
+### Clause 1 — Parties
+
+| Role | Name | Organisation unit |
+|------|------|-------------------|
+| Architecture Sponsor | Chief Customer Officer (Sarah Chen) | Customer Division |
+| Lead Architect | Head of Enterprise Architecture (Marcus Webb) | Enterprise Architecture Practice |
+| Programme Manager | Customer Onboarding Programme Manager (Linh Pham) | Customer Division — Delivery |
+
+---
+
+### Clause 2 — Scope
+
+This Architecture Contract governs the **Identity Verification and Customer Master Data rebuild workstream** of the Customer Onboarding Modernisation programme (ACME-PROG-2024-001), covering:
+
+- Selection and integration of a managed Identity Verification SaaS provider (capabilities IDENT-01, IDENT-02, IDENT-03)
+- Extension and API-enablement of the Customer Master Data system (DATA-01, MASTER-01, MASTER-02)
+- Decommissioning of the Legacy CRM onboarding module (must complete by Q4 2025 — Constraint CON-03)
+- Deployment of the Onboarding Orchestration Service (ONBOARD-01)
+
+**Explicitly out of scope of this contract:** CIAM platform extension (IDENT-04), Digital Onboarding Channel redesign (CHANNEL-01, CHANNEL-02), Risk Scoring (RISK-01), KYC Compliance Check (RISK-02). These are governed by separate Architecture Contracts.
+
+---
+
+### Clause 3 — Architecture Reference
+
+The implementation governed by this contract must comply with the following approved architecture artefacts:
+
+| Artefact | Reference | Status |
+|----------|-----------|--------|
+| Statement of Architecture Work | ACME-SoAW-2024-001 | Signed |
+| Architecture Principles | ACME-ARCH-PRIN-2024 | Architecture Board approved |
+| Architecture Requirements Specification | ACME-ARS-2024-001 | Architecture Board approved |
+| Identity Verification ADR | ACME-ADR-2025-003 ("Adopt managed Identity Verification SaaS over self-built KYC") | Architecture Board approved — see `references/examples/example-adr.md` |
+| Phase C Data Architecture ADD | ACME-DATA-ADD-2025-001 | Architecture Board approved |
+| Phase D Technology ADD | ACME-TECH-ADD-2025-001 | Architecture Board approved |
+
+> [!warning]
+> Any implementation decision that deviates from the artefacts listed above — including vendor selection changes, integration pattern changes, or platform changes — must be raised as a dispensation request (Clause 7) before the deviation is implemented, not after.
+
+---
+
+### Clause 4 — Conformance Requirements
+
+The implementation must satisfy the following requirements from the Architecture Requirements Specification (ACME-ARS-2024-001). These requirements are the testable acceptance gates — they close Phase G.
+
+#### Identity Verification
+
+| Req ID | Requirement | Test method | Acceptance threshold |
+|--------|------------|-------------|---------------------|
+| AR-ID-01 | Identity verification meets the regulatory assurance level | Third-party compliance audit report from the SaaS provider | Zero Critical findings in audit; written compliance attestation from provider |
+| AR-ID-02 | Identity verification completes in ≤ 60 seconds automated for ≥ 90% of submissions | Load test: 1,000 synthetic onboarding runs in pre-production | ≥ 90% of runs complete in ≤ 60 seconds; p99 ≤ 120 seconds |
+| AR-ID-03 | Identity verification is a managed SaaS — no custom KYC build | Architecture Board ADR (ACME-ADR-2025-003) implementation verified | Deployed solution matches ADR decision; zero custom identity logic deployed |
+| AR-ID-04 | Customer PII remains within approved data residency zones | Cloud provider configuration audit + data flow diagram validation | Zero cross-border PII transfers without documented legal basis |
+
+#### Data Architecture
+
+| Req ID | Requirement | Test method | Acceptance threshold |
+|--------|------------|-------------|---------------------|
+| AR-DA-01 | Customer Master Data API is the sole access point for identity attributes | API dependency scan of all consuming applications | Zero direct database access to customer identity tables from any consuming application |
+| AR-DA-02 | Consent records are machine-readable, time-stamped, and immutable | Consent management system audit | 100% of consent records have timestamp and are write-once; withdrawal processed within 24 hours in test |
+| AR-DA-03 | Duplicate detection reduces duplicate rate below 1% | Data quality report 30 days post go-live | Duplicate rate < 1% in monthly data quality report |
+
+#### Integration & Security
+
+| Req ID | Requirement | Test method | Acceptance threshold |
+|--------|------------|-------------|---------------------|
+| AR-INT-01 | All integrations use documented, versioned APIs | Interface Catalog review; API gateway audit | Zero undocumented integrations; all APIs registered in ACME API Catalogue |
+| AR-SEC-01 | TLS 1.3+, AES-256 at rest, MFA for admin access | Penetration test (external); configuration audit | Zero Critical findings in pentest; zero security exceptions |
+| AR-SEC-02 | CISO Security Architecture sign-off obtained before Phase G | Signed Security Architecture review document on file | Document present and signed; no conditional approvals outstanding |
+| AR-SEC-03 | Audit log — immutable, 7-year retention, append-only | Log store configuration audit; retention policy test | Append-only configuration confirmed; retention policy in force; test event retained correctly |
+
+---
+
+### Clause 5 — Acceptance Criteria
+
+Phase G is complete and this Architecture Contract is closed when **all** of the following are met:
+
+1. All requirements in Clause 4 pass their specified test method at the stated threshold.
+2. A Phase G Compliance Assessment (ACME-COMP-2025-001) returns a verdict of **Approve** or **Approve with Conditions** with all conditions resolved.
+3. The Legacy CRM onboarding module decommission is confirmed complete (zero active integrations remain; monitoring shows zero traffic) before Q4 2025 EoL.
+4. All dispensations in the Dispensation Log (Clause 7) are either resolved or formally accepted with a permanent waiver signed by the Architecture Sponsor.
+5. All solution components are registered in the ACME CMDB (RDM-01 compliance).
+6. Consumer-Driven Contract Tests for all service contracts (Section 3 of ARS) pass in the pre-production environment.
+
+> [!important]
+> Acceptance criteria gate go-live, not a deployment date. The Programme Manager must not proceed to production deployment until the Lead Architect confirms all criteria are met and records the confirmation in the Architecture Repository.
+
+---
+
+### Clause 6 — Reporting Obligations
+
+| Report | Content | Trigger | Recipient | Owner |
+|--------|---------|---------|-----------|-------|
+| Architecture Contract status | Clause 4 requirement status (Red/Amber/Green), open dispensations, risk updates | Monthly during build; on every significant deviation | Architecture Board | Lead Architect (Marcus Webb) |
+| Dispensation log update | New dispensations raised; approved dispensations; expiry events | When raised or resolved | Architecture Board; Architecture Sponsor | Lead Architect (Marcus Webb) |
+| Pre-go-live compliance confirmation | Written confirmation that all Clause 5 acceptance criteria are met | Before each production deployment event | Architecture Sponsor | Lead Architect (Marcus Webb) |
+
+| Confidence | Reversibility | Owner | Review trigger |
+|------------|---------------|-------|----------------|
+| `[informed estimate]` — reporting cadence based on programme scale | two-way door — cadence can be increased or decreased by Architecture Board resolution | Lead Architect (Marcus Webb) | Review if programme timelines compress significantly |
+
+---
+
+### Clause 7 — Dispensation Process
+
+Deviations from the conformance requirements in Clause 4 or the architecture artefacts in Clause 3 must be managed via the dispensation process. Undeclared deviations discovered in Clause 5 acceptance testing will be treated as Critical findings.
+
+| Tier | Deviation type | Approver | Process |
+|------|---------------|----------|---------|
+| **Tier 1 — Minor** | Minor, reversible, no principle violation | Lead Architect (Marcus Webb) | Programme Manager raises in writing; Lead Architect approves or rejects within 3 business days; logged in Dispensation Register; Architecture Board informed at next session |
+| **Tier 2 — Significant** | Significant or one-way door; principle tension | Architecture Board | Lead Architect tables at Architecture Board; Programme Manager presents business justification; board votes; Architecture Sponsor notified of outcome |
+| **Tier 3 — Critical** | Critical, regulatory-sensitive, or security-affecting | Executive Sponsor (CCO or above) | Architecture Board presents recommendation; Architecture Sponsor calls decision meeting with relevant stakeholders; written decision recorded |
+
+#### Active Dispensation Log
+
+| ID | Finding | Severity | Justification | Risk | Approved by | Expiry trigger | Status |
+|----|---------|----------|---------------|------|-------------|----------------|--------|
+| EXC-001 | Legacy CRM onboarding module uses a database-level integration to the Notification Service that cannot be API-enabled before Q4 2025 EoL; an interim direct-DB call will remain until decommission | Minor | CRM EoL decommission is the remediation; investing in API-enabling a system 3 months from EoL has negative ROI | Low — interim only; monitoring confirms zero new consumers | Lead Architect (Marcus Webb) — Tier 1 | Legacy CRM decommission complete (Q4 2025) | Approved |
+
+---
+
+### Clause 8 — Change Management
+
+The following trigger events mandate a formal Architecture Contract revision (version increment, re-signature):
+
+| Trigger | Action |
+|---------|--------|
+| Scope change > 20% relative to Clause 2 | Lead Architect initiates revision; Architecture Sponsor approves; SoAW is also revised |
+| New regulatory directive affecting AR-ID-01 or AR-ID-04 | CISO initiates emergency revision; Clause 4 requirements updated; Architecture Board notified within 5 business days |
+| SaaS provider change after ADR approval | New ADR required; Architecture Contract Clause 3 reference updated; board re-approval required |
+| Critical finding discovered in production | Clause 4 threshold updated; remediation plan added; board notified |
+
+---
+
+### Clause 9 — Exit Clause
+
+This Architecture Contract is formally closed when all conditions in Clause 5 are met, the Lead Architect records written closure confirmation in the Architecture Repository, and the Architecture Board acknowledges closure at its next session. Post-closure, ongoing conformance is governed by the Business-Users Architecture Contract issued to the Customer Operations Director.
+
+---
+
+### Clause 10 — Sign-off
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Architecture Sponsor | Chief Customer Officer (Sarah Chen) | _signature required_ | ____________ |
+| Programme Manager | Customer Onboarding Programme Manager (Linh Pham) | _signature required_ | ____________ |
+| Lead Architect | Head of Enterprise Architecture (Marcus Webb) | _signature required_ | ____________ |
+
+> [!important]
+> This Architecture Contract has no governance standing until all three signatures are recorded. The Lead Architect must not issue work instructions to delivery teams before the contract is signed.
+
+**Broad Responsibility:** This contract governs an implementation that processes the personal identity data of every new ACME customer from go-live onwards. EXC-001 (interim database integration) must not be extended beyond the Legacy CRM decommission date — any extension requires Tier 3 approval given the data residency and audit trail implications. `[proven]`
