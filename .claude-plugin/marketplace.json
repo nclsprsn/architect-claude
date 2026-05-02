@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "architect-claude-plugin",
-      "source": ".",
+      "source": "https://github.com/nclsprsn/architect-claude-plugin",
       "description": "Full TOGAF ADM coverage from Preliminary through Phase H — specification, validation, and governance tracks. Architecture review, gap analysis, risk radar, capability assessment, ADR generation, compliance assessment, implementation governance, change management, and executive communication.",
       "author": {
         "name": "nclsprsn"
