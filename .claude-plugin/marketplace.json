@@ -1,21 +1,17 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "architect-claude",
+  "description": "Claude Code plugin for Enterprise Architects and Solution Architects — full TOGAF ADM coverage from Preliminary through Phase H.",
   "owner": {
-    "name": "nclsprsn"
+    "name": "nclsprsn",
+    "url": "https://github.com/nclsprsn"
   },
-  "description": "Claude Code plugin for Enterprise Architects and Solution Architects. TOGAF-aware.",
   "plugins": [
     {
       "name": "architect-claude-plugin",
+      "description": "Full TOGAF ADM coverage from Preliminary through Phase H — architecture review, gap analysis, risk radar, capability assessment, ADR generation, compliance assessment, implementation governance, change management, and executive communication.",
       "source": "./",
-      "description": "Full TOGAF ADM coverage from Preliminary through Phase H — specification, validation, and governance tracks. Architecture review, gap analysis, risk radar, capability assessment, ADR generation, compliance assessment, implementation governance, change management, and executive communication.",
-      "author": {
-        "name": "nclsprsn"
-      },
-      "homepage": "https://github.com/nclsprsn/architect-claude-plugin",
-      "repository": "https://github.com/nclsprsn/architect-claude-plugin",
-      "license": "MIT",
-      "keywords": ["architecture", "togaf", "enterprise-architecture", "solution-architecture", "adr"]
+      "category": "productivity"
     }
   ]
 }
