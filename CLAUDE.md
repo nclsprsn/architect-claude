@@ -19,7 +19,7 @@ A Claude Code plugin for Enterprise Architects and Solution Architects.
 ### Discover
 | Skill | Command | Trigger phrases |
 |-------|---------|----------------|
-| `capability-assessment` | `/capability-assessment` | "capability assessment", "review this capability map", "score our capabilities", "capability maturity", "phase b review", "is our capability map complete" |
+| `capability-assessment` | `/capability-assessment` | "capability assessment", "review this capability map", "score our capabilities", "capability maturity", "phase a review", "phase b review", "is our capability map complete", "business transformation readiness", "IT capability assessment", "architecture maturity assessment" |
 | `gap-analysis` | `/gap-analysis` | "gap analysis", "baseline vs target", "what needs to change", "what's the gap" |
 | `data-architecture` | `/data-architecture` | "data architecture review", "review this data model", "data governance check", "is this data design sound", "data platform assessment" |
 | `integration-architecture` | `/integration-architecture` | "integration architecture review", "review this API design", "event-driven architecture", "assess our integration layer", "integration design" |

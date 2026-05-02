@@ -1,11 +1,13 @@
 ---
 name: capability-assessment
-description: Review or score a TOGAF Phase B business capability map, capability maturity model, or Phase B Architecture Definition Document. Use when auditing capability completeness, validating maturity evidence, checking value stream coverage, or assessing readiness to proceed to Phase C. Trigger phrases: "capability assessment", "score our capabilities", "is our capability map complete", "phase B review", "capability maturity".
+description: Run a TOGAF Phase A Capability Assessment across four sub-assessments — Business Capability, IT Capability, Architecture Maturity, and Business Transformation Readiness. In TOGAF 10 this assessment happens in Phase A (before Phase B begins) to establish the baseline from which architecture work is scoped. Also used in Phase E to assess whether the organisation is ready to execute the proposed solution options. Use when starting a new architecture cycle, scoping architecture work, reviewing a business capability map, or assessing delivery readiness.
 ---
 
 # Capability Assessment
 
-You are reviewing a business capability architecture. Your job is to surface the ownership gaps, maturity scoring weaknesses, and value stream blind spots that prevent Phase B from actually driving Phase C and D work. A capability map with unscored capabilities, absent ownership models, or no Phase C traceability is not an architecture artefact — it is a list.
+You are running a TOGAF Capability Assessment. In TOGAF 10 this is a Phase A deliverable — it runs before Phase B Business Architecture begins, to establish where the organisation is today across four dimensions. Without this baseline, Phase A scope decisions are made blind.
+
+The four sub-assessments are: (1) Business Capability Assessment, (2) IT Capability Assessment, (3) Architecture Maturity Assessment, (4) Business Transformation Readiness Assessment. All four are needed for a complete Phase A baseline. In Phase E (Opportunities & Solutions), the assessment may be re-run at a narrower scope to validate delivery readiness before migration planning begins.
 
 ## Core Mindset
 
@@ -25,9 +27,9 @@ You are reviewing a business capability architecture. Your job is to surface the
 
 ## TOGAF Detection
 
-TOGAF signals present → **TOGAF mode**: align to Phase B (Business Architecture); check Phase B → Phase C traceability; flag missing architecture contracts; assess ADM Phase B completeness against standard artefacts (capability map, value streams, gap analysis, roadmap).
+TOGAF signals present → **TOGAF mode**: run all four TOGAF 10 sub-assessments. Align the Business Capability Assessment to Phase A/B artefacts; use the Architecture Maturity Assessment to identify governance gaps before Phase B begins; use the Business Transformation Readiness Assessment to identify change risks before Phase E solution options are defined. Check Phase B → Phase C traceability when Phase B is already underway.
 
-No TOGAF signals → **Framework-agnostic mode**: capability map quality assessment without phase tagging.
+No TOGAF signals → **Framework-agnostic mode**: capability map quality assessment and business readiness scoring without phase tagging.
 
 ## Information to Gather
 
@@ -39,6 +41,7 @@ Ask only for what is not already provided in context. Batch all missing question
 | **Target business outcome** | Look for Phase A vision statements or a stated business goal | *"What business outcome must the capability architecture enable? One sentence — this is the anchor for every gap finding."* |
 | **Assessment horizon** | Infer from project phase signals | *"What is the assessment horizon? (A) H1 — current delivery constraints only (B) H1 + H2 — delivery and strategic uplift (C) Full H1–H3 — including new capabilities needed for future state"* |
 | **Existing capability map or Phase B document** | Look for a provided document | *"Is there an existing capability map, maturity model, or Phase B document to review? If yes, share it. If not, describe the domains and capabilities in scope."* |
+| **Sub-assessments in scope** | Infer from context: all four for Phase A; Business Capability only for Phase B review; all four for Phase E readiness check | *"Which sub-assessments are needed? (A) All four — full Phase A baseline (B) Business Capability only — reviewing an existing capability map (C) Business Transformation Readiness only — assessing delivery readiness for Phase E (D) Architecture Maturity only — governance gap assessment"* |
 | **Phase C traceability in scope** | Infer from project phase (Phase B complete, Phase C starting) | *"Should the assessment include Phase B → Phase C traceability — mapping capabilities to applications or data domains? (A) Yes (B) No — Phase C is out of scope for now"* |
 
 ## Output Discipline
@@ -57,9 +60,85 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 
 ## Artifact Selection Guide
 
-The capability heat map is always required. All other artifacts are conditional on scope.
+The four sub-assessments form the complete Phase A Capability Assessment baseline. The Business Capability Assessment (sub-assessment 1) is always required; the others are conditional on scope but should default to "included" for full Phase A delivery.
 
-### TOGAF Phase B Catalogs
+### Sub-assessment 1 — Business Capability Assessment
+
+*(Full detail below in TOGAF Phase B Catalogs, Matrices, and Assessment Process.)*
+
+The Business Capability Assessment produces the enterprise capability map with maturity scores, ownership model, value stream coverage, and Phase B → Phase C traceability. This is the most detailed of the four sub-assessments and forms the input to Phase B Business Architecture.
+
+### Sub-assessment 2 — IT Capability Assessment
+
+Evaluates the current IT estate's ability to support the target business capabilities. Produces a structured view of IT strengths, gaps, and technical debt that will shape Phase C and D.
+
+| Dimension | Assessment questions | Current state | Target state | Gap | Confidence | Owner |
+|-----------|---------------------|---------------|-------------|-----|------------|-------|
+| **Infrastructure maturity** | Is the infrastructure scalable, resilient, and operable without specialist heroics? | [score 0–4] | [target 0–4] | [delta] | `[proven]` / `[informed estimate]` | [role] |
+| **Application portfolio health** | What proportion of the portfolio is actively maintained, technically current, and aligned to business capability? | [% modern / legacy / end-of-life] | [target mix] | [gap] | `[proven]` / `[informed estimate]` | [role] |
+| **Integration capability** | Can the organisation connect systems reliably via APIs, events, or managed data exchange? Or is the estate point-to-point fragile? | [score 0–4] | [target 0–4] | [delta] | `[proven]` / `[informed estimate]` | [role] |
+| **Security posture** | Does the IT estate have defensible trust boundaries, identity management, and incident response capability? | [score 0–4] | [target 0–4] | [delta] | `[proven]` / `[informed estimate]` | [role] |
+| **Data management maturity** | Can the organisation find, trust, and use its data to support business decisions and regulatory obligations? | [score 0–4] | [target 0–4] | [delta] | `[proven]` / `[informed estimate]` | [role] |
+| **Operational capability** | Are there runbooks, monitoring, SLA management, and on-call processes that can sustain the target architecture? | [score 0–4] | [target 0–4] | [delta] | `[proven]` / `[informed estimate]` | [role] |
+| **Cloud adoption maturity** | Has the organisation developed the platform engineering, FinOps, and security discipline to operate cloud-native workloads? | [score 0–4] | [target 0–4] | [delta] | `[proven]` / `[informed estimate]` | [role] |
+
+Maturity scale: 0–4 per `references/scoring-conventions.md`. RAG thresholds: 🔴 0–1 · 🟡 2 · 🟢 3–4.
+
+**IT capability summary verdict:** Overall IT maturity score (average across dimensions); highest-risk dimension (lowest score relative to target state); recommendation: architecture work should address IT capability gaps in [dimensions] before Phase D technology decisions are made.
+
+### Sub-assessment 3 — Architecture Maturity Assessment
+
+Evaluates whether the organisation's EA practice is capable of supporting the architecture engagement. Weak architecture maturity produces governance failures in Phase G regardless of how good the Phase A–D artefacts are.
+
+| EA dimension | Current maturity | Target maturity | Gap | Key risk if gap not closed |
+|-------------|-----------------|----------------|-----|---------------------------|
+| **Architecture governance** | [score 0–4] | [target] | [delta] | Architecture decisions made informally; dispensations not tracked |
+| **Architecture principles** | [score 0–4] | [target] | [delta] | Design decisions not anchored to agreed principles; inconsistency across teams |
+| **Architecture repository** | [score 0–4] | [target] | [delta] | No reference library; teams re-discover the same patterns and anti-patterns |
+| **Stakeholder engagement** | [score 0–4] | [target] | [delta] | Architecture produced in isolation; rejected at delivery |
+| **ADM process adoption** | [score 0–4] | [target] | [delta] | Architecture work is phase-skipping; Phase G governance is nominal |
+| **Architecture skills** | [score 0–4] | [target] | [delta] | Architecture role filled by delivery engineers; no enterprise perspective |
+| **Tool and notation standards** | [score 0–4] | [target] | [delta] | Architecture artefacts inconsistent; board cannot compare across domains |
+
+Maturity scale: 0–4 per `references/scoring-conventions.md`.
+
+**Architecture maturity verdict:** If overall maturity is 0–1, a formal EA practice capability build must be part of Phase A scope — invoke `preliminary` to establish principles and governance before Phase B begins. Maturity ≥ 3 allows Phase A to proceed normally.
+
+### Sub-assessment 4 — Business Transformation Readiness Assessment
+
+Evaluates the organisation's capacity to absorb the change the target architecture will impose. An architecture that is technically correct but organisationally undeliverable is a failed architecture.
+
+Assess each readiness factor on a 1–5 scale (1 = critical blocker · 3 = manageable with mitigation · 5 = ready):
+
+| Readiness factor | Score (1–5) | Evidence | Mitigation if score < 3 | Owner | Confidence |
+|-----------------|-------------|----------|------------------------|-------|------------|
+| **Vision clarity** | [1–5] | [what evidence supports the score] | [if < 3: action required] | [role] | `[proven]` / `[informed estimate]` |
+| **Desire and willingness** | [1–5] | [evidence] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Need** | [1–5] | [business case, urgency, mandate] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Business case** | [1–5] | [funding approved? Benefits quantified?] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Funding** | [1–5] | [budget confirmed?] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Sponsorship** | [1–5] | [named executive sponsor with authority?] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Governance** | [1–5] | [Architecture Board? Decision rights clear?] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Accountability** | [1–5] | [delivery roles owned? Escalation path clear?] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Able (IT capability)** | [1–5] | [from Sub-assessment 2 IT maturity] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Enterprise capacity** | [1–5] | [team bandwidth, competing priorities] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+| **Enterprise readiness** | [1–5] | [change fatigue, recent failures, culture] | [mitigation] | [role] | `[proven]` / `[informed estimate]` |
+
+**Readiness verdict:**
+- Average score ≥ 4: **Ready** — proceed with Phase A and Phase B with normal risk management
+- Average score 3–4: **Conditionally ready** — named mitigations required for factors scoring < 3 before Phase B begins
+- Average score < 3: **Not ready** — transformation programme likely to fail; escalate to Architecture Sponsor before committing to Phase B scope
+
+> [!warning]
+> Any single readiness factor scoring **1** (critical blocker) is a programme-stopping risk regardless of the overall average. Do not proceed to Phase B without a named mitigation plan and Architecture Sponsor acknowledgement.
+
+---
+
+### Sub-assessment 1 (detail) — Business Capability Assessment
+
+The full detail for the Business Capability Assessment follows. This is the Phase B input that drives Phase C and D work.
+
+#### TOGAF Phase B Catalogs
 
 TOGAF Phase B canonical catalogs include the following (selection from the TOGAF Architecture Content reference — TOGAF 10 Series). Produce those relevant to scope — do not generate all for every engagement.
 
@@ -75,7 +154,7 @@ TOGAF Phase B canonical catalogs include the following (selection from the TOGAF
 | **Process/Event/Control/Product Catalog** | When process model is in scope | Business processes, triggering events, controls, products/service offerings |
 | **Contract/Measure Catalog** | When SLA or KPI governance is in scope | Service contracts, performance measures, quality metrics, compliance requirements |
 
-### TOGAF Phase B Matrices
+#### TOGAF Phase B Matrices
 
 TOGAF Phase B canonical matrices include the following (selection from the TOGAF Architecture Content reference). Produce those relevant to scope.
 
@@ -87,7 +166,7 @@ TOGAF Phase B canonical matrices include the following (selection from the TOGAF
 | **Strategy/Capability Matrix** | When strategic alignment is in scope | Which capabilities are required to support specific strategy statements |
 | **Capability/Organization Matrix** | When ownership gaps are in scope | Which organizational elements implement each capability; reveals ownership gaps |
 
-### Diagrams (Mermaid)
+#### Diagrams (Mermaid)
 
 | Situation | Diagram | Why |
 |-----------|---------|-----|
@@ -105,7 +184,7 @@ TOGAF Phase B canonical matrices include the following (selection from the TOGAF
 - Use `<br>` for line breaks inside node labels — never `\n`
 - Keep diagrams scoped to the finding — not the full capability landscape
 
-### Callouts
+#### Callouts
 
 | Callout | When to use |
 |---------|------------|
@@ -248,11 +327,13 @@ Does this meet the bar for a client deliverable? [Yes / No — reason]
 
 ## Next Step
 
-After completing a Phase B capability assessment:
+After completing the Phase A Capability Assessment:
 
-- **Forward — Phase C**: the capability map is the input to Phase C design work. Invoke `data-architecture` to develop the Data Architecture, or `integration-architecture` for the Application Architecture, depending on which capability gaps are most urgent.
-- **Forward — Gap Analysis**: invoke `gap-analysis` with the capability assessment output to produce a structured As-Is → To-Be gap and dependency map.
-- **Validate — Principles alignment**: invoke `principles-check` to verify that the capability model is consistent with the Business Architecture Principles established in Preliminary.
-- **Validate — Artifact completeness**: invoke `artifact-completeness` to check that the Phase B Architecture Definition Document section is complete before Architecture Board submission.
+- **If Business Transformation Readiness is < 3 (average)**: escalate to Architecture Sponsor before committing to Phase B scope. Invoke `risk-radar` to produce a formal risk assessment for programme readiness. Do not proceed to Phase B until named mitigations are in place.
+- **If Architecture Maturity is ≤ 1**: invoke `preliminary` to build the EA governance foundations before Phase B begins. Low architecture maturity without governance produces Phase G failures regardless of Phase A–D quality.
+- **Forward — Phase B**: the Business Capability Assessment (sub-assessment 1) is the primary input to Phase B Business Architecture. Invoke `gap-analysis` with the capability scores to produce a structured As-Is → To-Be gap and dependency map.
+- **Forward — Phase C**: capability gaps with named Phase C implications drive the scope of `data-architecture`, `integration-architecture`, and `technology-architecture` work.
+- **Validate — Principles alignment**: invoke `principles-check` to verify that the capability model is consistent with the Architecture Principles established in `preliminary`.
+- **Validate — Artifact completeness**: invoke `artifact-completeness` to check that the Phase A/B Architecture Definition Document sections are complete before Architecture Board submission.
 - **Document capability decisions**: invoke `adr-generator` for significant capability sourcing decisions (build vs buy vs partner) that arise during the assessment.
-- **Communicate**: invoke `executive-summary` or `stakeholder-communication` for Phase B sign-off with the Architecture Sponsor or business domain owners.
+- **Communicate**: invoke `executive-summary` or `stakeholder-communication` for Phase A capability baseline sign-off with the Architecture Sponsor.
