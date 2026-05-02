@@ -217,6 +217,8 @@ The `references/examples/` directory contains eight fully instantiated TOGAF art
 | `references/examples/example-architecture-contract.md` | Architecture Contract — Design & Development (§7.18) | G | `/implementation-governance` |
 | `references/examples/example-compliance-assessment.md` | Compliance Assessment — all 8 TOGAF categories | G | `/compliance-review` |
 | `references/examples/example-adr.md` | Architecture Decision Record — MADR with weighted decision matrix | E | `/adr-generator` |
+| `references/examples/example-trade-off-analysis.md` | Trade-off Analysis — orchestration pattern, 3 options, TCO comparison | B→C | `/trade-off-analysis` |
+| `references/examples/example-data-architecture.md` | Phase C Data Architecture — 5 domains, DAMA-DMBOK, GDPR, data contracts | C | `/data-architecture` |
 
 ---
 

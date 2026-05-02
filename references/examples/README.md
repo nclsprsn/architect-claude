@@ -41,6 +41,8 @@ This chain is intentional — follow it across files to see how TOGAF artefacts 
 | 6 | [example-architecture-contract.md](example-architecture-contract.md) | Architecture Contract (Design & Development) | Pocket Guide §7.18 | `implementation-governance` |
 | 7 | [example-compliance-assessment.md](example-compliance-assessment.md) | Compliance Assessment — 8-category scorecard | TOGAF 10 eight categories | `compliance-review` |
 | 8 | [example-adr.md](example-adr.md) | Architecture Decision Record (MADR) | MADR template | `adr-generator` |
+| 9 | [example-trade-off-analysis.md](example-trade-off-analysis.md) | Trade-off Analysis — orchestration pattern, weighted matrix, TCO | Trade-off Analysis TOGAF mode | `trade-off-analysis` |
+| 10 | [example-data-architecture.md](example-data-architecture.md) | Phase C Data Architecture — 5 domains, DAMA-DMBOK, GDPR, data contracts | Phase C — Data | `data-architecture` |
 
 ---
 

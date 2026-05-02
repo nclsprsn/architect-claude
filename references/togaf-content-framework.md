@@ -158,3 +158,5 @@ See `references/examples/` for instantiated versions of the artefacts catalogued
 | `examples/example-architecture-contract.md` | Architecture Contract — Design & Development — §7.18 (Phase G) |
 | `examples/example-compliance-assessment.md` | Compliance Assessment — 8 categories (Phase G) |
 | `examples/example-adr.md` | Architecture Decision Record — MADR (Phase E) |
+| `examples/example-trade-off-analysis.md` | Trade-off Analysis — orchestration pattern, weighted matrix, TCO (Phase B→C) |
+| `examples/example-data-architecture.md` | Phase C Data Architecture — DAMA-DMBOK, GDPR, data contracts (Phase C) |

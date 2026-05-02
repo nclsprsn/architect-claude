@@ -118,6 +118,9 @@ TOGAF Phase C Data Architecture canonical artefacts include the following (selec
 | `> [!tip]` | Commodity tool (dbt, OpenMetadata, Apache Atlas, DataHub) that eliminates a custom-built governance component |
 | `> [!info]` | Reference to DAMA-DMBOK dimension, data mesh principle, or Phase C building block |
 
+> [!tip]
+> **Worked example:** see `references/examples/example-data-architecture.md` for a fully instantiated Phase C Data Architecture review — covering all six DAMA-DMBOK dimensions, a Conceptual Data Diagram (erDiagram), Data Classification Matrix (5 domains), Data Contract Register (3 missing contracts identified as go-live gates), Governance RACI, and a GDPR Art. 7 Critical finding, anchored to the ACME Corp Customer Onboarding engagement.
+
 ---
 
 ## DAMA-DMBOK Quality Dimensions

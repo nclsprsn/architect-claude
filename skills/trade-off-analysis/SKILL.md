@@ -89,6 +89,9 @@ Every output MUST satisfy the four rules below. Skip a rule only by writing `N/A
 | `> [!tip]` | Two-way door variant of the recommendation that preserves optionality at lower short-term performance |
 | `> [!info]` | Reference ADR, TOGAF building block, or published benchmark that informs a score |
 
+> [!tip]
+> **Worked example:** see `references/examples/example-trade-off-analysis.md` for a fully instantiated trade-off analysis — "Onboarding Orchestration Pattern: BPM vs Kafka vs Step Functions" — including quality attribute scenarios, weighted decision matrix (3 options × 6 criteria), sensitivity analysis, 3-year TCO comparison, and a disruptive alternative, anchored to the ACME Corp Customer Onboarding engagement.
+
 ---
 
 ## Quality Attribute Scenarios (SEI)
