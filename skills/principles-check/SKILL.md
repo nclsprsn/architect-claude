@@ -75,19 +75,79 @@ The principles check produces two types of output depending on mode. Both may be
 > **Compliant with Reservations** — Significant violations present; remediation required before Phase sign-off
 > **Non-Compliant** — Critical violations; the document/decision cannot proceed without structural revision
 
-### Mode 2 — Principles Quality Audit (TOGAF Architecture Principle quality criteria criteria)
+### Mode 2 — Principles Quality Audit (TOGAF 5 Quality Criteria)
 
-For each Architecture Principle:
+Score each principle against the five TOGAF quality criteria on a **1–5 scale**:
 
-| Principle | Criterion | Pass / Fail | Finding | Recommended fix |
-|-----------|-----------|-------------|---------|----------------|
-| [Name] | **Completeness** — does the principle address all situations it should? | Pass / Fail | [finding] | [fix] |
-| [Name] | **Robustness** — does the principle hold under stress and edge cases? | Pass / Fail | [finding] | [fix] |
-| [Name] | **Understandability** — can a non-architect understand and apply it? | Pass / Fail | [finding] | [fix] |
-| [Name] | **Consistency** — does it contradict any other principle? | Pass / Fail | [finding] | [fix] |
-| [Name] | **Stability** — is it durable, or will it need frequent revision? | Pass / Fail | [finding] | [fix] |
+| Score | Meaning |
+|-------|---------|
+| **5** | Fully satisfies the criterion — no action required |
+| **4** | Minor gap — improvement desirable, not blocking |
+| **3** | Moderate gap — improvement required before next Architecture Board review |
+| **2** | Significant gap — principle must be revised; using it in its current form will produce unreliable governance decisions |
+| **1** | Criterion fails completely — the principle should be retired or fully rewritten |
 
-**Principles health summary:** Count of principles passing all five criteria. Flag any principle that fails more than two criteria as a candidate for replacement, not just revision.
+**Scoring rubric:**
+
+| Criterion | Score 5 | Score 3 | Score 1 |
+|-----------|---------|---------|---------|
+| **Completeness** — covers all situations it should | Addresses every foreseeable situation; no implicit assumptions | Covers most situations; one or two edge cases unaddressed | Leaves major situations uncovered; architects must improvise |
+| **Robustness** — holds under stress and edge cases | Remains valid under high load, outages, adversarial inputs, and M&A scenarios | Holds in normal operations; breaks under 1–2 stress scenarios | Fails under any meaningful architectural pressure |
+| **Understandability** — a non-architect can read and apply it | Any domain stakeholder can apply it without architectural guidance | Requires some architectural interpretation; risk of misapplication | Ambiguous to the point that different architects will apply it differently |
+| **Consistency** — does not contradict any other principle | Zero conflicts with all other principles across all four domains | Minor tension with one principle in a narrow edge case | Directly contradicts one or more other principles — design choices will be arbitrary |
+| **Stability** — durable; will not need frequent revision | Withstands technology shifts, regulatory changes, and business model evolution | Likely to require revision if one major technology or regulatory shift occurs | Will require revision as soon as the current technology landscape changes |
+
+**Quality scorecard per principle:**
+
+| Principle | Domain | Completeness | Robustness | Understandability | Consistency | Stability | Total / 25 | Recommendation |
+|-----------|--------|-------------|-----------|-------------------|-------------|-----------|-----------|----------------|
+| [Name] | Business/Data/App/Tech | 1–5 | 1–5 | 1–5 | 1–5 | 1–5 | [sum] | Keep / Revise / Replace |
+
+**Thresholds:**
+- Total ≥ 20 → **Keep**: no action required before next governance cycle
+- Total 13–19 → **Revise**: specific criteria scoring ≤ 3 must be improved before using this principle as a compliance baseline
+- Total ≤ 12 → **Replace**: the principle is failing at a structural level; replacement is faster and safer than revision
+
+> [!info]
+> These 5 criteria and the 1–5 scoring rubric are an operationalisation of the TOGAF Architecture Principle quality criteria (Table 56 of the TOGAF 10 Pocket Guide). The numerical scale is a practitioner extension to make the criteria actionable in a governance review.
+
+**Principles health summary:** Count of principles in each band (Keep / Revise / Replace). A principles set with more than 20% in the Replace band has a structural governance problem — invoke `preliminary` to rebuild the principles foundation.
+
+### Conflict-Resolution Template
+
+Use when two principles conflict on a specific design decision. A conflict is not an edge case — it reveals that the principles were not stress-tested against each other when they were written.
+
+| Field | Content |
+|-------|---------|
+| **Conflict ID** | PCON-001 |
+| **Principle A** | [Name and statement] |
+| **Principle B** | [Name and statement] |
+| **Design decision triggering the conflict** | [Specific decision that cannot satisfy both principles simultaneously] |
+| **Tension statement** | [One sentence: why satisfying A undermines B, or vice versa] |
+| **Resolution options** | Option 1: honour A, accept limited B compliance — rationale and downstream effects; Option 2: honour B, accept limited A compliance — rationale and downstream effects; Option 3: time-box the conflict — honour A now, revisit B at a named delivery milestone |
+| **Recommended resolution** | [Which option and why — cite business outcome from Phase A Architecture Vision] |
+| **Precedent implication** | [If this resolution is accepted, what does it imply for future designs facing the same conflict?] |
+| **Owner** | [Lead Architect — who will apply the resolution and monitor for re-emergence] |
+| **Architecture Board notification required?** | Yes (Significant conflict) / No (Minor, resolvable within current principles) |
+| **Confidence** | `[proven]` / `[informed estimate]` / `[working hypothesis]` |
+| **Reversibility** | one-way door / two-way door |
+
+### Principles-Aging Diagnostic Checklist
+
+Run this before using any existing principles set as a compliance baseline. A principle that was correct in 2015 may be actively harmful today.
+
+| Aging signal | Diagnostic question | Flag if… |
+|-------------|--------------------|---------:|
+| **Pre-cloud era** | Does the principle mandate on-premises infrastructure, local storage, or physical security controls? | Any "must be hosted on-premises" or "must not use cloud" language |
+| **Pre-API-first era** | Does the principle mandate point-to-point integration, file-based transfer, or synchronous-only communication? | Language that precludes event-driven, async, or API-gateway patterns |
+| **Pre-AI era** | Does the principle treat all data processing as deterministic? Does it have provisions for probabilistic outputs, model drift, or AI hallucination risk? | No mention of AI/ML, probabilistic systems, or non-deterministic processing |
+| **Commodity blind spot** | Does the principle mandate building a capability that is now available as a managed service? | Verbs like "build", "develop", "own" applied to capabilities available from cloud providers |
+| **Regulatory lag** | Was the principle written before the current regulatory regime (GDPR, AI Act, sector-specific mandates)? | No reference to current applicable regulations; or it references superseded guidance |
+| **Organisational structure drift** | Does the principle assume an org structure (e.g., central IT, on-premises data centre team) that no longer exists? | References to roles, teams, or governance bodies that have been dissolved or restructured |
+| **Technology lock assumption** | Does the principle lock in a specific vendor, version, or product that has since been decommissioned or commoditised? | Named product or vendor references in the principle statement |
+
+> [!info]
+> An Architecture Principle that triggers three or more aging signals should be flagged as **Review-Mandatory** at the next Architecture Board session. Escalate to `preliminary` for a formal principles rebuild if the majority of the principles set is aging.
 
 ### Diagrams (Mermaid)
 
