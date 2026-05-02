@@ -57,24 +57,54 @@ Every output MUST satisfy the four rules below. Skip with explicit `N/A — [rea
 
 ## Artifact Selection Guide
 
-Phase G produces three canonical deliverables. Generate each unless context makes it clearly out of scope.
+Phase G produces five canonical deliverables. Generate each unless context makes it clearly out of scope.
 
 ### 1. Architecture Contract
 
-A joint agreement between the Architecture Team and the delivery programme. Must include:
+The legally-enforceable governance agreement between the Architecture Team and the delivery programme. This is the Phase G centrepiece — without it, governance is informal and every dispensation is a verbal commitment.
 
-| Section | Content |
-|---------|---------|
-| **Parties** | Architecture Sponsor, Lead Architect, Programme Manager |
-| **Scope** | The implementation being governed |
-| **Architecture reference** | Links to approved ADD, ADRs, and Architecture Requirements Specification |
-| **Conformance requirements** | Specific standards, principles, and decisions the implementation must comply with |
-| **Dispensation process** | How deviations are requested, assessed, and approved |
-| **Reporting obligations** | Frequency and format of compliance reporting to the Architecture Board |
-| **Change management** | What triggers a re-review of the contract |
-| **Sign-off** | Architecture Sponsor + Programme Manager + Lead Architect |
+| Clause | Content |
+|--------|---------|
+| **Parties** | Architecture Sponsor, Lead Architect, Programme Manager — named individuals, not teams |
+| **Scope** | The implementation being governed: system name, version, delivery boundary |
+| **Architecture reference** | Approved ADD version, Architecture Requirements Specification, active ADRs, Phase A Architecture Vision reference |
+| **Conformance requirements** | Specific standards, principles, and Architecture Contract clauses that the implementation must satisfy; 8-category compliance thresholds per `compliance-review` |
+| **Acceptance criteria** | Measurable, testable conditions for architecture sign-off: e.g., "Security category: no Critical findings at pre-go-live review", "SLO: 99.9% availability measured over 30-day soak" — these gate go-live, not the deployment date |
+| **Dispensation process** | How deviations are raised (form, evidence required, approver role, time-box); escalation tiers: Tier 1 — Lead Architect (Minor, reversible); Tier 2 — Architecture Board (Significant or one-way door); Tier 3 — Executive Sponsor (Critical or regulatory scope) |
+| **Reporting obligations** | Cadence and format of compliance reporting to the Architecture Board — event-triggered, not calendar-triggered |
+| **Change management** | Trigger events that mandate contract revision: scope change > 20%, new regulatory mandate, Critical finding in a previously Compliant category |
+| **Exit clause** | Conditions under which this Architecture Contract is formally closed: all acceptance criteria met, all dispensations either resolved or formally accepted with permanent waiver, Architecture Board sign-off obtained |
+| **Sign-off** | Architecture Sponsor + Programme Manager + Lead Architect — with date |
 
-### 2. Compliance Assessment
+### 2. Project Impact Assessment
+
+Produced when a new implementation project arrives in Phase G. Assesses the project's architectural impact before an Architecture Contract is issued.
+
+| Field | Content |
+|-------|---------|
+| **Project name and scope** | What is being built, for whom, by when |
+| **Architecture impact** | Which ADM phases and architecture domains are affected (Business / Data / Application / Technology) |
+| **Impacted Architecture Contract clauses** | Which clauses of the active contract must be revised or extended |
+| **New risks introduced** | Technical, security, operational, or organisational risks the project adds to the enterprise architecture posture |
+| **Compliance category impact** | For each of the 8 categories: assess whether the project increases, maintains, or reduces conformance |
+| **Dispensation forecast** | Categories where a dispensation is anticipated — with initial severity estimate |
+| **Recommendation** | Issue Architecture Contract / Require Phase B–D rework / Reject (incompatible with approved architecture direction) |
+| **Owner** | Lead Architect or architecture team member assigned to govern this project |
+| **Review trigger** | Event that mandates a re-assessment (scope change, technology platform change, key personnel change) |
+
+### 3. SLA-to-Architecture-Conformance Map
+
+Maps operational SLAs back to the Phase D technology decisions that must deliver them. Breaks are found in the map, not in the SLA itself.
+
+| SLA / SLO | Source requirement | Phase D technology decision | Architecture Contract clause | Current status | Gap / Risk |
+|-----------|-------------------|----------------------------|------------------------------|----------------|------------|
+| [e.g., 99.9% availability] | [ARS REQ-014] | [e.g., multi-AZ deployment, ADR-007] | [Clause 4.2 — Infrastructure Conformance] | Compliant / Partial / Non-Compliant | [what is missing or at risk] |
+| [e.g., RTO < 4h] | [ARS REQ-022] | [DR runbook approved, ADR-012] | [Clause 4.5 — Resilience] | Compliant / Partial / Non-Compliant | [gap if any] |
+
+> [!info]
+> The SLA-to-Architecture map is the Phase G evidence base for Architecture Board submissions. When a delivery team reports an SLA miss, trace it through this map to find the architectural root cause — it is almost always a deviation from a Phase D decision, not an operational failure.
+
+### 4. Compliance Assessment
 
 A structured assessment across the 8 TOGAF compliance categories:
 
@@ -91,7 +121,7 @@ A structured assessment across the 8 TOGAF compliance categories:
 
 Verdict: **Compliant** (no Critical findings, all Significant findings have a remediation path) | **Compliant with Conditions** (dispensations required for Significant findings) | **Non-Compliant** (Critical findings unresolved — escalate to Architecture Board).
 
-### 3. Dispensation and Exception Log
+### 5. Dispensation and Exception Log
 
 | ID | Category | Deviation description | Business justification | Impact assessment | Risk | Approved by | Expiry trigger | Status |
 |----|----------|-----------------------|----------------------|-------------------|------|-------------|----------------|--------|
